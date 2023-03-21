@@ -16,7 +16,6 @@ const ProductList = ({}: ProductListProps) => {
       return productApi.getProductList(queryParams);
     },
   });
-  console.log("🚀 ~ data:", data);
 
   return (
     <div className="bg-gray-200 px-12 py-3">
@@ -27,51 +26,11 @@ const ProductList = ({}: ProductListProps) => {
         <div className="col-span-10  p-2">
           <SortProductList />
           <div className="grid mt-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
-            <div className="col-span-1 bg-white">
-              <ProductItem />
-            </div>
-            <div className="col-span-1 bg-white">
-              <ProductItem />
-            </div>
-            <div className="col-span-1 bg-white">
-              <ProductItem />
-            </div>
-            <div className="col-span-1 bg-white">
-              <ProductItem />
-            </div>
-            <div className="col-span-1 bg-white">
-              <ProductItem />
-            </div>
-            <div className="col-span-1 bg-white">
-              <ProductItem />
-            </div>
-            <div className="col-span-1 bg-white">
-              <ProductItem />
-            </div>
-            <div className="col-span-1 bg-white">
-              <ProductItem />
-            </div>
-            <div className="col-span-1 bg-white">
-              <ProductItem />
-            </div>
-            <div className="col-span-1 bg-white">
-              <ProductItem />
-            </div>
-            <div className="col-span-1 bg-white">
-              <ProductItem />
-            </div>
-            <div className="col-span-1 bg-white">
-              <ProductItem />
-            </div>
-            <div className="col-span-1 bg-white">
-              <ProductItem />
-            </div>
-            <div className="col-span-1 bg-white">
-              <ProductItem />
-            </div>
-            <div className="col-span-1 bg-white">
-              <ProductItem />
-            </div>
+            {data?.data.data.products.map((product) => (
+              <div className="col-span-1 bg-white">
+                <ProductItem product={product} />
+              </div>
+            ))}
           </div>
         </div>
       </div>
