@@ -1,0 +1,1371 @@
+<!DOCTYPE html><html><head>
+      <title>sinh</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\chauk\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.8\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <p>CH&#x1AF;&#x1A0;NG I. B&#x1EB0;NG CH&#x1EE8;NG V&#xC0; C&#x1A0; CH&#x1EBE; TI&#x1EBE;N HO&#xC1;<br>
+B&#xE0;i 24. C&#xC1;C B&#x1EB0;NG CH&#x1EE8;NG TI&#x1EBE;N HO&#xC1;<br>
+A. N&#x1ED8;I DUNG CH&#xCD;NH<br>
+I. B&#x1EB1;ng ch&#x1EE9;ng gi&#x1EA3;i ph&#x1EAB;u so s&#xE1;nh<br>
+a) C&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng - C&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng l&#xE0; c&#xE1;c c&#x1A1; quan &#x1EDF; c&#xE1;c lo&#xE0;i kh&#xE1;c nhau c&#xF9;ng b&#x1EAF;t ngu&#x1ED3;n t&#x1EEB; c&#xF9;ng m&#x1ED9;t c&#x1A1; quan &#x1EDF; m&#x1ED9;t lo&#xE0;i t&#x1ED5; ti&#xEA;n, m&#x1EB7;c d&#xF9; hi&#x1EC7;n t&#x1EA1;i c&#xE1;c c&#x1A1; quan n&#xE0;y gi&#x1EEF; c&#xE1;c ch&#x1EE9;c n&#x103;ng kh&#xE1;c nhau. VD. Tay ng&#x1B0;&#x1EDD;i v&#xE0; c&#xE1;nh d&#x1A1;i. - C&#x1A1; quan tho&#xE1;i ho&#xE1; (c&#x1A1; quan ph&#xE1;t tri&#x1EC3;n kh&#xF4;ng &#x111;&#x1EA7;y &#x111;&#x1EE7; &#x1EDF; c&#x1A1; th&#x1EC3; tr&#x1B0;&#x1EDF;ng th&#xE0;nh) c&#x169;ng l&#xE0; c&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng v&#xEC; ch&#xFA;ng b&#x1EAF;t ngu&#x1ED3;n t&#x1EEB; 1 c&#x1A1; quan &#x1EDF; 1 lo&#xE0;i t&#x1ED5; ti&#xEA;n nh&#x1B0;ng nay kh&#xF4;ng c&#xF2;n ch&#x1EE9;c n&#x103;ng ho&#x1EB7;c ch&#x1EE9;c n&#x103;ng b&#x1ECB; ti&#xEA;u gi&#x1EA3;m. VD. Ru&#x1ED9;t th&#x1EEB;a &#x1EDF; ng&#x1B0;&#x1EDD;i v&#x1EDB;i manh tr&#xE0;ng &#x1EDF; &#x110;V &#x103;n c&#x1ECF;. + C&#xE1;c c&#x1A1; quan tho&#xE1;i ho&#xE1; &#x1EDF; ng&#x1B0;&#x1EDD;i: x&#x1B0;&#x1A1;ng c&#xF9;ng, ru&#x1ED9;t th&#x1EEB;a, r&#x103;ng kh&#xF4;n, nh&#x1EEF;ng n&#x1EBF;p ngang &#x1EDF; v&#xF2;m mi&#x1EC7;ng. - C&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng l&#xE0; k&#x1EBF;t qu&#x1EA3; c&#x1EE7;a qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1; theo h&#x1B0;&#x1EDB;ng ph&#xE2;n nh&#xE1;nh. - C&#x1EA5;u t&#x1EA1;o kh&#xE1;c nhau v&#x1EC1; chi ti&#x1EBF;t c&#x1EE7;a c&#xE1;c c&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng l&#xE0; do CLTN &#x111;&#xE3; di&#x1EC5;n ra theo c&#xE1;c h&#x1B0;&#x1EDB;ng kh&#xE1;c nhau.<br>
+b) C&#x1A1; quan t&#x1B0;&#x1A1;ng t&#x1EF1; - Nh&#x1EEF;ng c&#x1A1; quan th&#x1EF1;c hi&#x1EC7;n c&#xE1;c ch&#x1EE9;c n&#x103;ng nh&#x1B0; nhau nh&#x1B0;ng kh&#xF4;ng b&#x1EAF;t ngu&#x1ED3;n t&#x1EEB; c&#xF9;ng m&#x1ED9;t ngu&#x1ED3;n g&#x1ED1;c. - C&#x1A1; quan t&#x1B0;&#x1A1;ng t&#x1EF1; l&#xE0; k&#x1EBF;t qu&#x1EA3; c&#x1EE7;a qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1; theo h&#x1B0;&#x1EDB;ng &#x111;&#x1ED3;ng qui.<br>
+IV. B&#x1EB1;ng ch&#x1EE9;ng TB h&#x1ECD;c v&#xE0; sinh h&#x1ECD;c ph&#xE2;n t&#x1EED; - C&#xE1;c TB c&#x1EE7;a t&#x1EA5;t c&#x1EA3; c&#xE1;c lo&#xE0;i SV hi&#x1EC7;n nay &#x111;&#x1EC1;u s&#x1EED; d&#x1EE5;ng chung m&#x1ED9;t lo&#x1EA1;i m&#xE3; DT, &#x111;&#x1EC1;u d&#xF9;ng c&#xF9;ng 20 lo&#x1EA1;i axit amin &#x111;&#x1EC3; c&#x1EA5;u t&#x1EA1;o n&#xEA;n pr&#xF4;t&#xEA;in...ch&#x1EE9;ng t&#x1ECF; ch&#xFA;ng ti&#x1EBF;n ho&#xE1; t&#x1EEB; m&#x1ED9;t t&#x1ED5; ti&#xEA;n chung. - Ph&#xE2;n t&#xED;ch tr&#xEC;nh t&#x1EF1; c&#xE1;c axit amin c&#x1EE7;a c&#xF9;ng m&#x1ED9;t lo&#x1EA1;i pr&#xF4;t&#xEA;in hay tr&#xEC;nh t&#x1EF1; c&#xE1;c Nu c&#x1EE7;a c&#xF9;ng m&#x1ED9;t gen &#x1EDF; c&#xE1;c lo&#xE0;i kh&#xE1;c nhau c&#xF3; th&#x1EC3; cho ta bi&#x1EBF;t m&#x1ED1;i quan h&#x1EC7; gi&#x1EEF;a c&#xE1;c lo&#xE0;i.<br>
+B. B&#x1ED4; SUNG</p>
+<ol>
+<li>2 lo&#xE0;i s&#x1ED1;ng &#x1EDF; 2 khu v&#x1EF1;c &#x111;&#x1ECB;a l&#xED; kh&#xE1;c xa nhau c&#xF3; nhi&#x1EC1;u &#x111;&#x1EB7;c &#x111;i&#x1EC3;m gi&#x1ED1;ng nhau l&#xE0; do 2 lo&#xE0;i n&#xE0;y trong qu&#xE1; kh&#x1EE9; &#x111;&#xE3; c&#xF3; l&#xFA;c g&#x1EAF;n li&#x1EC1;n nhau.<br>
+C&#xE2;u 1: V&#xED; d&#x1EE5; n&#xE0;o d&#x1B0;&#x1EDB;i &#x111;&#xE2;y thu&#x1ED9;c c&#x1A1; quan tho&#xE1;i ho&#xE1;:<br>
+A. Gai c&#xE2;y hoa h&#x1ED3;ng<!-- B. Nhụy trong hoa đực của cây ngô -->
+C. Ng&#xE0; voi<br>
+D. Tua cu&#x1ED1;n c&#x1EE7;a &#x111;&#x1EAD;u H&#xE0; Lan<br>
+Gai hoa h&#x1ED3;ng l&#xE0; bi&#x1EBF;n d&#x1ECB; c&#x1EE7;a th&#xE2;n. Nh&#x1EE5;y trong hoa &#x111;&#x1EF1;c c&#x1EE7;a c&#xE2;y &#x111;u &#x111;&#x1EE7; l&#xE0; c&#x1A1; quan th&#xE1;i h&#xF3;a. Ng&#xE0; voi th&#x1EF1;c ch&#x1EA5;t l&#xE0; r&#x103;ng c&#x1EED;a c&#x1EE7;a voi, d&#xE0;i ra gi&#xFA;p voi t&#x1EF1; v&#x1EC7; &#x103;n u&#x1ED1;ng. Tua cu&#x1ED1;n &#x111;&#x1EAD;u h&#xE0; lan l&#xE0; bi&#x1EBF;n d&#x1EA1;ng c&#x1EE7;a l&#xE1; gi&#xFA;p cho c&#xE2;y c&#xF3; th&#x1EC3; b&#xE1;m v&#xE0;o gi&#xE1; th&#x1EC3;<br>
+C&#xE2;u 2: V&#xED; d&#x1EE5; n&#xE0;o d&#x1B0;&#x1EDB;i &#x111;&#xE2;y thu&#x1ED9;c lo&#x1EA1;i c&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng:<br>
+A. V&#xE2;y c&#xE1; v&#xE0; v&#xE2;y c&#xE1; voi B. C&#xE1;nh d&#x1A1;i v&#xE0; tay kh&#x1EC9;<br>
+C. S&#x1EF1; ti&#xEA;u gi&#x1EA3;m chi sau c&#x1EE7;a c&#xE1; voi<br>
+D. Ng&#xE0; voi v&#xE0; s&#x1EEB;ng tr&#xE2;u<br>
+C&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng l&#xE0; nh&#x1EEF;ng c&#x1A1; quan c&#xF3; ch&#x1EE9;c n&#x103;ng kh&#xE1;c nhau nh&#x1B0;ng c&#xF3; c&#xF9;ng ngu&#x1ED3;n g&#x1ED1;c<br>
+2- V&#xE2;y ng&#x1EF1;c c&#x1EE7;a c&#xE1; voi v&#xE0; tay kh&#x1EC9; &#x111;&#x1EC1;u c&#xF3; ngu&#x1ED3;n g&#x1ED1;c l&#xE0; chi tr&#x1B0;&#x1EDB;c c&#x1EE7;a &#x111;&#x1ED9;ng v&#x1EAD;t c&#xF3; v&#xFA;<br>
+4- Chi tr&#x1B0;&#x1EDB;c c&#x1EE7;a th&#xFA; v&#xE0; ng&#x1B0;&#x1EDD;i l&#xE0; c&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng 1 &#x2013; C&#xE1;nh d&#x1A1;i v&#xE0; c&#xE1;nh b&#x1B0;&#x1EDB;m l&#xE0; c&#x1A1; quan t&#x1B0;&#x1A1;ng t&#x1EF1; do ch&#xFA;ng th&#xED;ch nghi v&#x1EDB;i &#x111;&#x1EDD;i s&#x1ED1;ng bay l&#x1B0;&#x1EE3;n 3 &#x2013; Mang c&#xE1; v&#xE0; mang t&#xF4;m &#x111;&#x1EC1;u l&#xE0; c&#x1A1; quan t&#x1B0;&#x1A1;ng t&#x1EF1; . C&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng<br>
+C&#xE2;u 3: V&#xED; d&#x1EE5; n&#xE0;o d&#x1B0;&#x1EDB;i &#x111;&#xE2;y thu&#x1ED9;c lo&#x1EA1;i c&#x1A1; quan t&#x1B0;&#x1A1;ng t&#x1EF1;:<br>
+A. Tuy&#x1EBF;n n&#x1B0;&#x1EDB;c b&#x1ECD;t v&#xE0; tuy&#x1EBF;n n&#x1ECD;c &#x111;&#x1ED9;c c&#x1EE7;a r&#x1EAF;n<br>
+B. Tuy&#x1EBF;n s&#x1EEF;a &#x1EDF; c&#xE1;c con &#x111;&#x1EF1;c c&#x1EE7;a &#x111;&#x1ED9;ng v&#x1EAD;t c&#xF3; v&#xFA;<br>
+C. Nh&#x1EE5;y trong hoa &#x111;&#x1EF1;c c&#x1EE7;a c&#xE2;y ng&#xF4;<br>
+D. C&#xE1;nh s&#xE2;u b&#x1ECD; v&#xE0; c&#xE1;nh d&#x1A1;i<br>
+C&#xE2;u 4: C&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng l&#xE0; nh&#x1EEF;ng c&#x1A1; quan:<br>
+A. c&#xF3; ngu&#x1ED3;n g&#x1ED1;c kh&#xE1;c nhau nh&#x1B0;ng &#x111;&#x1EA3;m nhi&#x1EC7;m nh&#x1EEF;ng ch&#x1EE9;c n&#x103;ng gi&#x1ED1;ng nhau, c&#xF3; h&#xEC;nh th&#xE1;i t&#x1B0;&#x1A1;ng t&#x1EF1;.<br>
+B. c&#xF9;ng ngu&#x1ED3;n g&#x1ED1;c n&#x1EB1;m &#x1EDF; nh&#x1EEF;ng v&#x1ECB; tr&#xED; t&#x1B0;&#x1A1;ng &#x1EE9;ng tr&#xEA;n c&#x1A1; th&#x1EC3;, c&#xF3; ki&#x1EC3;u c&#x1EA5;u t&#x1EA1;o gi&#x1ED1;ng nhau<br>
+C. c&#xF9;ng ngu&#x1ED3;n g&#x1ED1;c &#x111;&#x1EA3;m nhi&#x1EC7;m nh&#x1EEF;ng ch&#x1EE9;c n&#x103;ng gi&#x1ED1;ng nhau.<br>
+D. c&#xF3; ngu&#x1ED3;n g&#x1ED1;c kh&#xE1;c nhau, n&#x1EB1;m &#x1EDF; nh&#x1EEF;ng v&#x1ECB; tr&#xED; t&#x1B0;&#x1A1;ng &#x1EE9;ng tr&#xEA;n c&#x1A1; th&#x1EC3;, c&#xF3; ki&#x1EC3;u c&#x1EA5;u t&#x1EA1;o gi&#x1ED1;ng nhau<br>
+C&#xE2;u 5: Trong ti&#x1EBF;n ho&#xE1;, c&#xE1;c c&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng c&#xF3; &#xFD; ngh&#x129;a l&#xE0; ph&#x1EA3;n &#xE1;nh<br>
+A. S&#x1EF1; ti&#x1EBF;n ho&#xE1; &#x111;&#x1ED3;ng qui<br>
+B. S&#x1EF1; ti&#x1EBF;n ho&#xE1; song h&#xE0;nh<br>
+C. V&#x1EC1; ngu&#x1ED3;n g&#x1ED1;c chung.<br>
+D. S&#x1EF1; ti&#x1EBF;n ho&#xE1; ph&#xE2;n li<br>
+C&#xE2;u 6: B&#x1EB1;ng ch&#x1EE9;ng n&#xE0;o sau &#x111;&#xE2;y kh&#xF4;ng &#x111;&#x1B0;&#x1EE3;c xem l&#xE0; b&#x1EB1;ng ch&#x1EE9;ng sinh h&#x1ECD;c ph&#xE2;n t&#x1EED;?<br>
+A. Protein c&#x1EE7;a c&#xE1;c lo&#xE0;i sinh v&#x1EAD;t &#x111;&#x1EC1;u &#x111;&#x1B0;&#x1EE3;c c&#x1EA5;u t&#x1EA1;o t&#x1EEB; kho&#x1EA3;ng 20 lo&#x1EA1;i acid amin.<br>
+B. ADN c&#x1EE7;a c&#xE1;c lo&#xE0;i sinh v&#x1EAD;t &#x111;&#x1EC1;u &#x111;&#x1B0;&#x1EE3;c c&#x1EA5;u t&#x1EA1;o t&#x1EEB; 4 lo&#x1EA1;i nucleotide.<br>
+C. M&#xE3; di truy&#x1EC1;n c&#x1EE7;a c&#xE1;c lo&#xE0;i sinh v&#x1EAD;t &#x111;&#x1EC1;u c&#xF3; &#x111;&#x1EB7;c &#x111;i&#x1EC3;m gi&#x1ED1;ng nhau.<br>
+D. C&#xE1;c c&#x1A1; th&#x1EC3; s&#x1ED1;ng &#x111;&#x1EC1;u &#x111;&#x1B0;&#x1EE3;c c&#x1EA5;u t&#x1EA1;o b&#x1EDF;i t&#x1EBF; b&#xE0;o.<br>
+C&#xE2;u 7: Hi&#x1EC7;n nay, t&#x1EA5;t c&#x1EA3; c&#xE1;c c&#x1A1; th&#x1EC3; sinh v&#x1EAD;t t&#x1EEB; &#x111;&#x1A1;n b&#xE0;o &#x111;&#x1EBF;n &#x111;a b&#xE0;o &#x111;&#x1EC1;u &#x111;&#x1B0;&#x1EE3;c c&#x1EA5;u t&#x1EA1;o t&#x1EEB; t&#x1EBF; b&#xE0;o. &#x110;&#xE2;y l&#xE0; m&#x1ED9;t trong nh&#x1EEF;ng b&#x1EB1;ng ch&#x1EE9;ng ch&#x1EE9;ng t&#x1ECF;<br>
+A. qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1; &#x111;&#x1ED3;ng quy c&#x1EE7;a sinh gi&#x1EDB;i (ti&#x1EBF;n ho&#xE1; h&#x1ED9;i t&#x1EE5;).<br>
+B. ngu&#x1ED3;n g&#x1ED1;c th&#x1ED1;ng nh&#x1EA5;t c&#x1EE7;a c&#xE1;c lo&#xE0;i.<br>
+C. s&#x1EF1; ti&#x1EBF;n ho&#xE1; kh&#xF4;ng ng&#x1EEB;ng c&#x1EE7;a sinh gi&#x1EDB;i.<br>
+D. vai tr&#xF2; c&#x1EE7;a c&#xE1;c y&#x1EBF;u t&#x1ED1; ng&#x1EAB;u nhi&#xEA;n &#x111;&#x1ED1;i v&#x1EDB;i qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1;.<br>
+C&#xE2;u 8: B&#x103;&#x300;ng ch&#x1B0;&#x301;ng na&#x300;o sau &#x111;&#xE2;y pha&#x309;n a&#x301;nh s&#x1B0;&#x323; ti&#xEA;&#x301;n hoa&#x301; h&#xF4;&#x323;i tu&#x323; (&#x111;&#xF4;&#x300;ng quy) ?<br>
+A. Gai c&#xE2;y hoa&#x300;ng li&#xEA;n la&#x300; bi&#xEA;&#x301;n da&#x323;ng cu&#x309;a la&#x301;, gai c&#xE2;y hoa h&#xF4;&#x300;ng la&#x300; do s&#x1B0;&#x323; pha&#x301;t tri&#xEA;&#x309;n cu&#x309;a bi&#xEA;&#x309;u bi&#x300; th&#xE2;n<br>
+B. Gai x&#x1B0;&#x1A1;ng r&#xF4;&#x300;ng, tua cu&#xF4;&#x301;n cu&#x309;a &#x111;&#xE2;&#x323;u Ha&#x300; Lan &#x111;&#xEA;&#x300;u la&#x300; bi&#xEA;&#x301;n da&#x323;ng cu&#x309;a la&#x301;.<br>
+C. Chi tr&#x1B0;&#x1A1;&#x301;c cu&#x309;a ca&#x301;c loa&#x300;i &#x111;&#xF4;&#x323;ng v&#xE2;&#x323;t co&#x301; x&#x1B0;&#x1A1;ng s&#xF4;&#x301;ng co&#x301; ca&#x301;c x&#x1B0;&#x1A1;ng ph&#xE2;n b&#xF4;&#x301; theo th&#x1B0;&#x301; t&#x1B0;&#x323; t&#x1B0;&#x1A1;ng t&#x1B0;&#x323; nhau.<br>
+D. Trong hoa &#x111;&#x1B0;&#x323;c cu&#x309;a c&#xE2;y &#x111;u &#x111;u&#x309; co&#x301; 10 nhi&#x323;, &#x1A1;&#x309; gi&#x1B0;&#x303;a hoa v&#xE2;&#x303;n co&#x300;n di ti&#x301;ch cu&#x309;a nhuy&#x323;.<br>
+Ch&#x1EC9; c&#xF3; c&#x1A1; quan t&#x1B0;&#x1A1;ng t&#x1EF1; m&#x1EDB;i ph&#x1EA3;n &#xE1;nh chi&#x1EC1;u h&#x1B0;&#x1EDB;ng ti&#x1EBF;n h&#xF3;a &#x111;&#x1ED3;ng quy (h&#x1ED9;i t&#x1EE5;).</li>
+</ol>
+<ul>
+<li>(B), (C) l&#xE0; c&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng.</li>
+<li>(D) l&#xE0; c&#x1A1; quan tho&#xE1;i h&#xF3;a.</li>
+<li>(A) l&#xE0; c&#x1A1; quan t&#x1B0;&#x1A1;ng t&#x1EF1;<br>
+C&#xE2;u 9: (C2011) Hi&#x1EC7;n nay c&#xF3; m&#x1ED9;t s&#x1ED1; b&#x1EB1;ng ch&#xFA;ng ch&#x1EE9;ng t&#x1ECF;: Trong l&#x1ECB;ch s&#x1EED; ph&#xE1;t sinh s&#x1EF1; s&#x1ED1;ng tr&#xEA;n Tr&#xE1;i &#x110;&#x1EA5;t, ph&#xE2;n t&#x1EED; &#x111;&#x1B0;&#x1EE3;c d&#xF9;ng l&#xE0;m v&#x1EAD;t ch&#x1EA5;t di truy&#x1EC1;n (l&#x1B0;u gi&#x1EEF; th&#xF4;ng tin di truy&#x1EC1;n) &#x111;&#x1EA7;u ti&#xEA;n l&#xE0;:<br>
+A. ADN v&#xE0; sau &#x111;&#xF3; l&#xE0; ARN<br>
+B. ARN v&#xE0; sau &#x111;&#xF3; l&#xE0; ADN<br>
+C. protein v&#xE0; sau &#x111;&#xF3; l&#xE0; ADN<br>
+D. protein v&#xE0; sau &#x111;&#xF3; l&#xE0; ARN<br>
+C&#xE2;u 10: (C2011) Cho nh&#x1EEF;ng v&#xED; d&#x1EE5; sau:<br>
+(1) C&#xE1;nh d&#x1A1;i v&#xE0; c&#xE1;nh c&#xF4;n tr&#xF9;ng.<br>
+(2) V&#xE2;y ng&#x1EF1;c c&#x1EE7;a c&#xE1; voi v&#xE0; c&#xE1;nh d&#x1A1;i<br>
+(3) Mang c&#xE1; v&#xE0; mang t&#xF4;m<br>
+(4) Chi tr&#x1B0;&#x1EDB;c c&#x1EE7;a th&#xFA; v&#xE0; tay ngu&#x1EDD;i<br>
+Nh&#x1EEF;ng v&#xED; d&#x1EE5; v&#x1EC1; c&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng l&#xE0;:<br>
+A. (1) v&#xE0;(3) B. (1) v&#xE0; (4)<br>
+C. (1) v&#xE0; (2) D. (2) v&#xE0; (4)<br>
+C&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng l&#xE0; nh&#x1EEF;ng c&#x1A1; quan c&#xF3; ch&#x1EE9;c n&#x103;ng kh&#xE1;c nhau nh&#x1B0;ng c&#xF3; c&#xF9;ng ngu&#x1ED3;n g&#x1ED1;c<br>
+V&#xE2;y ng&#x1EF1;c c&#x1EE7;a c&#xE1; voi v&#xE0; c&#xE1;nh d&#x1A1;i &#x111;&#x1EC1;u c&#xF3; ngu&#x1ED3;n g&#x1ED1;c l&#xE0; chi tr&#x1B0;&#x1EDB;c c&#x1EE7;a &#x111;&#x1ED9;ng v&#x1EAD;t c&#xF3; v&#xFA; . Chi tr&#x1B0;&#x1EDB;c c&#x1EE7;a th&#xFA; v&#xE0; ng&#x1B0;&#x1EDD;i l&#xE0; c&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng. C&#xE1;nh d&#x1A1;i v&#xE0; c&#xE1;nh c&#xF4;n tr&#xF9;ng l&#xE0; c&#x1A1; quan t&#x1B0;&#x1A1;ng t&#x1EF1; do ch&#xFA;ng th&#xED;ch nghi v&#x1EDB;i &#x111;&#x1EDD;i s&#x1ED1;ng bay l&#x1B0;&#x1EE3;n. Mang c&#xE1; v&#xE0; mang t&#xF4;m &#x111;&#x1EC1;u l&#xE0; c&#x1A1; quan t&#x1B0;&#x1A1;ng t&#x1EF1; . C&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng c&#xF3; 2,4<br>
+C&#xE2;u 11: (C2011) C&#xE1;c t&#x1EBF; b&#xE0;o c&#x1EE7;a t&#x1EA5;t c&#x1EA3; c&#xE1;c lo&#xE0;i sinh v&#x1EAD;t hi&#x1EC7;n nay &#x111;&#x1EC1;u s&#x1EED; d&#x1EE5;ng chung m&#x1ED9;t lo&#x1EA1;i m&#xE3; di truy&#x1EC1;n, &#x111;&#x1EC1;u d&#xF9;ng c&#xF9;ng 20 lo&#x1EA1;i acid amin &#x111;&#x1EC3; c&#x1EA5;u t&#x1EA1;o n&#xEA;n protein, &#x110;&#xE2;y l&#xE0; b&#x1EB1;ng ch&#x1EE9;ng ch&#x1EE9;ng t&#x1ECF;:<br>
+A. c&#xE1;c gene c&#x1EE7;a c&#xE1;c lo&#xE0;i sinh v&#x1EAD;t kh&#xE1;c nhau &#x111;&#x1EC1;u gi&#x1ED1;ng nhau.<br>
+B. t&#x1EA5;t c&#x1EA3; c&#xE1;c lo&#xE0;i sinh v&#x1EAD;t hi&#x1EC7;n nay l&#xE0; k&#x1EBF;t qu&#x1EA3; c&#x1EE7;a ti&#x1EBF;n ho&#xE1; h&#x1ED9;i t&#x1EE5;.<br>
+C. protein c&#x1EE7;a c&#xE1;c lo&#xE0;i sinh v&#x1EAD;t kh&#xE1;c nhau &#x111;&#x1EC1;u gi&#x1ED1;ng nhau.<br>
+D. C&#xE1;c lo&#xE0;i sinh v&#x1EAD;t hi&#x1EC7;n nay &#x111;&#xE3; &#x111;&#x1B0;&#x1EE3;c ti&#x1EBF;n ho&#xE1; t&#x1EEB; m&#x1ED9;t t&#x1ED5; ti&#xEA;n chung.<br>
+C&#xE1;c t&#x1EBF; b&#xE0;o c&#x1EE7;a t&#x1EA5;t c&#x1EA3; c&#xE1;c lo&#xE0;i sinh v&#x1EAD;t hi&#x1EC7;n nay &#x111;&#x1EC1;u s&#x1EED; d&#x1EE5;ng chung 1 lo&#x1EA1;i m&#xE3; di truy&#x1EC1;n , &#x111;&#x1EC1;u d&#xF9;ng c&#xF9;ng 20 axit amin &#x111;&#x1EC3; c&#x1EA5;u t&#x1EA1;o n&#xEA;n protein . &#x110;&#xE2;y l&#xE0; b&#x1EB1;ng ch&#x1EE9;ng ch&#x1EE9;ng t&#x1ECF; c&#xE1;c lo&#xE0;i sinh v&#x1EAD;t hi&#x1EC7;n nay &#x111;&#xE3; &#x111;&#x1B0;&#x1EE3;c ti&#x1EBF;n h&#xF3;a t&#x1EEB; m&#x1ED9;t ngu&#x1ED3;n g&#x1ED1;c<br>
+C&#xE2;u 12: Khi n&#xF3;i v&#x1EC1; c&#xE1;c b&#x1EB1;ng ch&#x1EE9;ng ti&#x1EBF;n h&#xF3;a, ph&#xE1;t bi&#x1EC3;u n&#xE0;o sau &#x111;&#xE2;y l&#xE0; &#x111;&#xFA;ng?<br>
+A. C&#x1A1; quan tho&#xE1;i h&#xF3;a c&#x169;ng l&#xE0; c&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng v&#xEC; ch&#xFA;ng &#x111;&#x1B0;&#x1EE3;c b&#x1EAF;t ngu&#x1ED3;n t&#x1EEB; m&#x1ED9;t c&#x1A1; quan &#x1EDF; m&#x1ED9;t lo&#xE0;i t&#x1ED5; ti&#xEA;n nh&#x1B0;ng nay kh&#xF4;ng c&#xF2;n ch&#x1EE9;c n&#x103;ng ho&#x1EB7;c ch&#x1EE9;c n&#x103;ng b&#x1ECB; ti&#xEA;u gi&#x1EA3;m.<br>
+B. Nh&#x1EEF;ng c&#x1A1; quan th&#x1EF1;c hi&#x1EC7;n c&#xE1;c ch&#x1EE9;c n&#x103;ng nh&#x1B0; nhau nh&#x1B0;ng kh&#xF4;ng &#x111;&#x1B0;&#x1EE3;c b&#x1EAF;t ngu&#x1ED3;n t&#x1EEB; m&#x1ED9;t ngu&#x1ED3;n g&#x1ED1;c &#x111;&#x1B0;&#x1EE3;c g&#x1ECD;i l&#xE0; c&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng.<br>
+C. C&#xE1;c lo&#xE0;i &#x111;&#x1ED9;ng v&#x1EAD;t c&#xF3; x&#x1B0;&#x1A1;ng s&#x1ED1;ng c&#xF3; c&#xE1;c &#x111;&#x1EB7;c &#x111;i&#x1EC3;m &#x1EDF; giai &#x111;o&#x1EA1;n tr&#x1B0;&#x1EDF;ng th&#xE0;nh r&#x1EA5;t kh&#xE1;c nhau th&#xEC; kh&#xF4;ng th&#x1EC3; c&#xF3; c&#xE1;c giai &#x111;o&#x1EA1;n ph&#xE1;t tri&#x1EC3;n ph&#xF4;i gi&#x1ED1;ng nhau.<br>
+D. Nh&#x1EEF;ng c&#x1A1; quan &#x1EDF; c&#xE1;c lo&#xE0;i kh&#xE1;c nhau &#x111;&#x1B0;&#x1EE3;c b&#x1EAF;t ngu&#x1ED3;n t&#x1EEB; m&#x1ED9;t c&#x1A1; quan &#x1EDF; lo&#xE0;i t&#x1ED5; ti&#xEA;n, m&#x1EB7;c d&#xF9; hi&#x1EC7;n t&#x1EA1;i c&#xE1;c c&#x1A1; quan n&#xE0;y c&#xF3; th&#x1EC3; th&#x1EF1;c hi&#x1EC7;n c&#xE1;c ch&#x1EE9;c n&#x103;ng r&#x1EA5;t kh&#xE1;c nhau &#x111;&#x1B0;&#x1EE3;c g&#x1ECD;i l&#xE0; c&#x1A1; quan t&#x1B0;&#x1A1;ng t&#x1EF1;.<br>
+C&#xE2;u 13: (C2013) C&#xE1;nh chim t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng v&#x1EDB;i c&#x1A1; quan n&#xE0;o sau &#x111;&#xE2;y?<br>
+A. C&#xE1;nh d&#x1A1;i B. V&#xE2;y c&#xE1; ch&#xE9;p<br>
+C. C&#xE1;nh b&#x1B0;&#x1EDB;m D. C&#xE1;nh ong<br>
+C&#xE2;u 14: C&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng (c&#x1A1; quan c&#xF9;ng ngu&#x1ED3;n) l&#xE0;<br>
+A. nh&#x1EEF;ng c&#x1A1; quan n&#x1EB1;m &#x1EDF; v&#x1ECB; tr&#xED; t&#x1B0;&#x1A1;ng &#x1EE9;ng tr&#xEA;n c&#x1A1; th&#x1EC3;, c&#xF3; ki&#x1EC3;u c&#x1EA5;u t&#x1EA1;o gi&#x1ED1;ng nhau.<br>
+B. nh&#x1EEF;ng c&#x1A1; quan &#x111;&#x1B0;&#x1EE3;c b&#x1EAF;t ngu&#x1ED3;n t&#x1EEB; m&#x1ED9;t c&#x1A1; quan &#x1EDF; c&#xF9;ng lo&#xE0;i t&#x1ED5; ti&#xEA;n m&#x1EB7;c d&#x1EA7;u hi&#x1EC7;n t&#x1EA1;i c&#xE1;c c&#x1A1; quan n&#xE0;y c&#xF3; th&#x1EC3; th&#x1EF1;c hi&#x1EC7;n ch&#x1EE9;c n&#x103;ng r&#x1EA5;t kh&#xE1;c nhau.<br>
+C. nh&#x1EEF;ng c&#x1A1; quan n&#x1EB1;m &#x1EDF; nh&#x1EEF;ng v&#x1ECB; tr&#xED; t&#x1B0;&#x1A1;ng &#x1EE9;ng tr&#xEA;n c&#x1A1; th&#x1EC3;, c&#xF3; ngu&#x1ED3;n g&#x1ED1;c kh&#xE1;c nhau trong qu&#xE1; tr&#xEC;nh ph&#xE1;t tri&#x1EC3;n ph&#xF4;i cho n&#xEA;n c&#xF3; ki&#x1EC3;u c&#x1EA5;u t&#x1EA1;o gi&#x1ED1;ng nhau.<br>
+D. nh&#x1EEF;ng c&#x1A1; quan n&#x1EB1;m &#x1EDF; nh&#x1EEF;ng v&#x1ECB; tr&#xED; kh&#xE1;c nhau tr&#xEA;n c&#x1A1; th&#x1EC3;, c&#xF3; c&#xF9;ng ngu&#x1ED3;n g&#x1ED1;c trong qu&#xE1; tr&#xEC;nh ph&#xE1;t tri&#x1EC3;n ph&#xF4;i.<br>
+C&#xE2;u 15: C&#x1EA5;u t&#x1EA1;o kh&#xE1;c nhau v&#x1EC1; chi ti&#x1EBF;t c&#x1EE7;a c&#xE1;c c&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng l&#xE0; do<br>
+A. s&#x1EF1; ti&#x1EBF;n ho&#xE1; trong qu&#xE1; tr&#xEC;nh ph&#xE1;t tri&#x1EC3;n c&#x1EE7;a lo&#xE0;i.<br>
+B. ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n &#x111;&#xE3; di&#x1EC5;n ra theo nh&#x1EEF;ng h&#x1B0;&#x1EDB;ng kh&#xE1;c nhau.<br>
+C. ch&#xFA;ng c&#xF3; ngu&#x1ED3;n g&#x1ED1;c kh&#xE1;c nhau nh&#x1B0;ng ph&#xE1;t tri&#x1EC3;n trong &#x111;i&#x1EC1;u ki&#x1EC7;n nh&#x1B0; nhau.<br>
+D. th&#x1EF1;c hi&#x1EC7;n c&#xE1;c ch&#x1EE9;c ph&#x1EAD;n gi&#x1ED1;ng nhau.<br>
+C&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng l&#xE0; c&#xE1;c c&#x1A1; quan &#x111;&#x1B0;&#x1EE3;c b&#x1EAF;t ngu&#x1ED3;n t&#x1EEB; m&#x1ED9;t c&#x1A1; quan &#x1EDF; c&#xF9;ng lo&#xE0;i t&#x1ED5; ti&#xEA;n m&#x1EB7;c d&#xF9; hi&#x1EC7;n t&#x1EA1;i c&#xE1;c c&#x1A1; quan n&#xE0;y c&#xF3; th&#x1EC3; th&#x1EF1;c hi&#x1EC7;n ch&#x1EE9;c n&#x103;ng r&#x1EA5;t kh&#xE1;c nhau. S&#x1EF1; kh&#xE1;c nhau v&#x1EC1; 1 s&#x1ED1; chi ti&#x1EBF;t l&#xE0; do CLTN &#x111;&#xE3; di&#x1EC5;n ra theo c&#xE1;c h&#x1B0;&#x1EDB;ng kh&#xE1;c nhau.<br>
+C&#xE2;u 16: C&#x1A1; quan t&#x1B0;&#x1A1;ng t&#x1EF1; l&#xE0; nh&#x1EEF;ng c&#x1A1; quan<br>
+A. c&#xF3; ngu&#x1ED3;n g&#x1ED1;c kh&#xE1;c nhau nh&#x1B0;ng &#x111;&#x1EA3;m nhi&#x1EC7;m nh&#x1EEF;ng ch&#x1EE9;c ph&#x1EAD;n gi&#x1ED1;ng nhau, c&#xF3; h&#xEC;nh th&#xE1;i t&#x1B0;&#x1A1;ng t&#x1EF1;.<br>
+B. c&#xF9;ng ngu&#x1ED3;n g&#x1ED1;c, n&#x1EB1;m &#x1EDF; nh&#x1EEF;ng v&#x1ECB; tr&#xED; t&#x1B0;&#x1A1;ng &#x1EE9;ng tr&#xEA;n c&#x1A1; th&#x1EC3;, c&#xF3; ki&#x1EC3;u c&#x1EA5;u t&#x1EA1;o gi&#x1ED1;ng nhau.<br>
+C. c&#xF9;ng ngu&#x1ED3;n g&#x1ED1;c, &#x111;&#x1EA3;m nhi&#x1EC7;m nh&#x1EEF;ng ch&#x1EE9;c ph&#x1EAD;n gi&#x1ED1;ng nhau.<br>
+D. c&#xF3; ngu&#x1ED3;n g&#x1ED1;c kh&#xE1;c nhau, n&#x1EB1;m &#x1EDF; nh&#x1EEF;ng v&#x1ECB; tr&#xED; t&#x1B0;&#x1A1;ng &#x1EE9;ng tr&#xEA;n c&#x1A1; th&#x1EC3;, c&#xF3; ki&#x1EC3;u c&#x1EA5;u t&#x1EA1;o gi&#x1ED1;ng nhau.<br>
+C&#xE2;u 17: Trong ti&#x1EBF;n ho&#xE1; c&#xE1;c c&#x1A1; quan t&#x1B0;&#x1A1;ng t&#x1EF1; c&#xF3; &#xFD; ngh&#x129;a ph&#x1EA3;n &#xE1;nh<br>
+A. s&#x1EF1; ti&#x1EBF;n ho&#xE1; ph&#xE2;n li. B. s&#x1EF1; ti&#x1EBF;n ho&#xE1; &#x111;&#x1ED3;ng quy.<br>
+C. s&#x1EF1; ti&#x1EBF;n ho&#xE1; song h&#xE0;nh. D. ngu&#x1ED3;n g&#x1ED1;c chung.<br>
+C&#xE2;u 18: C&#x1A1; quan n&#xE0;o d&#x1B0;&#x1EDB;i &#x111;&#xE2;y l&#xE0; c&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng?<br>
+A. C&#xE1;nh s&#xE2;u b&#x1ECD; v&#xE0; c&#xE1;nh d&#x1A1;i.<br>
+B. Tuy&#x1EBF;t n&#x1ECD;c &#x111;&#x1ED9;c c&#x1EE7;a r&#x1EAF;n v&#xE0; tuy&#x1EBF;n n&#x1B0;&#x1EDB;c b&#x1ECD;t c&#x1EE7;a c&#xE1;c &#x111;&#x1ED9;ng v&#x1EAD;t kh&#xE1;c.<br>
+C. Mang c&#xE1; v&#xE0; mang t&#xF4;m.<br>
+D. Ch&#xE2;n chu&#x1ED9;t ch&#x169;i v&#xE0; ch&#xE2;n d&#x1EBF; d&#x169;i.<br>
+C&#xE2;u 19: V&#xED; d&#x1EE5; n&#xE0;o sau &#x111;&#xE2;y l&#xE0; c&#x1A1; quan t&#x1B0;&#x1A1;ng t&#x1EF1;?<br>
+A. C&#xE1;nh d&#x1A1;i v&#xE0; tay ng&#x1B0;&#x1EDD;i.<br>
+B. C&#xE1;nh chim v&#xE0; c&#xE1;nh c&#xF4;n tr&#xF9;ng.<br>
+C. Tua cu&#x1ED1;n c&#x1EE7;a d&#xE2;y b&#x1EA7;u, b&#xED; v&#xE0; gai x&#x1B0;&#x1A1;ng r&#x1ED3;ng.<br>
+D. L&#xE1; &#x111;&#x1EAD;u H&#xE0; Lan v&#xE0; gai x&#x1B0;&#x1A1;ng r&#x1ED3;ng.<br>
+C&#xE2;u 20: C&#xE1;c c&#x1A1; quan tho&#xE1;i ho&#xE1; l&#xE0; c&#x1A1; quan<br>
+A. ph&#xE1;t tri&#x1EC3;n kh&#xF4;ng &#x111;&#x1EA7;y &#x111;&#x1EE7; &#x1EDF; c&#x1A1; th&#x1EC3; tr&#x1B0;&#x1EDF;ng th&#xE0;nh.<br>
+B. thay &#x111;&#x1ED5;i c&#x1EA5;u t&#x1EA1;o ph&#xF9; h&#x1EE3;p v&#x1EDB;i ch&#x1EE9;c n&#x103;ng m&#x1EDB;i (v&#xED; d&#x1EE5;, tay ng&#x1B0;&#x1EDD;i chuy&#x1EC3;n sang c&#x1EA7;m n&#x1EAF;m, kh&#xF4;ng c&#xF2;n l&#xE0;m nhi&#x1EC7;m v&#x1EE5; v&#x1EAD;n chuy&#x1EC3;n c&#x1A1; th&#x1EC3;).<br>
+C. thay &#x111;&#x1ED5;i c&#x1EA5;u t&#x1EA1;o (nh&#x1B0; b&#xE0;n ch&#xE2;n ch&#x1EC9; c&#xF2;n m&#x1ED9;t ng&#xF3;n &#x1EDF; lo&#xE0;i ng&#x1EF1;a).<br>
+D. bi&#x1EBF;n m&#x1EA5;t ho&#xE0;n to&#xE0;n (nh&#x1B0; v&#x1B0;&#x1EE3;n ng&#x1B0;&#x1EDD;i hi&#x1EC7;n nay kh&#xF4;ng c&#xF3; &#x111;u&#xF4;i).<br>
+C&#x1A1; quan tho&#xE1;i h&#xF3;a l&#xE0;: c&#x1A1; quan ph&#xE1;t tri&#x1EC3;n kh&#xF4;ng &#x111;&#x1EA7;y &#x111;&#x1EE7; &#x1EDF; c&#x1A1; th&#x1EC3; tr&#x1B0;&#x1EDF;ng th&#xE0;nh.<br>
+Trong ti&#x1EBF;n h&#xF3;a, tr&#x1B0;&#x1EDB;c &#x111;&#xE2;y, c&#x1A1; quan n&#xE0;y t&#x1EEB;ng gi&#x1EEF; 1 vai tr&#xF2; n&#xE0;o &#x111;&#xF3; c&#x1EE7;a sinh v&#x1EAD;t, xong b&#xE2;y gi&#x1EDD; ch&#x1EE9;c n&#x103;ng &#x111;&#xF3; kh&#xF4;ng c&#xF2;n n&#x1EEF;a, c&#x1A1; quan &#x111;&#xF3; c&#x169;ng theo &#x111;&#xF3; m&#xE0; tho&#xE1;i h&#xF3;a (th&#x1B0;&#x1EDD;ng l&#xE0; teo nh&#x1ECF; l&#x1EA1;i<br>
+C&#xE2;u21: Ru&#x1ED9;t th&#x1EEB;a &#x1EDF; ng&#x1B0;&#x1EDD;i<br>
+A. t&#x1B0;&#x1A1;ng t&#x1EF1; manh tr&#xE0;ng &#x1EDF; &#x111;&#x1ED9;ng v&#x1EAD;t &#x103;n c&#x1ECF;.<br>
+B. l&#xE0; c&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng v&#x1EDB;i manh tr&#xE0;ng &#x1EDF; &#x111;&#x1ED9;ng v&#x1EAD;t &#x103;n c&#x1ECF;.<br>
+C. l&#xE0; c&#x1A1; quan tho&#xE1;i ho&#xE1; &#x1EDF; &#x111;&#x1ED9;ng v&#x1EAD;t &#x103;n c&#x1ECF;.<br>
+D. c&#xF3; ngu&#x1ED3;n g&#x1ED1;c t&#x1EEB; manh tr&#xE0;ng &#x1EDF; &#x111;&#x1ED9;ng v&#x1EAD;t &#x103;n c&#x1ECF;.<br>
+Ru&#x1ED9;t th&#x1EEB;a &#x1EDF; ng&#x1B0;&#x1EDD;i v&#xE0; manh tr&#xE0;ng c&#xF3; c&#xF9;ng ngu&#x1ED3;n g&#x1ED1;c trong qu&#xE1; tr&#xEC;nh ph&#xE1;t tri&#x1EC3;n ph&#xF4;i, ch&#xFA;ng c&#xF3; ngu&#x1ED3;n g&#x1ED1;c t&#x1EEB; 1 c&#xE1;i t&#xFA;i nh&#x1ECF; &#x111;&#x1EF1;ng th&#x1EE9;c &#x103;n trong &#x111;&#xF3;, nh&#x1B0;ng ru&#x1ED9;t th&#x1EEB;a &#x1EDF; ng&#x1B0;&#x1EDD;i kh&#xF4;ng c&#xF2;n ch&#x1EE9;c n&#x103;ng &#x111;&#xF3;. Do v&#x1EAD;y m&#x1ED9;t th&#x1EEB;a &#x1EDF; ng&#x1B0;&#x1EDD;i v&#xE0; manh tr&#xE0;ng l&#xE0; c&#x1A1; quan t&#x1B0;&#x1A1;ng &#x111;&#x1ED3;ng<br>
+C&#xE2;u 22: B&#x1EB1;ng ch&#x1EE9;ng ti&#x1EBF;n ho&#xE1; n&#xE0;o c&#xF3; s&#x1EE9;c thuy&#x1EBF;t ph&#x1EE5;c nh&#x1EA5;t?<br>
+A. B&#x1EB1;ng ch&#x1EE9;ng gi&#x1EA3;i ph&#x1EAB;u h&#x1ECD;c so s&#xE1;nh. B. B&#x1EB1;ng ch&#x1EE9;ng sinh h&#x1ECD;c ph&#xE2;n t&#x1EED;.<br>
+C. B&#x1EB1;ng ch&#x1EE9;ng t&#x1EBF; b&#xE0;o h&#x1ECD;c. D. B&#x1EB1;ng ch&#x1EE9;ng ph&#xF4;i sinh h&#x1ECD;c so s&#xE1;nh.<br>
+B&#x1EB1;ng ch&#x1EE9;ng sinh h&#x1ECD;c ph&#xE2;n t&#x1EED; l&#xE0; d&#x1EF1;a tr&#xEA;n s&#x1EF1; kh&#xE1;c bi&#x1EC7;t v&#x1EC1; &#x111;&#x1EB7;c &#x111;i&#x1EC3;m c&#x1EA5;u t&#x1EA1;o c&#x1EE7;a c&#xE1;c ph&#xE2;n t&#x1EED; nh&#x1B0; ADN, ARN hay protein. B&#x1EB1;ng ch&#x1EE9;ng n&#xE0;y c&#xF3; s&#x1EE9;c thuy&#x1EBF;t ph&#x1EE5;c nh&#x1EA5;t v&#xEC; c&#x1EA5;u t&#x1EA1;o c&#x1EE7;a c&#xE1;c ph&#xE2;n t&#x1EED; n&#xE0;y &#x1EDF; c&#xE1;c lo&#xE0;i kh&#xE1;c nhau th&#xEC; kh&#xE1;c nhau<br>
+C&#xE2;u 23: C&#xE1;c gen t&#x1B0;&#x1A1;ng &#x1EE9;ng &#x1EDF; c&#xE1;c lo&#xE0;i th&#xE2;n thu&#x1ED9;c &#x111;&#x1B0;&#x1EE3;c ph&#xE2;n bi&#x1EC7;t<br>
+A. ch&#x1EC9; b&#x1EDF;i s&#x1ED1; l&#x1B0;&#x1EE3;ng nucl&#xEA;&#xF4;tit. B. ch&#x1EC9; b&#x1EDF;i th&#xE0;nh ph&#x1EA7;n nucl&#xEA;&#xF4;tit.<br>
+C. ch&#x1EC9; b&#x1EDF;i tr&#xEC;nh t&#x1EF1; nucl&#xEA;&#xF4;tit. D. &#x1EDF; s&#x1ED1; l&#x1B0;&#x1EE3;ng, th&#xE0;nh ph&#x1EA7;n v&#xE0; tr&#xEC;nh t&#x1EF1; nucl&#xEA;&#xF4;tit.<br>
+C&#xE2;u 24: &#xDD; n&#xE0;o kh&#xF4;ng ph&#x1EA3;i l&#xE0; b&#x1EB1;ng ch&#x1EE9;ng sinh h&#x1ECD;c ph&#xE2;n t&#x1EED;?<br>
+A. S&#x1EF1; th&#x1ED1;ng nh&#x1EA5;t v&#x1EC1; c&#x1EA5;u t&#x1EA1;o v&#xE0; ch&#x1EE9;c n&#x103;ng c&#x1EE7;a m&#x1ECD;i gen c&#x1EE7;a c&#xE1;c lo&#xE0;i.<br>
+B. S&#x1EF1; th&#x1ED1;ng nh&#x1EA5;t v&#x1EC1; c&#x1EA5;u t&#x1EA1;o v&#xE0; ch&#x1EE9;c n&#x103;ng c&#x1EE7;a pr&#xF4;t&#xEA;in c&#x1EE7;a c&#xE1;c lo&#xE0;i.<br>
+C. S&#x1EF1; th&#x1ED1;ng nh&#x1EA5;t v&#x1EC1; c&#x1EA5;u t&#x1EA1;o v&#xE0; ch&#x1EE9;c n&#x103;ng c&#x1EE7;a ADN c&#x1EE7;a c&#xE1;c lo&#xE0;i.<br>
+D. S&#x1EF1; th&#x1ED1;ng nh&#x1EA5;t v&#x1EC1; c&#x1EA5;u t&#x1EA1;o v&#xE0; ch&#x1EE9;c n&#x103;ng c&#x1EE7;a m&#xE3; di truy&#x1EC1;n c&#x1EE7;a c&#xE1;c lo&#xE0;i.</li>
+</ul>
+<p>B&#xE0;i 25. H&#x1ECC;C THUY&#x1EBE;T LAMAC V&#xC0; H&#x1ECC;C THUY&#x1EBE;T &#x110;ACUYN<br>
+A. N&#x1ED8;I DUNG CH&#xCD;NH<br>
+II. H&#x1ECD;c thuy&#x1EBF;t ti&#x1EBF;n ho&#xE1; c&#x1EE7;a &#x110;acuyn:</p>
+<ul>
+<li>Nguy&#xEA;n li&#x1EC7;u ti&#x1EBF;n h&#xF3;a: BD c&#xE1; th&#x1EC3; (C&#xE1;c c&#xE1; th&#x1EC3; c&#xF9;ng lo&#xE0;i trong t&#x1EF1; nhi&#xEA;n kh&#xE1;c nhau v&#x1EC1; nhi&#x1EC1;u chi ti&#x1EBF;t).</li>
+<li>C&#x1A1; ch&#x1EBF; ti&#x1EBF;n ho&#xE1;: L&#xE0; s&#x1EF1; t&#xED;ch l&#x169;y nh&#x1EEF;ng BD c&#xF3; l&#x1EE3;i &#x111;&#xE0;o th&#x1EA3;i nh&#x1EEF;ng BD c&#xF3; h&#x1EA1;i d&#x1B0;&#x1EDB;i t&#xE1;c &#x111;&#x1ED9;ng c&#x1EE7;a CLTN.</li>
+<li>S&#x1EF1; h&#xEC;nh th&#xE0;nh &#x111;&#x1EB7;c &#x111;i&#x1EC3;m th&#xED;ch nghi: L&#xE0; s&#x1EF1; t&#xED;ch lu&#x1EF9; c&#xE1;c BD c&#xF3; l&#x1EE3;i d&#x1B0;&#x1EDB;i t&#xE1;c d&#x1EE5;ng c&#x1EE7;a CLTN.</li>
+<li>S&#x1EF1; h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i: Lo&#xE0;i m&#x1EDB;i &#x111;&#x1B0;&#x1EE3;c h&#xEC;nh th&#xE0;nh t&#x1EEB; t&#x1EEB; qua nhi&#x1EC1;u d&#x1EA1;ng trung gian d&#x1B0;&#x1EDB;i t&#xE1;c d&#x1EE5;ng c&#x1EE7;a CLTN theo con &#x111;&#x1B0;&#x1EDD;ng ph&#xE2;n li t&#xED;nh tr&#x1EA1;ng t&#x1EEB; m&#x1ED9;t ngu&#x1ED3;n g&#x1ED1;c chung.</li>
+<li>&#x110;&#xF3;ng g&#xF3;p quan tr&#x1ECD;ng nh&#x1EA5;t: Ph&#xE1;t hi&#x1EC7;n vai tr&#xF2; s&#xE1;ng t&#x1EA1;o c&#x1EE7;a CLTN v&#xE0; CLNT.</li>
+<li>T&#x1ED3;n t&#x1EA1;i ch&#xED;nh: Ch&#x1B0;a l&#xE0;m s&#xE1;ng t&#x1ECF; nguy&#xEA;n nh&#xE2;n ph&#xE1;t sinh v&#xE0; s&#x1EF1; DT c&#xE1;c BD.<br>
+B. B&#x1ED4; SUNG</li>
+</ul>
+<ol>
+<li>Nh&#x1EEF;ng &#x111;i&#x1EC3;m c&#x1A1; b&#x1EA3;n c&#x1EE7;a CLTN v&#xE0; CLNT theo &#x110;acuyn<br>
+CLTN CLNT<br>
+Ti&#x1EBF;n h&#xE0;nh - Do t&#x1EF1; nhi&#xEA;n - Do con ng&#x1B0;&#x1EDD;i.<br>
+&#x110;&#x1ED1;i t&#x1B0;&#x1EE3;ng - C&#xE1;c SV trong t&#x1EF1; nhi&#xEA;n - C&#xE1;c v&#x1EAD;t nu&#xF4;i v&#xE0; c&#xE2;y tr&#x1ED3;ng<br>
+Nguy&#xEA;n nh&#xE2;n - Do &#x111;i&#x1EC1;u ki&#x1EC7;n MT s&#x1ED1;ng kh&#xE1;c nhau . - Do nhu c&#x1EA7;u kh&#xE1;c nhau c&#x1EE7;a con ng&#x1B0;&#x1EDD;i<br>
+&#x110;&#x1ED9;ng l&#x1EF1;c - &#x110;&#x1EA5;u tranh sinh t&#x1ED3;n c&#x1EE7;a SV - Nhu c&#x1EA7;u c&#xF3; l&#x1EE3;i cho con ng&#x1B0;&#x1EDD;i.<br>
+C&#x1A1; s&#x1EDF; - T&#xED;nh DT v&#xE0; BD &#x1EDF; SV - T&#xED;nh DT v&#xE0; BD &#x1EDF; SV<br>
+Th&#x1EDD;i gian - T&#x1B0;&#x1A1;ng &#x111;&#x1ED1;i d&#xE0;i - T&#x1B0;&#x1A1;ng &#x111;&#x1ED1;i ng&#x1EAF;n<br>
+K&#x1EBF;t qu&#x1EA3; - L&#xE0;m cho SV trong t&#x1EF1; nhi&#xEA;n ng&#xE0;y c&#xE0;ng &#x111;a d&#x1EA1;ng phong ph&#xFA;.</li>
+</ol>
+<ul>
+<li>H&#xEC;nh th&#xE0;nh n&#xEA;n lo&#xE0;i m&#x1EDB;i. M&#x1ED7;i lo&#xE0;i th&#xED;ch nghi v&#x1EDB;i m&#x1ED9;t MT s&#x1ED1;ng nh&#x1EA5;t &#x111;&#x1ECB;nh. - L&#xE0;m cho v&#x1EAD;t nu&#xF4;i c&#xE2;y tr&#x1ED3;ng ng&#xE0;y c&#xE0;ng &#x111;a d&#x1EA1;ng phong ph&#xFA;.</li>
+<li>H&#xEC;nh th&#xE0;nh n&#xEA;n c&#xE1;c n&#xF2;i, th&#x1EE9; m&#x1EDB;i (gi&#x1ED1;ng m&#x1EDB;i). M&#x1ED7;i d&#x1EA1;ng ph&#xF9; h&#x1EE3;p v&#x1EDB;i m&#x1ED9;t nhu c&#x1EA7;u kh&#xE1;c nhau c&#x1EE7;a con ng&#x1B0;&#x1EDD;i.</li>
+</ul>
+<p>C. B&#xC0;I T&#x1EAC;P<br>
+C&#xE2;u 1 Theo Darwin, th&#xEC; bi&#x1EBF;n d&#x1ECB; c&#xE1; th&#x1EC3;<br>
+A. x&#x1EA3;y ra theo h&#x1B0;&#x1EDB;ng x&#xE1;c &#x111;&#x1ECB;nh.<br>
+B. kh&#xF4;ng ph&#x1EA3;i l&#xE0; ngu&#x1ED3;n nguy&#xEA;n li&#x1EC7;u c&#x1EE7;a qu&#xE1; tr&#xEC;nh ch&#x1ECD;n gi&#x1ED1;ng.<br>
+C. kh&#xF4;ng ph&#x1EA3;i l&#xE0; ngu&#x1ED3;n nguy&#xEA;n li&#x1EC7;u c&#x1EE7;a qu&#xE1; tr&#xEC;nh ti&#x1EBF;n h&#xF3;a.<br>
+D. l&#xE0; nh&#x1EEF;ng &#x111;&#x1EB7;c &#x111;i&#x1EC3;m sai kh&#xE1;c gi&#x1EEF;a c&#xE1;c c&#xE1; th&#x1EC3; c&#xF9;ng lo&#xE0;i ph&#xE1;t sinh trong qu&#xE1; tr&#xED;nh sinh s&#x1EA3;n.<br>
+Theo &#x110;acuyn &#x201C;Bi&#x1EBF;n d&#x1ECB; c&#xE1; th&#x1EC3;&#x201D; l&#xE0; nh&#x1EEF;ng &#x111;&#x1EB7;c &#x111;i&#x1EC3;m sai kh&#xE1;c gi&#x1EEF;a c&#xE1;c c&#xE1; th&#x1EC3; c&#xF9;ng lo&#xE0;i ph&#xE1;t sinh trong qu&#xE1; tr&#xEC;nh sinh s&#x1EA3;n, theo nh&#x1EEF;ng h&#x1B0;&#x1EDB;ng kh&#xF4;ng x&#xE1;c &#x111;&#x1ECB;nh. L&#xE0; ngu&#x1ED3;n nguy&#xEA;n li&#x1EC7;u c&#x1EE7;a ch&#x1ECD;n gi&#x1ED1;ng v&#xE0; ti&#x1EBF;n ho&#xE1;<br>
+C&#xE2;u 2: Theo Darwin, &#x111;&#x1EB7;c &#x111;i&#x1EC3;m c&#x1EE7;a bi&#x1EBF;n d&#x1ECB; c&#xE1; th&#x1EC3; l&#xE0;<br>
+A. x&#x1EA3;y ra theo m&#x1ED9;t h&#x1B0;&#x1EDB;ng x&#xE1;c &#x111;&#x1ECB;nh.<br>
+B. xu&#x1EA5;t hi&#x1EC7;n t&#x1B0;&#x1A1;ng &#x1EE9;ng v&#x1EDB;i &#x111;i&#x1EC1;u ki&#x1EC7;n c&#x1EE7;a m&#xF4;i tr&#x1B0;&#x1EDD;ng.<br>
+C. mang t&#xED;nh ri&#xEA;ng l&#x1EBB; &#x1EDF; t&#x1EEB;ng c&#xE1; th&#x1EC3;.<br>
+D. kh&#xF4;ng di truy&#x1EC1;n &#x111;&#x1B0;&#x1EE3;c.<br>
+C&#xE2;u 3: &#x110;i&#x1EC1;u n&#xE0;o &#x111;&#xFA;ng khi n&#xF3;i v&#x1EC1; bi&#x1EBF;n d&#x1ECB; c&#xE1; th&#x1EC3;?<br>
+A. Bi&#x1EBF;n d&#x1ECB; x&#x1EA3;y ra &#x111;&#x1ED3;ng lo&#x1EA1;t tr&#xEA;n c&#xE1;c c&#xE1; th&#x1EC3; c&#xF9;ng lo&#xE0;i.<br>
+B. Bi&#x1EBF;n d&#x1ECB; kh&#xF4;ng di truy&#x1EC1;n.<br>
+C. L&#xE0; ngu&#x1ED3;n nguy&#xEA;n li&#x1EC7;u c&#x1EE7;a ti&#x1EBF;n ho&#xE1; v&#xE0; ch&#x1ECD;n gi&#x1ED1;ng.<br>
+D. Xu&#x1EA5;t hi&#x1EC7;n do t&#x1EAD;p qu&#xE1;n ho&#x1EA1;t &#x111;&#x1ED9;ng &#x1EDF; &#x111;&#x1ED9;ng v&#x1EAD;t.<br>
+C&#xE2;u 4: Theo Darwin, nh&#xE2;n t&#x1ED1; ch&#xED;nh d&#x1EAB;n &#x111;&#x1EBF;n t&#x1EA1;o ra c&#xE1;c lo&#xE0;i sinh v&#x1EAD;t m&#x1EDB;i trong t&#x1EF1; nhi&#xEA;n l&#xE0;<br>
+A. ch&#x1ECD;n l&#x1ECD;c nh&#xE2;n t&#x1EA1;o.<br>
+B. ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+C. s&#x1EF1; thay &#x111;&#x1ED5;i c&#x1EE7;a c&#xE1;c &#x111;i&#x1EC1;u ki&#x1EC7;n s&#x1ED1;ng.<br>
+D. bi&#x1EBF;n d&#x1ECB; c&#xE1; th&#x1EC3;.<br>
+C&#xE2;u 5: Theo Darwin, &#x111;&#x1ED9;ng l&#x1EF1;c c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n l&#xE0;<br>
+A. c&#xE1;c t&#xE1;c nh&#xE2;n c&#x1EE7;a &#x111;i&#x1EC1;u ki&#x1EC7;n s&#x1ED1;ng trong t&#x1EF1; nhi&#xEA;n.<br>
+B. &#x111;&#x1EA5;u tranh sinh t&#x1ED3;n c&#x1EE7;a sinh v&#xE2;&#x323;t.<br>
+C. s&#x1EF1; &#x111;&#xE0;o th&#x1EA3;i c&#xE1;c bi&#x1EBF;n d&#x1ECB; kh&#xF4;ng c&#xF3; l&#x1EE3;i.<br>
+D. s&#x1EF1; t&#xED;ch l&#x169;y c&#xE1;c bi&#x1EBF;n d&#x1ECB; c&#xF3; l&#x1EE3;i.<br>
+C&#xE2;u 6: Theo Darwin, n&#x1ED9;i dung c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n l&#xE0;<br>
+A. t&#xED;ch lu&#x1EF9; nh&#x1EEF;ng bi&#x1EBF;n d&#x1ECB; c&#xF3; l&#x1EE3;i cho con ng&#x1B0;&#x1EDD;i, &#x111;&#xE0;o th&#x1EA3;i bi&#x1EBF;n d&#x1ECB; c&#xF3; h&#x1EA1;i cho con ng&#x1B0;&#x1EDD;i.<br>
+B. t&#xED;ch lu&#x1EF9; bi&#x1EBF;n d&#x1ECB; c&#xF3; l&#x1EE3;i cho sinh v&#x1EAD;t, &#x111;&#xE0;o th&#x1EA3;i bi&#x1EBF;n d&#x1ECB; c&#xF3; h&#x1EA1;i cho con ng&#x1B0;&#x1EDD;i.<br>
+C. t&#xED;ch lu&#x1EF9; bi&#x1EBF;n d&#x1ECB; c&#xF3; l&#x1EE3;i cho con ng&#x1B0;&#x1EDD;i, &#x111;&#xE0;o th&#x1EA3;i bi&#x1EBF;n d&#x1ECB; c&#xF3; h&#x1EA1;i cho sinh v&#x1EAD;t.<br>
+D. t&#xED;ch lu&#x1EF9; nh&#x1EEF;ng bi&#x1EBF;n d&#x1ECB; c&#xF3; l&#x1EE3;i cho sinh v&#x1EAD;t, &#x111;&#xE0;o th&#x1EA3;i nh&#x1EEF;ng bi&#x1EBF;n d&#x1ECB; c&#xF3; h&#x1EA1;i cho sinh v&#x1EAD;t.<br>
+C&#xE2;u 7: Theo Darwin, th&#x1EF1;c ch&#x1EA5;t c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n l&#xE0;<br>
+A. s&#x1EF1; ph&#xE2;n h&#xF3;a kh&#x1EA3; n&#x103;ng bi&#x1EBF;n d&#x1ECB; c&#x1EE7;a c&#xE1;c c&#xE1; th&#x1EC3; trong lo&#xE0;i.<br>
+B. s&#x1EF1; ph&#xE2;n h&#xF3;a kh&#x1EA3; n&#x103;ng sinh s&#x1EA3;n gi&#x1EEF;a c&#xE1;c c&#xE1; th&#x1EC3; trong lo&#xE0;i.<br>
+C. s&#x1EF1; ph&#xE2;n h&#xF3;a kh&#x1EA3; n&#x103;ng s&#x1ED1;ng s&#xF3;t gi&#x1EEF;a c&#xE1;c c&#xE1; th&#x1EC3; trong lo&#xE0;i.<br>
+D. s&#x1EF1; ph&#xE2;n h&#xF3;a kh&#x1EA3; n&#x103;ng ph&#x1EA3;n &#x1EE9;ng tr&#x1B0;&#x1EDB;c m&#xF4;i tr&#x1B0;&#x1EDD;ng c&#x1EE7;a c&#xE1;c c&#xE1; th&#x1EC3; trong qu&#x1EA7;n th&#x1EC3;.<br>
+C&#xE2;u 8: Theo Darwin, nh&#xE2;n t&#x1ED1; ch&#xED;nh trong qu&#xE1; tr&#xEC;nh h&#xEC;nh th&#xE0;nh c&#xE1;c &#x111;&#x1EB7;c &#x111;i&#x1EC3;m th&#xED;ch nghi l&#xE0;<br>
+A. bi&#x1EBF;n d&#x1ECB; c&#xE1; th&#x1EC3; v&#xE0; qu&#xE1; tr&#xEC;nh giao ph&#x1ED1;i.<br>
+B. &#x111;&#x1ED9;t bi&#x1EBF;n, giao ph&#x1ED1;i, ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+C. ph&#xE2;n li t&#xED;nh tr&#x1EA1;ng.<br>
+D. ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n t&#xE1;c &#x111;&#x1ED9;ng th&#xF4;ng qua hai &#x111;&#x1EB7;c t&#xED;nh l&#xE0; bi&#x1EBF;n d&#x1ECB; v&#xE0; di truy&#x1EC1;n.<br>
+C&#xE2;u 9: Theo Darwin, sinh v&#x1EAD;t th&#xED;ch nghi v&#x1EDB;i m&#xF4;i tr&#x1B0;&#x1EDD;ng l&#xE0; do<br>
+A. ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n &#x111;&#xE3; &#x111;&#xE0;o th&#x1EA3;i nh&#x1EEF;ng c&#xE1; th&#x1EC3; mang &#x111;&#x1EB7;c &#x111;i&#x1EC3;m c&#xF3; h&#x1EA1;i, gi&#x1EEF; l&#x1EA1;i nh&#x1EEF;ng c&#xE1; th&#x1EC3; mang &#x111;&#x1EB7;c &#x111;i&#x1EC3;m c&#xF3; l&#x1EE3;i.<br>
+B. m&#xF4;i tr&#x1B0;&#x1EDD;ng s&#x1ED1;ng th&#x1B0;&#x1EDD;ng xuy&#xEA;n thay &#x111;&#x1ED5;i n&#xEA;n &#x111;&#x1EB7;c &#x111;i&#x1EC3;m c&#xF3; h&#x1EA1;i tr&#x1EDF; n&#xEA;n c&#xF3; l&#x1EE3;i.<br>
+C. sinh v&#x1EAD;t c&#xF3; kh&#x1EA3; n&#x103;ng bi&#x1EBF;n &#x111;&#x1ED5;i &#x111;&#x1EC3; ph&#xF9; h&#x1EE3;p v&#x1EDB;i s&#x1EF1; bi&#x1EBF;n &#x111;&#x1ED5;i c&#x1EE7;a ngo&#x1EA1;i c&#x1EA3;nh.<br>
+D. con ng&#x1B0;&#x1EDD;i &#x111;&#xE3; t&#xE1;c &#x111;&#x1ED9;ng l&#xEA;n sinh v&#x1EAD;t.<br>
+C&#xE2;u 10: Theo Darwin, k&#x1EBF;t qu&#x1EA3; c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n l&#xE0;<br>
+A. t&#x1EA1;o n&#xEA;n n&#xF2;i m&#x1EDB;i. B. t&#x1EA1;o n&#xEA;n th&#x1EE9; m&#x1EDB;i. C. t&#x1EA1;o n&#xEA;n lo&#xE0;i m&#x1EDB;i. D. t&#x1EA1;o n&#xEA;n gi&#x1ED1;ng m&#x1EDB;i.<br>
+C&#xE2;u 11: H&#x1EA1;n ch&#x1EBF; c&#x1EE7;a Darwin khi tr&#xEC;nh b&#xE0;y h&#x1ECD;c thuy&#x1EBF;t ti&#x1EBF;n ho&#xE1; sinh gi&#x1EDB;i l&#xE0;<br>
+A. ch&#x1B0;a n&#xEA;u r&#xF5; nguy&#xEA;n nh&#xE2;n ph&#xE1;t sinh v&#xE0; c&#x1A1; ch&#x1EBF; di truy&#x1EC1;n c&#x1EE7;a bi&#x1EBF;n d&#x1ECB;.<br>
+B. d&#x1EF1;a v&#xE0;o l&#xFD; thuy&#x1EBF;t ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n &#x111;&#x1EC3; gi&#x1EA3;i th&#xED;ch ti&#x1EBF;n ho&#xE1; &#x1EDF; sinh v&#x1EAD;t.<br>
+C. cho r&#x1EB1;ng &#x111;&#x1ED9;ng l&#x1EF1;c c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c nh&#xE2;n t&#x1EA1;o l&#xE0; nhu c&#x1EA7;u con ng&#x1B0;&#x1EDD;i.<br>
+D. quan ni&#x1EC7;m bi&#x1EBF;n d&#x1ECB; c&#xE1; th&#x1EC3; l&#xE0; nguy&#xEA;n li&#x1EC7;u c&#x1EE7;a ti&#x1EBF;n ho&#xE1;.<br>
+C&#xE2;u12: &#x110;i&#x1EC3;m gi&#x1ED1;ng nhau gi&#x1EEF;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n v&#xE0; ch&#x1ECD;n l&#x1ECD;c nh&#xE2;n t&#x1EA1;o l&#xE0;<br>
+A. &#x111;&#x1EC1;u c&#xF3; &#x111;&#x1ED9;ng l&#x1EF1;c l&#xE0; nhu c&#x1EA7;u c&#x1EE7;a con ng&#x1B0;&#x1EDD;i.<br>
+B. &#x111;&#x1EC1;u d&#x1EF1;a tr&#xEA;n c&#x1A1; s&#x1EDF; c&#x1EE7;a t&#xED;nh bi&#x1EBF;n d&#x1ECB; v&#xE0; t&#xED;nh di truy&#x1EC1;n c&#x1EE7;a sinh v&#x1EAD;t.<br>
+C. &#x111;&#x1EC1;u d&#x1EAB;n &#x111;&#x1EBF;n t&#x1EA1;o ra nhi&#x1EC1;u lo&#xE0;i m&#x1EDB;i.<br>
+D. &#x111;&#x1EC1;u l&#xE0; &#x111;&#x1ED9;ng l&#x1EF1;c ti&#x1EBF;n ho&#xE1; c&#x1EE7;a m&#x1ECD;i sinh v&#x1EAD;t trong t&#x1EF1; nhi&#xEA;n.<br>
+C&#xE2;u 13: &#x110;i&#x1EC1;u n&#xE0;o kh&#xF4;ng &#x111;&#xFA;ng v&#x1EDB;i suy lu&#x1EAD;n c&#x1EE7;a &#x110;acuyn?<br>
+A. T&#x1EA5;t c&#x1EA3; c&#xE1;c lo&#xE0;i sinh v&#x1EAD;t c&#xF3; xu h&#x1B0;&#x1EDB;ng sinh ra m&#x1ED9;t s&#x1ED1; l&#x1B0;&#x1EE3;ng con nhi&#x1EC1;u so v&#x1EDB;i s&#x1ED1; con c&#xF3; th&#x1EC3; s&#x1ED1;ng s&#xF3;t &#x111;&#x1EBF;n tu&#x1ED5;i sinh s&#x1EA3;n.<br>
+B. Ph&#x1EA7;n nhi&#x1EC1;u bi&#x1EBF;n d&#x1ECB; c&#xE1; th&#x1EC3; &#x111;&#x1B0;&#x1EE3;c di truy&#x1EC1;n l&#x1EA1;i cho th&#x1EBF; h&#x1EC7; sau.<br>
+C. Qu&#x1EA7;n th&#x1EC3; sinh v&#x1EAD;t c&#xF3; xu h&#x1B0;&#x1EDB;ng lu&#xF4;n thay &#x111;&#x1ED5;i k&#xED;ch th&#x1B0;&#x1EDB;c tr&#x1B0;&#x1EDB;c bi&#x1EBF;n &#x111;&#x1ED5;i b&#x1EA5;t th&#x1B0;&#x1EDD;ng c&#x1EE7;a m&#xF4;i tr&#x1B0;&#x1EDD;ng<br>
+D. Qu&#x1EA7;n th&#x1EC3; sinh v&#x1EAD;t c&#xF3; xu h&#x1B0;&#x1EDB;ng duy tr&#xEC; k&#xED;ch th&#x1B0;&#x1EDB;c kh&#xF4;ng &#x111;&#x1ED5;i ngo&#x1EA1;i tr&#x1EEB; khi<br>
+c&#xF3; bi&#x1EBF;n &#x111;&#x1ED5;i b&#x1EA5;t th&#x1B0;&#x1EDD;ng v&#x1EC1; m&#xF4;i tr&#x1B0;&#x1EDD;ng.<br>
+C&#xE2;u 14: N&#x1ED9;i dung n&#xE0;o sau &#x111;&#xE2;y l&#xE0; ph&#xF9; h&#x1EE3;p nh&#x1EA5;t v&#x1EDB;i quan ni&#x1EC7;m c&#x1EE7;a &#x110;acuyn v&#x1EC1; ngu&#x1ED3;n nguy&#xEA;n li&#x1EC7;u c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c v&#xE0; ti&#x1EBF;n ho&#xE1;?<br>
+A. Ch&#x1EC9; c&#xE1;c bi&#x1EBF;n d&#x1ECB; t&#x1ED5; h&#x1EE3;p xu&#x1EA5;t hi&#x1EC7;n trong qu&#xE1; tr&#xEC;nh sinh s&#x1EA3;n.<br>
+B. Nh&#x1EEF;ng bi&#x1EBF;n d&#x1ECB; c&#xE1; th&#x1EC3; xu&#x1EA5;t hi&#x1EC7;n ri&#xEA;ng l&#x1EBB; trong qu&#xE1; tr&#xEC;nh sinh s&#x1EA3;n.<br>
+C. Ch&#x1EC9; &#x111;&#x1ED9;t bi&#x1EBF;n gen xu&#x1EA5;t hi&#x1EC7;n trong qu&#xE1; tr&#xEC;nh sinh s&#x1EA3;n.<br>
+D. Nh&#x1EEF;ng bi&#x1EBF;n d&#x1ECB; xu&#x1EA5;t hi&#x1EC7;n &#x111;&#x1ED3;ng lo&#x1EA1;t theo m&#x1ED9;t h&#x1B0;&#x1EDB;ng x&#xE1;c &#x111;&#x1ECB;nh.<br>
+C&#xE2;u 15: Theo &#x110;acuyn, c&#x1A1; ch&#x1EBF; ch&#x1EE7; y&#x1EBF;u c&#x1EE7;a qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1; l&#xE0;<br>
+A c&#xE1;c &#x111;&#x1EB7;c t&#xED;nh thu &#x111;&#x1B0;&#x1EE3;c trong &#x111;&#x1EDD;i c&#xE1; th&#x1EC3; d&#x1B0;&#x1EDB;i t&#xE1;c d&#x1EE5;ng c&#x1EE7;a ngo&#x1EA1;i c&#x1EA3;nh hay t&#x1EAD;p qu&#xE1;n ho&#x1EA1;t &#x111;&#x1ED9;ng c&#x1EE7;a sinh v&#x1EAD;t &#x111;&#x1EC1;u di truy&#x1EC1;n.<br>
+B. c&#xE1;c bi&#x1EBF;n d&#x1ECB; nh&#x1ECF;, ri&#xEA;ng r&#x1EBD; t&#xED;ch lu&#x1EF9; th&#xE0;nh nh&#x1EEF;ng sai kh&#xE1;c l&#x1EDB;n v&#xE0; ph&#x1ED5; bi&#x1EBF;n d&#x1B0;&#x1EDB;i t&#xE1;c d&#x1EE5;ng c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+C. sinh v&#x1EAD;t bi&#x1EBF;n &#x111;&#x1ED5;i d&#x1B0;&#x1EDB;i t&#xE1;c d&#x1EE5;ng tr&#x1EF1;c ti&#x1EBF;p ho&#x1EB7;c gi&#xE1;n ti&#x1EBF;p c&#x1EE7;a &#x111;i&#x1EC1;u ki&#x1EC7;n ngo&#x1EA1;i c&#x1EA3;nh.<br>
+D. s&#x1EF1; c&#x1EE7;ng c&#x1ED1; ng&#x1EAB;u nhi&#xEA;n c&#xE1;c &#x111;&#x1ED9;t bi&#x1EBF;n trung t&#xED;nh kh&#xF4;ng li&#xEA;n quan &#x111;&#x1EBF;n ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+C&#xE2;u 16: Theo &#x110;acuyn, ch&#x1ECD;n l&#x1ECD;c nh&#xE2;n t&#x1EA1;o l&#xE0;<br>
+A. t&#xED;ch lu&#x1EF9; nh&#x1EEF;ng bi&#x1EBF;n d&#x1ECB; c&#xF3; l&#x1EE3;i cho con ng&#x1B0;&#x1EDD;i.<br>
+B. &#x111;&#xE0;o th&#x1EA3;i nh&#x1EEF;ng bi&#x1EBF;n d&#x1ECB; b&#x1EA5;t l&#x1EE3;i cho con ng&#x1B0;&#x1EDD;i.<br>
+C. v&#x1EEB;a &#x111;&#xE0;o th&#x1EA3;i nh&#x1EEF;ng bi&#x1EBF;n d&#x1ECB; b&#x1EA5;t l&#x1EE3;i (k&#xE9;m th&#xED;ch &#x1EE9;ng) v&#x1EEB;a t&#xED;ch lu&#x1EF9; nh&#x1EEF;ng bi&#x1EBF;n d&#x1ECB; c&#xF3; l&#x1EE3;i (th&#xED;ch &#x1EE9;ng) cho con ng&#x1B0;&#x1EDD;i.<br>
+D. t&#xED;ch lu&#x1EF9; nh&#x1EEF;ng bi&#x1EBF;n d&#x1ECB; c&#xF3; l&#x1EE3;i cho con ng&#x1B0;&#x1EDD;i v&#xE0; b&#x1EA3;n th&#xE2;n sinh v&#x1EAD;t.<br>
+C&#xE2;u 17: Nh&#xE2;n t&#x1ED1; quy &#x111;&#x1ECB;nh chi&#x1EC1;u h&#x1B0;&#x1EDB;ng v&#xE0; t&#x1ED1;c &#x111;&#x1ED9; bi&#x1EBF;n &#x111;&#x1ED5;i c&#x1EE7;a c&#xE1;c gi&#x1ED1;ng v&#x1EAD;t nu&#xF4;i v&#xE0; c&#xE2;y tr&#x1ED3;ng l&#xE0;<br>
+A. ch&#x1ECD;n l&#x1ECD;c nh&#xE2;n t&#x1EA1;o. B. ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+C. c&#xE1;c bi&#x1EBF;n d&#x1ECB; c&#xE1; th&#x1EC3; xu&#x1EA5;t hi&#x1EC7;n v&#xF4; c&#xF9;ng &#x111;a d&#x1EA1;ng v&#xE0; phong ph&#xFA; &#x1EDF; v&#x1EAD;t nu&#xF4;i,c&#xE2;y tr&#x1ED3;ng.<br>
+D. s&#x1EF1; ph&#xE2;n li t&#xED;nh tr&#x1EA1;ng t&#x1EEB; m&#x1ED9;t d&#x1EA1;ng ban &#x111;&#x1EA7;u.<br>
+Ch&#x1ECD;n l&#x1ECD;c nh&#xE2;n t&#x1EA1;o l&#xE0;: con ng&#x1B0;&#x1EDD;i gi&#x1EEF; l&#x1EA1;i c&#xE1;c gi&#x1ED1;ng c&#xE2;y tr&#x1ED3;ng, v&#x1EAD;t nu&#xF4;i c&#xF3; c&#xE1;c t&#xED;nh tr&#x1EA1;ng c&#xF3; l&#x1EE3;i cho con ng&#x1B0;&#x1EDD;i v&#xE0; nh&#xE2;n gi&#x1ED1;ng ch&#xFA;ng, lo&#x1EA1;i b&#x1ECF; c&#xE1;c gi&#x1ED1;ng c&#xF3; c&#xE1;c t&#xED;nh tr&#x1EA1;ng kh&#xF4;ng c&#xF3; l&#x1EE3;i cho con ng&#x1B0;&#x1EDD;i<br>
+C&#xE2;u 18: &#x110;i&#x1EC1;u kh&#x1EB3;ng &#x111;&#x1ECB;nh n&#xE0;o sau &#x111;&#xE2;y v&#x1EC1; ch&#x1ECD;n l&#x1ECD;c nh&#xE2;n t&#x1EA1;o l&#xE0; &#x111;&#xFA;ng?<br>
+A. Ch&#x1ECD;n l&#x1ECD;c nh&#xE2;n t&#x1EA1;o th&#x1B0;&#x1EDD;ng t&#x1EA1;o ra c&#xE1;c lo&#xE0;i m&#x1EDB;i.<br>
+B. Ch&#x1ECD;n l&#x1ECD;c nh&#xE2;n t&#x1EA1;o th&#x1B0;&#x1EDD;ng kh&#xF4;ng t&#x1EA1;o ra c&#xE1;c lo&#xE0;i m&#x1EDB;i.<br>
+C. Ch&#x1ECD;n l&#x1ECD;c nh&#xE2;n t&#x1EA1;o kh&#xE1;c v&#x1EDB;i ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n v&#x1EC1; b&#x1EA3;n ch&#x1EA5;t.<br>
+D. S&#x1EA3;n ph&#x1EA9;m c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c nh&#xE2;n t&#x1EA1;o lu&#xF4;n c&#xF3; &#x1B0;u th&#x1EBF; c&#x1EA1;nh tranh t&#x1ED1;t h&#x1A1;n gi&#x1EEF;a c&#xE1;c lo&#xE0;i s&#x1ED1;ng trong t&#x1EF1; nhi&#xEA;n.<br>
+Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n gi&#x1EEF; l&#x1EA1;i c&#xE1;c c&#xE1; th&#x1EC3; mang c&#xE1;c &#x111;&#x1EB7;c &#x111;i&#x1EC3;m th&#xED;ch nghi<br>
+Ch&#x1ECD;n l&#x1ECD;c nh&#xE2;n t&#x1EA1;o gi&#x1EEF; l&#x1EA1;i c&#xE1;c c&#xE1; th&#x1EC3; mang &#x111;&#x1EB7;c &#x111;i&#x1EC3;m c&#x1EE7;a con ng&#x1B0;&#x1EDD;i mong mu&#x1ED1;n<br>
+C&#xE2;u 19: Theo &#x110;acuyn, ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n l&#xE0; qu&#xE1; tr&#xEC;nh<br>
+A. &#x111;&#xE0;o th&#x1EA3;i nh&#x1EEF;ng bi&#x1EBF;n d&#x1ECB; b&#x1EA5;t l&#x1EE3;i cho sinh v&#x1EAD;t.<br>
+B. t&#xED;ch lu&#x1EF9; nh&#x1EEF;ng bi&#x1EBF;n d&#x1ECB; c&#xF3; l&#x1EE3;i cho sinh v&#x1EAD;t.<br>
+C. v&#x1EEB;a &#x111;&#xE0;o th&#x1EA3;i nh&#x1EEF;ng bi&#x1EBF;n d&#x1ECB; b&#x1EA5;t l&#x1EE3;i (kh&#xF4;ng th&#xED;ch nghi) v&#x1EEB;a t&#xED;ch lu&#x1EF9; nh&#x1EEF;ng bi&#x1EBF;n d&#x1ECB; c&#xF3; l&#x1EE3;i (th&#xED;ch nghi) cho sinh v&#x1EAD;t.<br>
+D. t&#xED;ch lu&#x1EF9; nh&#x1EEF;ng bi&#x1EBF;n d&#x1ECB; c&#xF3; l&#x1EE3;i cho con ng&#x1B0;&#x1EDD;i v&#xE0; cho b&#x1EA3;n th&#xE2;n sinh v&#x1EAD;t.<br>
+C&#xE2;u 20: Theo quan ni&#x1EC7;m c&#x1EE7;a &#x110;acuyn, &#x111;&#x1A1;n v&#x1ECB; ti&#x1EBF;n ho&#xE1; l&#xE0;<br>
+A. c&#xE1; th&#x1EC3;. B. qu&#x1EA7;n th&#x1EC3;. C. giao t&#x1EED;. D. Lo&#xE0;i.<br>
+C&#xE2;u 21: Theo &#x110;acuyn, ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n c&#xF3; vai tr&#xF2;<br>
+A. h&#xEC;nh th&#xE0;nh t&#x1EAD;p qu&#xE1;n ho&#x1EA1;t &#x111;&#x1ED9;ng &#x1EDF; &#x111;&#x1ED9;ng v&#x1EAD;t.<br>
+B. &#x111;&#xE0;o th&#x1EA3;i nh&#x1EEF;ng bi&#x1EBF;n d&#x1ECB; b&#x1EA5;t l&#x1EE3;i v&#xE0; t&#xED;ch lu&#x1EF9; nh&#x1EEF;ng bi&#x1EBF;n d&#x1ECB; c&#xF3; l&#x1EE3;i &#x111;&#x1ED1;i v&#x1EDB;i sinh v&#x1EAD;t trong qu&#xE1; tr&#xEC;nh &#x111;&#x1EA5;u tranh sinh t&#x1ED3;n.<br>
+C. l&#xE0; nh&#xE2;n t&#x1ED1; ch&#xED;nh h&#xEC;nh th&#xE0;nh c&#xE1;c &#x111;&#x1EB7;c &#x111;i&#x1EC3;m th&#xED;ch nghi tr&#xEA;n c&#x1A1; th&#x1EC3; sinh v&#x1EAD;t.<br>
+D. s&#x1EF1; bi&#x1EBF;n &#x111;&#x1ED5;i c&#x1EE7;a c&#x1A1; th&#x1EC3; sinh v&#x1EAD;t th&#xED;ch &#x1EE9;ng v&#x1EDB;i nh&#x1EEF;ng &#x111;&#x1EB7;c &#x111;i&#x1EC3;m c&#x1EE7;a ngo&#x1EA1;i c&#x1EA3;nh.<br>
+C&#xE2;u 22: C&#xE2;u n&#xE0;o d&#x1B0;&#x1EDB;i &#x111;&#xE2;y n&#xF3;i v&#x1EC1; ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n l&#xE0; &#x111;&#xFA;ng v&#x1EDB;i quan ni&#x1EC7;m c&#x1EE7;a &#x110;acuyn?<br>
+A. Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n th&#x1EF1;c ch&#x1EA5;t l&#xE0; s&#x1EF1; ph&#xE2;n ho&#xE1; v&#x1EC1; kh&#x1EA3; n&#x103;ng s&#x1ED1;ng s&#xF3;t c&#x1EE7;a c&#xE1;c c&#xE1; th&#x1EC3;.<br>
+B. Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n th&#x1EF1;c ch&#x1EA5;t l&#xE0; s&#x1EF1; ph&#xE2;n ho&#xE1; v&#x1EC1; kh&#x1EA3; n&#x103;ng sinh s&#x1EA3;n c&#x1EE7;a c&#xE1;c ki&#x1EC3;u gen.<br>
+C. Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n th&#x1EF1;c ch&#x1EA5;t l&#xE0; s&#x1EF1; ph&#xE2;n ho&#xE1; v&#x1EC1; m&#x1EE9;c &#x111;&#x1ED9; th&#xE0;nh &#x111;&#x1EA1;t sinh s&#x1EA3;n c&#x1EE7;a c&#xE1;c c&#xE1; th&#x1EC3; c&#xF3; c&#xE1;c ki&#x1EC3;u gen kh&#xE1;c nhau.<br>
+D. Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n th&#x1EF1;c ch&#x1EA5;t l&#xE0; s&#x1EF1; ph&#xE2;n li c&#x1EE7;a c&#xE1;c ki&#x1EC3;u gen kh&#xE1;c nhau.<br>
+C&#xE2;u 23: Trong t&#xE1;c ph&#x1EA9;m &#x201C;Ngu&#x1ED3;n g&#x1ED1;c c&#xE1;c lo&#xE0;i&#x201D;, &#x110;acuyn v&#x1EAB;n ch&#x1B0;a l&#xE0;m s&#xE1;ng t&#x1ECF; &#x111;&#x1B0;&#x1EE3;c &#x111;i&#x1EC1;u g&#xEC;?<br>
+A. Vai tr&#xF2; c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+B. T&#xED;nh th&#xED;ch nghi c&#x1EE7;a sinh v&#x1EAD;t v&#x1EDB;i &#x111;i&#x1EC1;u ki&#x1EC7;n c&#x1EE7;a m&#xF4;i tr&#x1B0;&#x1EDD;ng.<br>
+C. Nguy&#xEA;n nh&#xE2;n ph&#xE1;t sinh c&#xE1;c bi&#x1EBF;n d&#x1ECB; v&#xE0; c&#x1A1; ch&#x1EBF; di truy&#x1EC1;n c&#xE1;c bi&#x1EBF;n d&#x1ECB;.<br>
+D. S&#x1EF1; h&#xEC;nh th&#xE0;nh lo&#xE0;i b&#x1EB1;ng con &#x111;&#x1B0;&#x1EDD;ng ph&#xE2;n li t&#xED;nh tr&#x1EA1;ng.<br>
+C&#xE2;u 24: Ph&#xE1;t hi&#x1EC7;n quan tr&#x1ECD;ng c&#x1EE7;a &#x110;acuyn v&#x1EC1; c&#xE1;c sinh v&#x1EAD;t c&#xF9;ng lo&#xE0;i trong t&#x1EF1; nhi&#xEA;n l&#xE0; g&#xEC;?<br>
+A. M&#x1ED9;t s&#x1ED1; c&#xE1; th&#x1EC3; c&#xF3; kh&#x1EA3; n&#x103;ng di truy&#x1EC1;n c&#xE1;c bi&#x1EBF;n d&#x1ECB; do h&#x1ECD;c t&#x1EAD;p m&#xE0; c&#xF3;.<br>
+B. C&#xE1;c bi&#x1EBF;n d&#x1ECB; xu&#x1EA5;t hi&#x1EC7;n trong sinh s&#x1EA3;n th&#xEC; di truy&#x1EC1;n &#x111;&#x1B0;&#x1EE3;c.<br>
+C. C&#xE1;c c&#xE1; th&#x1EC3; c&#xF9;ng lo&#xE0;i kh&#xF4;ng ho&#xE0;n to&#xE0;n gi&#x1ED1;ng m&#xE0; kh&#xE1;c nhau v&#x1EC1; nhi&#x1EC1;u chi ti&#x1EBF;t.<br>
+D. C&#xE1;c &#x111;&#x1EB7;c &#x111;i&#x1EC3;m th&#xED;ch nghi ch&#x1EC9; h&#x1EE3;p l&#xED; t&#x1B0;&#x1A1;ng &#x111;&#x1ED1;i.<br>
+C&#xE2;u 25: &#x110;&#xF3;ng g&#xF3;p quan tr&#x1ECD;ng nh&#x1EA5;t c&#x1EE7;a h&#x1ECD;c thuy&#x1EBF;t &#x110;acuyn l&#xE0;<br>
+A. gi&#x1EA3;i th&#xED;ch &#x111;&#x1B0;&#x1EE3;c s&#x1EF1; h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i.<br>
+B. ph&#xE1;t hi&#x1EC7;n &#x111;&#x1B0;&#x1EE3;c vai tr&#xF2; c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n v&#xE0; ch&#x1ECD;n l&#x1ECD;c nh&#xE2;n t&#x1EA1;o.<br>
+C. &#x111;&#x1EC1; xu&#x1EA5;t kh&#xE1;i ni&#x1EC7;m bi&#x1EBF;n d&#x1ECB; c&#xE1; th&#x1EC3;, n&#xEA;u l&#xEA;n t&#xED;nh v&#xF4; h&#x1B0;&#x1EDB;ng c&#x1EE7;a lo&#x1EA1;i bi&#x1EBF;n d&#x1ECB; n&#xE0;y.<br>
+D. gi&#x1EA3;i th&#xED;ch th&#xE0;nh c&#xF4;ng s&#x1EF1; h&#x1EE3;p l&#xED; t&#x1B0;&#x1A1;ng &#x111;&#x1ED1;i c&#x1EE7;a c&#xE1;c &#x111;&#x1EB7;c &#x111;i&#x1EC3;m th&#xED;ch nghi.<br>
+C&#xE2;u 26: Ph&#xE1;t bi&#x1EC3;u n&#xE0;o d&#x1B0;&#x1EDB;i &#x111;&#xE2;y kh&#xF4;ng thu&#x1ED9;c n&#x1ED9;i dung c&#x1EE7;a thuy&#x1EBF;t &#x110;acuyn?<br>
+A. To&#xE0;n b&#x1ED9; sinh gi&#x1EDB;i ng&#xE0;y nay l&#xE0; k&#x1EBF;t qu&#x1EA3; c&#x1EE7;a qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1; t&#x1EEB; m&#x1ED9;t ngu&#x1ED3;n g&#x1ED1;c chung.<br>
+B. Lo&#xE0;i m&#x1EDB;i &#x111;&#x1B0;&#x1EE3;c h&#xEC;nh th&#xE0;nh d&#x1EA7;n d&#x1EA7;n qua nhi&#x1EC1;u d&#x1EA1;ng trung gian d&#x1B0;&#x1EDB;i t&#xE1;c d&#x1EE5;ng c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n theo con &#x111;&#x1B0;&#x1EDD;ng ph&#xE2;n li t&#xED;nh tr&#x1EA1;ng.<br>
+C. Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n t&#xE1;c &#x111;&#x1ED9;ng th&#xF4;ng qua &#x111;&#x1EB7;c t&#xED;nh bi&#x1EBF;n d&#x1ECB; v&#xE0; di truy&#x1EC1;n l&#xE0; nh&#xE2;n t&#x1ED1; ch&#xED;nh trong qu&#xE1; tr&#xEC;nh h&#xEC;nh th&#xE0;nh &#x111;&#x1EB7;c &#x111;i&#x1EC3;m th&#xED;ch nghi tr&#xEA;n c&#x1A1; th&#x1EC3; sinh v&#x1EAD;t.<br>
+D. Ngo&#x1EA1;i c&#x1EA3;nh thay &#x111;&#x1ED5;i ch&#x1EAD;m ch&#x1EA1;p n&#xEA;n sinh v&#x1EAD;t c&#xF3; kh&#x1EA3; n&#x103;ng ph&#x1EA3;n &#x1EE9;ng ph&#xF9; h&#x1EE3;p v&#xE0; kh&#xF4;ng b&#x1ECB; &#x111;&#xE0;o th&#x1EA3;i.</p>
+<p>B&#xE0;i 26. H&#x1ECC;C THUY&#x1EBE;T TI&#x1EBE;N HO&#xC1; T&#x1ED4;NG H&#x1EE2;P HI&#x1EC6;N &#x110;&#x1EA0;I<br>
+A. N&#x1ED8;I DUNG CH&#xCD;NH<br>
+I. Quan ni&#x1EC7;m ti&#x1EBF;n ho&#xE1; v&#xE0; ngu&#x1ED3;n nguy&#xEA;n li&#x1EC7;u ti&#x1EBF;n h&#xF3;a</p>
+<ol>
+<li>Ti&#x1EBF;n ho&#xE1; nh&#x1ECF; v&#xE0; ti&#x1EBF;n ho&#xE1; l&#x1EDB;n<br>
+a. Ti&#x1EBF;n ho&#xE1; nh&#x1ECF;
+<ul>
+<li>Ti&#x1EBF;n ho&#xE1; nh&#x1ECF; l&#xE0; qu&#xE1; tr&#xEC;nh bi&#x1EBF;n &#x111;&#x1ED5;i c&#x1EA5;u tr&#xFA;c DT c&#x1EE7;a QT (bi&#x1EBF;n &#x111;&#x1ED5;i v&#x1EC1; t&#x1EA7;n s&#x1ED1; alen v&#xE0; th&#xE0;nh ph&#x1EA7;n KG c&#x1EE7;a QT) &#x2192; xu&#x1EA5;t hi&#x1EC7;n s&#x1EF1; c&#xE1;ch li sinh s&#x1EA3;n v&#x1EDB;i QT g&#x1ED1;c &#x2192; h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i.</li>
+<li>Ti&#x1EBF;n ho&#xE1; nh&#x1ECF; di&#x1EC5;n ra tr&#xEA;n quy m&#xF4; nh&#x1ECF;, trong ph&#x1EA1;m vi QT.</li>
+</ul>
+<ul>
+<li>Tr&#xEC;nh t&#x1EF1; : Ph&#xE1;t sinh &#x110;B &#x2192; s&#x1EF1; ph&#xE1;t t&#xE1;n &#x110;B &#x2192; ch&#x1ECD;n l&#x1ECD;c c&#xE1;c &#x110;B c&#xF3; l&#x1EE3;i &#x2192; C&#xE1;ch li sinh s&#x1EA3;n &#x2192; h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i.<br>
+b. Ti&#x1EBF;n ho&#xE1; l&#x1EDB;n<br>
+Ti&#x1EBF;n ho&#xE1; l&#x1EDB;n l&#xE0; qu&#xE1; tr&#xEC;nh bi&#x1EBF;n &#x111;&#x1ED5;i tr&#xEA;n quy m&#xF4; l&#x1EDB;n, tr&#x1EA3;i qua h&#xE0;ng tri&#x1EC7;u n&#x103;m, l&#xE0;m xu&#x1EA5;t hi&#x1EC7;n c&#xE1;c &#x111;&#x1A1;n v&#x1ECB; ph&#xE2;n lo&#x1EA1;i tr&#xEA;n lo&#xE0;i nh&#x1B0; : chi, h&#x1ECD;, b&#x1ED9;, l&#x1EDB;p, ng&#xE0;nh.</li>
+</ul>
+</li>
+<li>Ngu&#x1ED3;n BD DT c&#x1EE7;a QT - Ngu&#x1ED3;n nguy&#xEA;n li&#x1EC7;u cung c&#x1EA5;p cho qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1; l&#xE0; c&#xE1;c BD DT v&#xE0; do di nh&#x1EAD;p gen. - BD DT + BD &#x110;B (BD s&#x1A1; c&#x1EA5;p) + BD t&#x1ED5; h&#x1EE3;p (BD th&#x1EE9; c&#x1EA5;p)<br>
+II. C&#xE1;c nh&#xE2;n t&#x1ED1; ti&#x1EBF;n ho&#xE1;<br>
+C&#xE1;c nh&#xE2;n t&#x1ED1; ti&#x1EBF;n ho&#xE1; l&#xE0; c&#xE1;c nh&#xE2;n t&#x1ED1; l&#xE0;m bi&#x1EBF;n &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; alen v&#xE0; th&#xE0;nh ph&#x1EA7;n KG c&#x1EE7;a QT.</li>
+<li>&#x110;B
+<ul>
+<li>&#x110;B cung c&#x1EA5;p ngu&#x1ED3;n nguy&#xEA;n li&#x1EC7;u s&#x1A1; c&#x1EA5;p cho qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1;.</li>
+<li>&#x110;B &#x111;&#x1ED1;i v&#x1EDB;i t&#x1EEB;ng gen l&#xE0; nh&#x1ECF; t&#x1EEB; 10-6 &#x2013; 10-4 nh&#x1B0;ng trong c&#x1A1; th&#x1EC3; c&#xF3; nhi&#x1EC1;u gen n&#xEA;n t&#x1EA7;n s&#x1ED1; &#x111;&#x1ED9;t bi&#x1EC1;n v&#x1EC1; m&#x1ED9;t gen n&#xE0;o &#x111;&#xF3; l&#x1EA1;i r&#x1EA5;t l&#x1EDB;n.</li>
+<li>&#x110;B gen l&#xE0; ngu&#x1ED3;n nguy&#xEA;n li&#x1EC7;u ch&#x1EE7; y&#x1EBF;u c&#x1EE7;a qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1; do :
+<ul>
+<li>C&#xF3; nhi&#x1EC1;u &#x110;B.</li>
+<li>C&#xE1;c lo&#xE0;i kh&#xE1;c nhau b&#x1EDF;i s&#x1EF1; t&#xED;ch lu&#x1EF9; nhi&#x1EC1;u bi&#x1EBF;n di &#x110;B nh&#x1ECF;</li>
+<li>Gi&#xE1; tr&#x1ECB; th&#xED;ch nghi c&#x1EE7;a &#x110;B gen th&#x1B0;&#x1EDD;ng thay &#x111;&#x1ED5;i khi t&#x1ED5; h&#x1EE3;p gen thay &#x111;&#x1ED5;i.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Di - nh&#x1EAD;p gen.
+<ul>
+<li>Di nh&#x1EAD;p gen l&#xE0; hi&#x1EC7;n t&#x1B0;&#x1EE3;ng trao &#x111;&#x1ED5;i c&#xE1;c c&#xE1; th&#x1EC3; ho&#x1EB7;c GT gi&#x1EEF;a c&#xE1;c QT.</li>
+<li>Di nh&#x1EAD;p gen l&#xE0;m thay &#x111;&#x1ED5;i th&#xE0;nh ph&#x1EA7;n KG v&#xE0; t&#x1EA7;n s&#x1ED1; alen c&#x1EE7;a QT, l&#xE0;m xu&#x1EA5;t hi&#x1EC7;n alen m&#x1EDB;i trong QT.</li>
+</ul>
+</li>
+<li>Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n (CLTN - c&#xF3; &#x111;i&#x1EC1;u ki&#x1EC7;n ngo&#x1EA1;i c&#x1EA3;nh l&#xE0; nh&#xE2;n t&#x1ED1; ch&#xED;nh)- nh&#xE2;n t&#x1ED1; quan tr&#x1ECD;ng nh&#x1EA5;t.
+<ul>
+<li>CLTN l&#xE0; qu&#xE1; tr&#xEC;nh ph&#xE2;n ho&#xE1; kh&#x1EA3; n&#x103;ng s&#x1ED1;ng s&#xF3;t v&#xE0; sinh s&#x1EA3;n c&#x1EE7;a c&#xE1;c c&#xE1; th&#x1EC3; v&#x1EDB;i c&#xE1;c KG kh&#xE1;c nhau trong QT.</li>
+<li>CLTN t&#xE1;c &#x111;&#x1ED9;ng tr&#x1EF1;c ti&#x1EBF;p l&#xEA;n KH v&#xE0; gi&#xE1;n ti&#x1EBF;p l&#xE0;m bi&#x1EBF;n &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; KG, t&#x1EA7;n s&#x1ED1; alen c&#x1EE7;a QT.</li>
+<li>CLTN quy &#x111;&#x1ECB;nh chi&#x1EC1;u h&#x1B0;&#x1EDB;ng ti&#x1EBF;n ho&#xE1; &#x2192; CLTN l&#xE0; m&#x1ED9;t nh&#xE2;n t&#x1ED1; ti&#x1EBF;n ho&#xE1; c&#xF3; h&#x1B0;&#x1EDB;ng.</li>
+<li>T&#x1ED1;c &#x111;&#x1ED9; thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; alen tu&#x1EF3; thu&#x1ED9;c v&#xE0;o:</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>Ch&#x1ECD;n l&#x1ECD;c ch&#x1ED1;ng gen tr&#x1ED9;i.</li>
+<li>Ch&#x1ECD;n l&#x1ECD;c ch&#x1ED1;ng gen l&#x1EB7;n.</li>
+</ul>
+<ol start="4">
+<li>C&#xE1;c y&#x1EBF;u t&#x1ED1; ng&#x1EAB;u nhi&#xEA;n.<br>
+VD. Thi&#xEA;n tai, b&#x1EC7;nh d&#x1ECB;ch,&#x2026;
+<ul>
+<li>L&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; alen theo m&#x1ED9;t h&#x1B0;&#x1EDB;ng kh&#xF4;ng x&#xE1;c &#x111;&#x1ECB;nh.</li>
+<li>S&#x1EF1; bi&#x1EBF;n &#x111;&#x1ED5;i ng&#x1EAB;u nhi&#xEA;n v&#x1EC1; c&#x1EA5;u tr&#xFA;c DT hay x&#x1EA3;y ra v&#x1EDB;i nh&#x1EEF;ng QT c&#xF3; k&#xED;ch th&#x1B0;&#x1EDB;c nh&#x1ECF;.<br>
+&#x2192; Nh&#x1EEF;ng QT c&#xF3; v&#x1ED1;n gen k&#xE9;m th&#xED;ch nghi b&#x1ECB; thay th&#x1EBF; b&#x1EDF;i nh&#x1EEF;ng QT c&#xF3; v&#x1ED1;n gen th&#xED;ch nghi h&#x1A1;n.</li>
+</ul>
+</li>
+<li>Giao ph&#x1ED1;i kh&#xF4;ng ng&#x1EAB;u nhi&#xEA;n (giao ph&#x1ED1;i c&#xF3; ch&#x1ECD;n l&#x1ECD;c, giao ph&#x1ED1;i c&#x1EAD;n huy&#x1EBF;t, t&#x1EF1; ph&#x1ED1;i).
+<ul>
+<li>Giao ph&#x1ED1;i kh&#xF4;ng ng&#x1EAB;u nhi&#xEA;n kh&#xF4;ng l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; alen c&#x1EE7;a QT nh&#x1B0;ng l&#x1EA1;i l&#xE0;m thay &#x111;&#x1ED5;i thay &#x111;&#x1ED5;i th&#xE0;nh ph&#x1EA7;n KG theo h&#x1B0;&#x1EDB;ng t&#x103;ng d&#x1EA7;n th&#x1EC3; &#x111;&#x1ED3;ng h&#x1EE3;p, gi&#x1EA3;m d&#x1EA7;n th&#x1EC3; d&#x1ECB; h&#x1EE3;p.</li>
+<li>Giao ph&#x1ED1;i kh&#xF4;ng ng&#x1EAB;u nhi&#xEA;n c&#x169;ng l&#xE0; m&#x1ED9;t nh&#xE2;n t&#x1ED1; ti&#x1EBF;n ho&#xE1;.</li>
+<li>Giao ph&#x1ED1;i kh&#xF4;ng ng&#x1EAB;u nhi&#xEA;n l&#xE0;m ngh&#xE8;o v&#x1ED1;n gen c&#x1EE7;a QT, gi&#x1EA3;m s&#x1EF1; &#x111;a d&#x1EA1;ng DT.</li>
+</ul>
+</li>
+</ol>
+<p>C. B&#xC0;I T&#x1EAC;P.<br>
+C&#xE2;u 1: Quan ni&#x1EC7;m ti&#x1EBF;n ho&#xE1; t&#x1ED5;ng h&#x1EE3;p hi&#x1EC7;n &#x111;&#x1EA1;i &#x111;&#xE3; c&#x1EE7;ng c&#x1ED1; cho quan &#x111;i&#x1EC3;m c&#x1EE7;a &#x110;acuyn v&#x1EC1;<br>
+A. vai tr&#xF2; c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+B. bi&#x1EBF;n d&#x1ECB; c&#xE1; th&#x1EC3; l&#xE0; bi&#x1EBF;n d&#x1ECB; kh&#xF4;ng x&#xE1;c &#x111;&#x1ECB;nh.<br>
+C. qu&#xE1; tr&#xEC;nh giao ph&#x1ED1;i h&#xEC;nh th&#xE0;nh nhi&#x1EC1;u bi&#x1EBF;n d&#x1ECB; t&#x1ED5; h&#x1EE3;p cung c&#x1EA5;p ngu&#x1ED3;n<br>
+nguy&#xEA;n li&#x1EC7;u cho ch&#x1ECD;n l&#x1ECD;c.<br>
+D. bi&#x1EBF;n d&#x1ECB; x&#xE1;c &#x111;&#x1ECB;nh l&#xE0; nh&#x1EEF;ng bi&#x1EBF;n d&#x1ECB; di truy&#x1EC1;n &#x111;&#x1B0;&#x1EE3;c, c&#xF3; vai tr&#xF2; quan tr&#x1ECD;ng<br>
+trong s&#x1EF1; ti&#x1EBF;n ho&#xE1;.<br>
+C&#xE2;u 2: H&#x1ECD;c thuy&#x1EBF;t ti&#x1EBF;n ho&#xE1; t&#x1ED5;ng h&#x1EE3;p hi&#x1EC7;n &#x111;&#x1EA1;i &#x111;&#xE3; g&#xF3;p ph&#x1EA7;n l&#xE0;m s&#xE1;ng t&#x1ECF; v&#x1EA5;n &#x111;&#x1EC1; n&#xE0;o sau?<br>
+A. S&#x1EF1; h&#xEC;nh th&#xE0;nh c&#xE1;c &#x111;&#x1EB7;c &#x111;i&#x1EC3;m th&#xED;ch nghi.<br>
+B. Nguy&#xEA;n nh&#xE2;n ph&#xE1;t sinh c&#xE1;c bi&#x1EBF;n d&#x1ECB; v&#xE0; c&#x1A1; ch&#x1EBF; di truy&#x1EC1;n c&#xE1;c bi&#x1EBF;n d&#x1ECB;.<br>
+C. Vai tr&#xF2; s&#xE1;ng t&#x1EA1;o c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+D. Ngu&#x1ED3;n g&#x1ED1;c chung c&#x1EE7;a c&#xE1;c lo&#xE0;i.<br>
+C&#xE2;u 3: &#x110;&#xF3;ng g&#xF3;p ch&#x1EE7; y&#x1EBF;u c&#x1EE7;a thuy&#x1EBF;t ti&#x1EBF;n h&#xF3;a t&#x1ED5;ng h&#x1EE3;p l&#xE0;<br>
+A. gi&#x1EA3;i th&#xED;ch &#x111;&#x1B0;&#x1EE3;c t&#xED;nh &#x111;a d&#x1EA1;ng v&#xE0; th&#xED;ch nghi c&#x1EE7;a sinh gi&#x1EDB;i.<br>
+B. t&#x1ED5;ng h&#x1EE3;p c&#xE1;c b&#x1EB1;ng ch&#x1EE9;ng ti&#x1EBF;n h&#xF3;a t&#x1EEB; nhi&#x1EC1;u l&#x129;nh v&#x1EF1;c.<br>
+C. l&#xE0;m s&#xE1;ng t&#x1ECF; c&#x1A1; ch&#x1EBF; ti&#x1EBF;n h&#xF3;a nh&#x1ECF;.<br>
+D. x&#xE2;y d&#x1EF1;ng c&#x1A1; s&#x1EDF; l&#xED; thuy&#x1EBF;t ti&#x1EBF;n h&#xF3;a l&#x1EDB;n.<br>
+H&#x1ECD;c thuy&#x1EBF;t ti&#x1EBF;n h&#xF3;a hi&#x1EC7;n &#x111;&#x1EA1;i &#x111;&#xE3; l&#xE0;m s&#xE1;ng t&#x1ECF; c&#x1A1; ch&#x1EBF; ti&#x1EBF;n h&#xF3;a, trong &#x111;&#xF3; ti&#x1EBF;n h&#xF3;a nh&#x1ECF; chi&#x1EBF;m v&#x1ECB; tr&#xED; trung t&#xE2;m<br>
+C&#xE2;u 4: Ngu&#x1ED3;n nguy&#xEA;n li&#x1EC7;u s&#x1A1; c&#x1EA5;p cho qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1; l&#xE0;<br>
+A. bi&#x1EBF;n d&#x1ECB; &#x111;&#x1ED9;t bi&#x1EBF;n. B. bi&#x1EBF;n d&#x1ECB; t&#x1ED5; h&#x1EE3;p.<br>
+C. th&#x1B0;&#x1EDD;ng bi&#x1EBF;n. D. &#x111;&#x1ED9;t bi&#x1EBF;n gen t&#x1EF1; nhi&#xEA;n.<br>
+C&#xE2;u 5: Nguy&#xEA;n li&#x1EC7;u th&#x1EE9; c&#x1EA5;p c&#x1EE7;a qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1; l&#xE0;<br>
+A. &#x111;&#x1ED9;t bi&#x1EBF;n c&#x1EA5;u tr&#xFA;c NST. B. &#x111;&#x1ED9;t bi&#x1EBF;n s&#x1ED1; l&#x1B0;&#x1EE3;ng NST.<br>
+C. bi&#x1EBF;n d&#x1ECB; t&#x1ED5; h&#x1EE3;p. D. &#x111;&#x1ED9;t bi&#x1EBF;n gen.<br>
+C&#xE2;u 6: N&#x1ED9;i dung n&#xE0;o d&#x1B0;&#x1EDB;i &#x111;&#xE2;y ph&#x1EA3;n &#xE1;nh &#x111;&#xFA;ng thuy&#x1EBF;t ti&#x1EBF;n ho&#xE1; hi&#x1EC7;n &#x111;&#x1EA1;i?<br>
+A. N&#x1EBF;u qu&#x1EA7;n th&#x1EC3; &#x1EDF; tr&#x1EA1;ng th&#xE1;i c&#xE2;n b&#x1EB1;ng di truy&#x1EC1;n, t&#x1EE9;c l&#xE0; n&#xF3; &#x111;ang ti&#x1EBF;n ho&#xE1; m&#x1ED9;t c&#xE1;ch &#x1ED5;n &#x111;&#x1ECB;nh.<br>
+B. Lo&#xE0;i l&#xE0; &#x111;&#x1A1;n v&#x1ECB; ti&#x1EBF;n ho&#xE1; c&#x1A1; b&#x1EA3;n.<br>
+C. N&#x1EBF;u qu&#x1EA7;n th&#x1EC3; kh&#xF4;ng &#x1EDF; tr&#x1EA1;ng th&#xE1;i c&#xE2;n b&#x1EB1;ng di truy&#x1EC1;n, t&#x1EE9;c l&#xE0; n&#xF3; &#x111;ang ti&#x1EBF;n ho&#xE1;.<br>
+D. C&#xE1;c c&#xE1; th&#x1EC3; l&#xE0; &#x111;&#x1A1;n v&#x1ECB; ti&#x1EBF;n ho&#xE1; c&#x1A1; b&#x1EA3;n.<br>
+C&#xE2;u 7: N&#x1ED9;i dung c&#x1A1; b&#x1EA3;n c&#x1EE7;a qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1; nh&#x1ECF; theo quan ni&#x1EC7;m ti&#x1EBF;n ho&#xE1; t&#x1ED5;ng h&#x1EE3;p hi&#x1EC7;n &#x111;&#x1EA1;i l&#xE0; g&#xEC;?<br>
+A. Qu&#xE1; tr&#xEC;nh h&#xEC;nh th&#xE0;nh c&#xE1;c qu&#x1EA7;n th&#x1EC3; giao ph&#x1ED1;i t&#x1EEB; m&#x1ED9;t qu&#x1EA7;n th&#x1EC3; g&#x1ED1;c ban &#x111;&#x1EA7;u.<br>
+B. Qu&#xE1; tr&#xEC;nh t&#xED;ch lu&#x1EF9; bi&#x1EBF;n d&#x1ECB; c&#xF3; l&#x1EE3;i, &#x111;&#xE0;o th&#x1EA3;i bi&#x1EBF;n d&#x1ECB; c&#xF3; h&#x1EA1;i d&#x1B0;&#x1EDB;i t&#xE1;c d&#x1EE5;ng<br>
+c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+C. Qu&#xE1; tr&#xEC;nh bi&#x1EBF;n &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; c&#xE1;c alen v&#xE0; th&#xE0;nh ph&#x1EA7;n ki&#x1EC3;u gen c&#x1EE7;a qu&#x1EA7;n th&#x1EC3;.<br>
+D. Qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1; &#x1EDF; c&#x1EA5;p ph&#xE2;n t&#x1EED;.<br>
+C&#xE2;u 8: Nh&#x1EEF;ng bi&#x1EBF;n &#x111;&#x1ED5;i trong qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1; nh&#x1ECF; di&#x1EC5;n ra theo tr&#xEC;nh t&#x1EF1; n&#xE0;o?<br>
+A. Ph&#xE1;t sinh &#x111;&#x1ED9;t bi&#x1EBF;n --&gt; s&#x1EF1; ph&#xE1;t t&#xE1;n &#x111;&#x1ED9;t bi&#x1EBF;n --&gt; ch&#x1ECD;n l&#x1ECD;c c&#xE1;c &#x111;&#x1ED9;t bi&#x1EBF;n c&#xF3; l&#x1EE3;i --&gt; c&#xE1;ch li sinh s&#x1EA3;n.<br>
+B. Ph&#xE1;t sinh &#x111;&#x1ED9;t bi&#x1EBF;n --&gt;c&#xE1;ch li sinh s&#x1EA3;n gi&#x1EEF;a qu&#x1EA7;n th&#x1EC3; &#x111;&#xE3; bi&#x1EBF;n &#x111;&#x1ED5;i v&#x1EDB;i qu&#x1EA7;n th&#x1EC3; g&#x1ED1;c--&gt;ph&#xE1;t t&#xE1;n &#x111;&#x1ED9;t bi&#x1EBF;n qua giao ph&#x1ED1;i --&gt;ch&#x1ECD;n l&#x1ECD;c c&#xE1;c &#x111;&#x1ED9;t bi&#x1EBF;n c&#xF3; l&#x1EE3;i.<br>
+C. Ph&#xE1;t t&#xE1;n &#x111;&#x1ED9;t bi&#x1EBF;n --&gt;ch&#x1ECD;n l&#x1ECD;c c&#xE1;c &#x111;&#x1ED9;t bi&#x1EBF;n c&#xF3; l&#x1EE3;i --&gt; c&#xE1;ch li sinh s&#x1EA3;n --&gt; ph&#xE1;t t&#xE1;n &#x111;&#x1ED9;t bi&#x1EBF;n qua giao ph&#x1ED1;i.<br>
+D. Ph&#xE1;t t&#xE1;n &#x111;&#x1ED9;t bi&#x1EBF;n --&gt; ch&#x1ECD;n l&#x1ECD;c c&#xE1;c &#x111;&#x1ED9;t bi&#x1EBF;n c&#xF3; l&#x1EE3;i --&gt;s&#x1EF1; ph&#xE1;t sinh &#x111;&#x1ED9;t bi&#x1EBF;n c&#xE1;ch li sinh s&#x1EA3;n.<br>
+C&#xE2;u 9: &#x110;&#x1EB7;c &#x111;i&#x1EC3;m n&#xE0;o sau &#x111;&#xE2;y kh&#xF4;ng &#x111;&#xFA;ng v&#x1EDB;i ti&#x1EBF;n ho&#xE1; nh&#x1ECF;?<br>
+A. Di&#x1EC5;n ra trong ph&#x1EA1;m vi c&#x1EE7;a m&#x1ED9;t lo&#xE0;i, v&#x1EDB;i quy m&#xF4; nh&#x1ECF;.<br>
+B. Di&#x1EC5;n ra trong th&#x1EDD;i gian l&#x1ECB;ch s&#x1EED; t&#x1B0;&#x1A1;ng &#x111;&#x1ED1;i ng&#x1EAF;n.<br>
+C. C&#xF3; th&#x1EC3; nghi&#xEA;n c&#x1EE9;u b&#x1EB1;ng th&#x1EF1;c nghi&#x1EC7;m.<br>
+D. Di&#x1EC5;n ra trong th&#x1EDD;i gian l&#x1ECB;ch s&#x1EED; r&#x1EA5;t l&#xE2;u d&#xE0;i.<br>
+C&#xE2;u 10: Ti&#x1EBF;n h&#xF3;a l&#x1EDB;n l&#xE0;<br>
+A. qu&#xE1; tr&#xEC;nh h&#xEC;nh th&#xE0;nh c&#xE1;c nh&#xF3;m ph&#xE2;n lo&#x1EA1;i nh&#x1B0; lo&#xE0;i, chi, h&#x1ECD;, b&#x1ED9;, l&#x1EDB;p, ng&#xE0;nh.<br>
+B. qu&#xE1; tr&#xEC;nh h&#xEC;nh th&#xE0;nh c&#xE1;c nh&#xF3;m ph&#xE2;n lo&#x1EA1;i nh&#x1B0; n&#xF2;i, lo&#xE0;i, chi, h&#x1ECD;, b&#x1ED9;, l&#x1EDB;p, ng&#xE0;nh.<br>
+C. qu&#xE1; tr&#xEC;nh h&#xEC;nh th&#xE0;nh c&#xE1;c nh&#xF3;m ph&#xE2;n lo&#x1EA1;i nh&#x1B0; lo&#xE0;i ph&#x1EE5;, chi, h&#x1ECD;, b&#x1ED9;, l&#x1EDB;p, ng&#xE0;nh.<br>
+D. qu&#xE1; tr&#xEC;nh h&#xEC;nh th&#xE0;nh c&#xE1;c nh&#xF3;m ph&#xE2;n lo&#x1EA1;i nh&#x1B0; chi, h&#x1ECD;, b&#x1ED9;, l&#x1EDB;p, ng&#xE0;nh.<br>
+C&#xE2;u 11: Ti&#x1EBF;n ho&#xE1; nh&#x1ECF; kh&#xE1;c v&#x1EDB;i ti&#x1EBF;n ho&#xE1; l&#x1EDB;n &#x1EDF; &#x111;&#x1EB7;c &#x111;i&#x1EC3;m n&#xE0;o?<br>
+A. ti&#x1EBF;n ho&#xE1; nh&#x1ECF; x&#x1EA3;y ra &#x1EDF; t&#x1EEB;ng c&#xE1; th&#x1EC3;, c&#xF2;n ti&#x1EBF;n ho&#xE1; l&#x1EDB;n x&#x1EA3;y ra &#x1EDF; m&#x1EE9;c lo&#xE0;i.<br>
+B. ti&#x1EBF;n ho&#xE1; nh&#x1ECF; ch&#x1EC9; x&#x1EA3;y ra &#x1EDF; m&#x1EE9;c ph&#xE2;n t&#x1EED;, c&#xF2;n ti&#x1EBF;n ho&#xE1; l&#x1EDB;n x&#x1EA3;y ra &#x1EDF; m&#x1EE9;c lo&#xE0;i.<br>
+C. ti&#x1EBF;n ho&#xE1; nh&#x1ECF; x&#x1EA3;y ra &#x1EDF; m&#x1EE9;c qu&#x1EA7;n th&#x1EC3;, c&#xF2;n ti&#x1EBF;n ho&#xE1; l&#x1EDB;n x&#x1EA3;y ra &#x1EDF; c&#xE1;c<br>
+&#x111;&#x1A1;n v&#x1ECB; ph&#xE2;n lo&#x1EA1;i tr&#xEA;n lo&#xE0;i.<br>
+D. ti&#x1EBF;n ho&#xE1; nh&#x1ECF; x&#x1EA3;y ra &#x1EDF; c&#xE1;c &#x111;&#x1A1;n v&#x1ECB; ph&#xE2;n lo&#x1EA1;i tr&#xEA;n lo&#xE0;i, c&#xF2;n ti&#x1EBF;n ho&#xE1; l&#x1EDB;n x&#x1EA3;y ra &#x1EDF; m&#x1EE9;c qu&#x1EA7;n th&#x1EC3;.<br>
+Ti&#x1EBF;n h&#xF3;a nh&#x1ECF; l&#xE0; qu&#xE1; tr&#xEC;nh bi&#x1EBF;n &#x111;&#x1ED5;i th&#xE0;nh ph&#x1EA7;n ki&#x1EC3;u gen, t&#x1EA7;n s&#x1ED1; alen c&#x1EE7;a qu&#x1EA7;n th&#x1EC3;; &#x111;&#x1B0;a &#x111;&#x1EBF;n h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i.Ti&#x1EBF;n h&#xF3;a nh&#x1ECF; di&#x1EC5;n ra trong ph&#x1EA1;m vi h&#x1EB9;p, th&#x1EDD;i gian ng&#x1EAF;n, c&#xF3; th&#x1EC3; nghi&#xEA;n c&#x1EE9;u b&#x1EB1;ng th&#x1EF1;c nghi&#x1EC7;m.<br>
+Ti&#x1EBF;n h&#xF3;a l&#x1EDB;n l&#xE0; qu&#xE1; tr&#xEC;nh h&#xEC;nh th&#xE0;nh c&#xE1;c nh&#xF3;m ph&#xE2;n lo&#x1EA1;i nh&#x1B0; chi, h&#x1ECD;, b&#x1ED9;, l&#x1EDB;p, ng&#xE0;nh.Ti&#x1EBF;n h&#xF3;a l&#x1EDB;n di&#x1EC5;n ra tr&#xEA;n quy m&#xF4; r&#x1ED9;ng, th&#x1EDD;i gian &#x111;&#x1ECB;a ch&#x1EA5;t d&#xE0;i, th&#x1B0;&#x1EDD;ng &#x111;&#x1B0;&#x1EE3;c nghi&#xEA;n c&#x1EE9;u gi&#xE1;n ti&#x1EBF;p qua c&#xE1;c t&#xE0;i li&#x1EC7;u c&#x1ED5; sinh v&#x1EAD;t h&#x1ECD;c.<br>
+C&#xE2;u 12: &#x110;&#x1EB7;c &#x111;i&#x1EC3;m n&#xE0;o kh&#xF4;ng ph&#x1EA3;i c&#x1EE7;a ti&#x1EBF;n ho&#xE1; l&#x1EDB;n?<br>
+A. Qu&#xE1; tr&#xEC;nh h&#xEC;nh th&#xE0;nh c&#xE1;c &#x111;&#x1A1;n v&#x1ECB; ph&#xE2;n lo&#x1EA1;i tr&#xEA;n lo&#xE0;i.<br>
+B. Di&#x1EC5;n ra tr&#xEA;n quy m&#xF4; r&#x1ED9;ng l&#x1EDB;n.<br>
+C. Qua th&#x1EDD;i gian &#x111;&#x1ECB;a ch&#x1EA5;t d&#xE0;i.<br>
+D. C&#xF3; th&#x1EC3; ti&#x1EBF;n h&#xE0;nh th&#x1EF1;c nghi&#x1EC7;m &#x111;&#x1B0;&#x1EE3;c.<br>
+C&#xE2;u 13: Nh&#xE2;n t&#x1ED1; ti&#x1EBF;n ho&#xE1; l&#xE0;m thay &#x111;&#x1ED5;i r&#x1EA5;t nh&#x1ECF; t&#x1EA7;n s&#x1ED1; t&#x1B0;&#x1A1;ng &#x111;&#x1ED1;i c&#x1EE7;a c&#xE1;c alen thu&#x1ED9;c m&#x1ED9;t gen l&#xE0;<br>
+A. &#x111;&#x1ED9;t bi&#x1EBF;n. B. bi&#x1EBF;n &#x111;&#x1ED9;ng di truy&#x1EC1;n.<br>
+C. ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n. D. di nh&#x1EAD;p gen.<br>
+C&#xE2;u 14: V&#xEC; sao n&#xF3;i qu&#xE1; tr&#xEC;nh &#x111;&#x1ED9;t bi&#x1EBF;n l&#xE0; nh&#xE2;n t&#x1ED1; ti&#x1EBF;n ho&#xE1; c&#x1A1; b&#x1EA3;n?<br>
+A. V&#xEC; t&#x1EA1;o ra m&#x1ED9;t &#xE1;p l&#x1EF1;c l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; c&#xE1;c alen trong qu&#x1EA7;n th&#x1EC3;.<br>
+B. V&#xEC; cung c&#x1EA5;p ngu&#x1ED3;n nguy&#xEA;n li&#x1EC7;u s&#x1A1; c&#x1EA5;p cho ti&#x1EBF;n ho&#xE1;.<br>
+C. V&#xEC; t&#x1EA7;n s&#x1ED1; &#x111;&#x1ED9;t bi&#x1EBF;n c&#x1EE7;a v&#x1ED1;n gen kh&#xE1; l&#x1EDB;n.<br>
+D. V&#xEC; l&#xE0; c&#x1A1; s&#x1EDF; &#x111;&#x1EC3; t&#x1EA1;o bi&#x1EBF;n d&#x1ECB; t&#x1ED5; h&#x1EE3;p.<br>
+C&#xE2;u 15: Vai tr&#xF2; ch&#x1EE7; y&#x1EBF;u c&#x1EE7;a qu&#xE1; tr&#xEC;nh &#x111;&#x1ED9;t bi&#x1EBF;n &#x111;&#x1ED1;i v&#x1EDB;i qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1; l&#xE0;<br>
+A. cung c&#x1EA5;p ngu&#x1ED3;n nguy&#xEA;n li&#x1EC7;u s&#x1A1; c&#x1EA5;p cho ti&#x1EBF;n ho&#xE1;.<br>
+B. t&#x1EA7;n s&#x1ED1; &#x111;&#x1ED9;t bi&#x1EBF;n c&#x1EE7;a v&#x1ED1;n gen kh&#xE1; l&#x1EDB;n.<br>
+C. t&#x1EA1;o ra m&#x1ED9;t &#xE1;p l&#x1EF1;c l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; alen trong qu&#x1EA7;n th&#x1EC3;.<br>
+D. c&#x1A1; s&#x1EDF; &#x111;&#x1EC3; t&#x1EA1;o bi&#x1EBF;n d&#x1ECB; t&#x1ED5; h&#x1EE3;p.<br>
+C&#xE2;u 16: &#x110;&#x1EB7;c &#x111;i&#x1EC3;m n&#xE0;o sau &#x111;&#xE2;y c&#x1EE7;a &#x111;&#x1ED9;t bi&#x1EBF;n gen l&#xE0;m cho n&#xF3; c&#xF3; vai tr&#xF2; quan tr&#x1ECD;ng trong ti&#x1EBF;n ho&#xE1;?<br>
+A. &#x110;&#x1ED9;t bi&#x1EBF;n gen l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; alen c&#x1EE7;a qu&#x1EA7;n th&#x1EC3;.<br>
+B. &#x110;&#x1ED9;t bi&#x1EBF;n gen l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; ki&#x1EC3;u gen c&#x1EE7;a qu&#x1EA7;n th&#x1EC3;.<br>
+C. &#x110;&#x1ED9;t bi&#x1EBF;n gen l&#xE0;m thay &#x111;&#x1ED5;i th&#xE0;nh ph&#x1EA7;n ki&#x1EC3;u gen c&#x1EE7;a qu&#x1EA7;n th&#x1EC3;.<br>
+D. &#x110;&#x1ED9;t bi&#x1EBF;n gen t&#x1EA1;o ra c&#xE1;c alen m&#x1EDB;i cho qu&#x1EA7;n th&#x1EC3;.<br>
+C&#xE2;u 17: &#x110;i&#x1EC1;u n&#xE0;o kh&#xF4;ng &#x111;&#xFA;ng khi n&#xF3;i &#x111;&#x1ED9;t bi&#x1EBF;n gen &#x111;&#x1B0;&#x1EE3;c xem l&#xE0; ngu&#x1ED3;n nguy&#xEA;n li&#x1EC7;u ch&#x1EE7; y&#x1EBF;u c&#x1EE7;a qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1;?<br>
+A. Lu&#xF4;n t&#x1EA1;o ra &#x111;&#x1B0;&#x1EE3;c t&#x1ED5; h&#x1EE3;p gen th&#xED;ch nghi.<br>
+B. &#xCD;t &#x1EA3;nh h&#x1B0;&#x1EDF;ng nghi&#xEA;m tr&#x1ECD;ng &#x111;&#x1EBF;n s&#x1EE9;c s&#x1ED1;ng v&#xE0; s&#x1EF1; sinh s&#x1EA3;n c&#x1EE7;a c&#x1A1; th&#x1EC3;.<br>
+C. M&#x1EB7;c d&#xF9; &#x111;a s&#x1ED1; l&#xE0; c&#xF3; h&#x1EA1;i, nh&#x1B0;ng trong nh&#x1EEF;ng &#x111;i&#x1EC1;u ki&#x1EC7;n m&#x1EDB;i ho&#x1EB7;c g&#x1EB7;p<br>
+t&#x1ED5; h&#x1EE3;p gen th&#xED;ch h&#x1EE3;p n&#xF3; c&#xF3; th&#x1EC3; c&#xF3; l&#x1EE3;i.<br>
+D. Ph&#x1ED5; bi&#x1EBF;n h&#x1A1;n &#x111;&#x1ED9;t bi&#x1EBF;n nhi&#x1EC5;m s&#x1EAF;c th&#x1EC3;.<br>
+C&#xE2;u 18: C&#xE1;c nh&#xE2;n t&#x1ED1; ti&#x1EBF;n ho&#xE1; l&#xE0;m phong ph&#xFA; v&#x1ED1;n gen c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; l&#xE0;<br>
+A. &#x111;&#x1ED9;t bi&#x1EBF;n, di nh&#x1EAD;p gen. B. &#x111;&#x1ED9;t bi&#x1EBF;n, bi&#x1EBF;n &#x111;&#x1ED9;ng di truy&#x1EC1;n.<br>
+C. di nh&#x1EAD;p gen, CLTN. D. giao ph&#x1ED1;i kh&#xF4;ng ng&#x1EAB;u nhi&#xEA;n, CLTN.<br>
+C&#xE2;u 19: Nh&#xE2;n t&#x1ED1; ti&#x1EBF;n ho&#xE1; l&#xE0;m thay &#x111;&#x1ED5;i &#x111;&#x1ED3;ng th&#x1EDD;i t&#x1EA7;n s&#x1ED1; t&#x1B0;&#x1A1;ng &#x111;&#x1ED1;i c&#x1EE7;a c&#xE1;c alen thu&#x1ED9;c m&#x1ED9;t gen c&#x1EE7;a c&#x1EA3; hai qu&#x1EA7;n th&#x1EC3; l&#xE0;<br>
+A. &#x111;&#x1ED9;t bi&#x1EBF;n. B. di nh&#x1EAD;p gen.<br>
+C. bi&#x1EBF;n &#x111;&#x1ED9;ng di truy&#x1EC1;n. D. ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+C&#xE2;u 20: Theo quan ni&#x1EC7;m hi&#x1EC7;n &#x111;&#x1EA1;i, &#x111;i&#x1EC1;u ki&#x1EC7;n ngo&#x1EA1;i c&#x1EA3;nh c&#xF3; vai tr&#xF2; l&#xE0;<br>
+A. nh&#xE2;n t&#x1ED1; l&#xE0;m ph&#xE1;t sinh c&#xE1;c bi&#x1EBF;n d&#x1ECB; kh&#xF4;ng di truy&#x1EC1;n.<br>
+B. nh&#xE2;n t&#x1ED1; ch&#xED;nh c&#x1EE7;a qu&#xE1; tr&#xEC;nh ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+C. nguy&#xEA;n nh&#xE2;n ch&#xED;nh l&#xE0;m cho c&#xE1;c lo&#xE0;i bi&#x1EBF;n &#x111;&#x1ED5;i d&#x1EA7;n d&#x1EA7;n v&#xE0; li&#xEA;n t&#x1EE5;c.<br>
+D. v&#x1EEB;a l&#xE0; c&#xE1;c nh&#xE2;n t&#x1ED1; l&#xE0;m ph&#xE1;t sinh &#x111;&#x1ED9;t bi&#x1EBF;n, v&#x1EEB;a l&#xE0; m&#xF4;i tr&#x1B0;&#x1EDD;ng c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+C&#xE2;u 21: Theo thuy&#x1EBF;t ti&#x1EBF;n ho&#xE1; hi&#x1EC7;n &#x111;&#x1EA1;i, &#x111;&#x1A1;n v&#x1ECB; ti&#x1EBF;n ho&#xE1; c&#x1A1; s&#x1EDF; &#x1EDF; c&#xE1;c lo&#xE0;i giao ph&#x1ED1;i l&#xE0;<br>
+A. c&#xE1; th&#x1EC3;. B. qu&#x1EA7;n th&#x1EC3;. C. lo&#xE0;i. D. N&#xF2;i.<br>
+C&#xE2;u 22: K&#x1EBF;t qu&#x1EA3; c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n theo quan &#x111;i&#x1EC3;m hi&#x1EC7;n &#x111;&#x1EA1;i l&#xE0;<br>
+A. S&#x1EF1; s&#x1ED1;ng s&#xF3;t c&#x1EE7;a nh&#x1EEF;ng c&#xE1; th&#x1EC3; th&#xED;ch nghi nh&#x1EA5;t.<br>
+B. S&#x1EF1; ph&#xE1;t tri&#x1EC3;n v&#xE0; sinh s&#x1EA3;n &#x1B0;u th&#x1EBF; c&#x1EE7;a nh&#x1EEF;ng ki&#x1EC3;u gen th&#xED;ch nghi h&#x1A1;n.<br>
+C. S&#x1EF1; s&#x1ED1;ng s&#xF3;t c&#x1EE7;a nh&#x1EEF;ng c&#xE1; th&#x1EC3; sinh s&#x1EA3;n t&#x1ED1;t nh&#x1EA5;t.<br>
+D. S&#x1EF1; s&#x1ED1;ng s&#xF3;t c&#x1EE7;a nh&#x1EEF;ng c&#xE1; th&#x1EC3; ph&#xE1;t tri&#x1EC3;n m&#x1EA1;nh nh&#x1EA5;t.<br>
+C&#xE2;u 23: Vai tr&#xF2; ch&#x1EE7; y&#x1EBF;u c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n trong ti&#x1EBF;n ho&#xE1; nh&#x1ECF; l&#xE0;<br>
+A. l&#xE0;m cho t&#x1EA7;n s&#x1ED1; t&#x1B0;&#x1A1;ng &#x111;&#x1ED1;i c&#x1EE7;a c&#xE1;c alen trong m&#x1ED7;i gen bi&#x1EBF;n &#x111;&#x1ED5;i<br>
+theo h&#x1B0;&#x1EDB;ng x&#xE1;c &#x111;&#x1ECB;nh.<br>
+B. quy &#x111;&#x1ECB;nh chi&#x1EC1;u h&#x1B0;&#x1EDB;ng v&#xE0; nh&#x1ECB;p &#x111;&#x1ED9; bi&#x1EBF;n &#x111;&#x1ED5;i th&#xE0;nh ph&#x1EA7;n ki&#x1EC3;u gen c&#x1EE7;a<br>
+qu&#x1EA7;n th&#x1EC3;,&#x111;&#x1ECB;nh h&#x1B0;&#x1EDB;ng qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1;.<br>
+C. ph&#xE2;n ho&#xE1; kh&#x1EA3; n&#x103;ng sinh s&#x1EA3;n c&#x1EE7;a nh&#x1EEF;ng ki&#x1EC3;u gen kh&#xE1;c nhau trong qu&#x1EA7;n th&#x1EC3;.<br>
+D. ph&#xE2;n ho&#xE1; kh&#x1EA3; n&#x103;ng s&#x1ED1;ng s&#xF3;t c&#x1EE7;a c&#xE1;c c&#xE1; th&#x1EC3; th&#xED;ch nghi nh&#x1EA5;t.<br>
+C&#xE2;u 24: M&#x1EB7;t ch&#x1EE7; y&#x1EBF;u (th&#x1EF1;c ch&#x1EA5;t) c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n l&#xE0;<br>
+A. duy tr&#xEC; ki&#x1EC3;u gen ph&#x1EA3;n &#x1EE9;ng th&#xE0;nh nh&#x1EEF;ng ki&#x1EC3;u h&#xEC;nh c&#xF3; l&#x1EE3;i &#x111;&#x1ED1;i v&#x1EDB;i m&#xF4;i tr&#x1B0;&#x1EDD;ng.<br>
+B. &#x111;&#x1EA3;m b&#x1EA3;o s&#x1EF1; s&#x1ED1;ng s&#xF3;t c&#x1EE7;a c&#xE1; th&#x1EC3;.<br>
+C. t&#x1EA1;o ra nh&#x1EEF;ng c&#xE1; th&#x1EC3; kho&#x1EBB; m&#x1EA1;nh, sinh tr&#x1B0;&#x1EDF;ng ph&#xE1;t tri&#x1EC3;n t&#x1ED1;t, ch&#x1ED1;ng ch&#x1ECB;u &#x111;&#x1B0;&#x1EE3;c c&#xE1;c &#x111;i&#x1EC1;u ki&#x1EC7;n b&#x1EA5;t l&#x1EE3;i.<br>
+D. ph&#xE2;n ho&#xE1; kh&#x1EA3; n&#x103;ng sinh s&#x1EA3;n c&#x1EE7;a nh&#x1EEF;ng ki&#x1EC3;u gen kh&#xE1;c nhau trong qu&#x1EA7;n th&#x1EC3;(k&#x1EBF;t &#x111;&#xF4;i giao ph&#x1ED1;i, kh&#x1EA3; n&#x103;ng &#x111;&#x1EBB; con, &#x111;&#x1ED9; m&#x1EAF;n &#x111;&#x1EBB;).<br>
+Th&#x1EF1;c ch&#x1EA5;t c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n theo quan ni&#x1EC7;m hi&#x1EC7;n &#x111;&#x1EA1;i l&#xE0; ph&#xE2;n ho&#xE1; kh&#x1EA3; n&#x103;ng sinh s&#x1EA3;n c&#x1EE7;a nh&#x1EEF;ng ki&#x1EC3;u gen kh&#xE1;c nhau trong qu&#x1EA7;n th&#x1EC3;. N&#x1EBF;u ch&#x1EC9; s&#x1ED1;ng s&#xF3;t m&#xE0; kh&#xF4;ng sinh s&#x1EA3;n &#x111;&#x1B0;&#x1EE3;c, ngh&#x129;a l&#xE0; kh&#xF4;ng &#x111;&#xF3;ng g&#xF3;p v&#xE0;o ki&#x1EC3;u gen c&#x1EE7;a qu&#x1EA7;n th&#x1EC3;<br>
+C&#xE2;u 25: Ph&#xE1;t bi&#x1EC3;u n&#xE0;o d&#x1B0;&#x1EDB;i &#x111;&#xE2;y v&#x1EC1; t&#xE1;c &#x111;&#x1ED9;ng c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n l&#xE0; kh&#xF4;ng &#x111;&#xFA;ng?<br>
+A. Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n t&#xE1;c &#x111;&#x1ED9;ng &#x111;&#x1ED1;i v&#x1EDB;i to&#xE0;n b&#x1ED9; ki&#x1EC3;u gen.<br>
+B. Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n kh&#xF4;ng t&#xE1;c &#x111;&#x1ED9;ng &#x111;&#x1ED1;i v&#x1EDB;i t&#x1EEB;ng gen ri&#xEA;ng r&#x1EBD;.<br>
+C. Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n t&#xE1;c &#x111;&#x1ED9;ng &#x111;&#x1ED1;i v&#x1EDB;i c&#x1EA3; qu&#x1EA7;n th&#x1EC3;.<br>
+D. Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n kh&#xF4;ng t&#xE1;c &#x111;&#x1ED9;ng &#x111;&#x1ED1;i v&#x1EDB;i c&#xE1; th&#x1EC3; ri&#xEA;ng r&#x1EBD;.<br>
+C&#xE2;u 26: Nh&#xE2;n t&#x1ED1; c&#xF3; th&#x1EC3; l&#xE0;m thay &#x111;&#x1ED5;i nhanh t&#x1EA7;n s&#x1ED1; t&#x1B0;&#x1A1;ng &#x111;&#x1ED1;i c&#x1EE7;a c&#xE1;c alen v&#x1EC1; m&#x1ED9;t gen n&#xE0;o &#x111;&#xF3; trong qu&#x1EA7;n th&#x1EC3; nhanh nh&#x1EA5;t?<br>
+A. Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n. B. &#x110;&#x1ED9;t bi&#x1EBF;n gen.<br>
+C. Qu&#xE1; tr&#xEC;nh giao ph&#x1ED1;i. D. C&#xE1;ch li.<br>
+C&#xE2;u 27: T&#xE1;c &#x111;&#x1ED9;ng c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c s&#x1EBD; &#x111;&#xE0;o th&#x1EA3;i m&#x1ED9;t lo&#x1EA1;i alen kh&#x1ECF;i qu&#x1EA7;n th&#x1EC3; qua m&#x1ED9;t th&#x1EBF; h&#x1EC7; l&#xE0;<br>
+A. ch&#x1ECD;n l&#x1ECD;c ch&#x1ED1;ng l&#x1EA1;i th&#x1EC3; d&#x1ECB; h&#x1EE3;p. B. ch&#x1ECD;n l&#x1ECD;c ch&#x1ED1;ng l&#x1EA1;i th&#x1EC3; &#x111;&#x1ED3;ng h&#x1EE3;p.<br>
+C. ch&#x1ECD;n l&#x1ECD;c ch&#x1ED1;ng l&#x1EA1;i alen l&#x1EB7;n. D. ch&#x1ECD;n l&#x1ECD;c ch&#x1ED1;ng l&#x1EA1;i alen tr&#x1ED9;i.<br>
+C&#xE2;u 28: T&#xE1;c &#x111;&#x1ED9;ng c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c s&#x1EBD; l&#xE0;m gi&#x1EA3;m t&#x1EA7;n s&#x1ED1; m&#x1ED9;t lo&#x1EA1;i alen kh&#x1ECF;i qu&#x1EA7;n th&#x1EC3; nh&#x1B0;ng r&#x1EA5;t ch&#x1EAD;m l&#xE0;<br>
+A. ch&#x1ECD;n l&#x1ECD;c ch&#x1ED1;ng l&#x1EA1;i th&#x1EC3; d&#x1ECB; h&#x1EE3;p. B. ch&#x1ECD;n l&#x1ECD;c ch&#x1ED1;ng l&#x1EA1;i th&#x1EC3; &#x111;&#x1ED3;ng h&#x1EE3;p.<br>
+C. ch&#x1ECD;n l&#x1ECD;c ch&#x1ED1;ng l&#x1EA1;i alen l&#x1EB7;n. D. ch&#x1ECD;n l&#x1ECD;c ch&#x1ED1;ng l&#x1EA1;i alen tr&#x1ED9;i.<br>
+C&#xE2;u 29: T&#xE1;c &#x111;&#x1ED9;ng c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c s&#x1EBD; d&#x1EAB;n &#x111;&#x1EBF;n s&#x1EF1; &#x111;&#xE0;o th&#x1EA3;i m&#x1ED9;t lo&#x1EA1;i alen kh&#x1ECF;i qu&#x1EA7;n th&#x1EC3; nh&#x1B0;ng kh&#xF4;ng d&#x1EF1; &#x111;o&#xE1;n &#x111;&#x1B0;&#x1EE3;c lo&#x1EA1;i alen n&#xE0;o b&#x1ECB; &#x111;&#xE0;o th&#x1EA3;i l&#xE0;<br>
+A. ch&#x1ECD;n l&#x1ECD;c ch&#x1ED1;ng l&#x1EA1;i th&#x1EC3; d&#x1ECB; h&#x1EE3;p. B. ch&#x1ECD;n l&#x1ECD;c ch&#x1ED1;ng l&#x1EA1;i th&#x1EC3; &#x111;&#x1ED3;ng h&#x1EE3;p.<br>
+C. ch&#x1ECD;n l&#x1ECD;c ch&#x1ED1;ng l&#x1EA1;i alen l&#x1EB7;n. D. ch&#x1ECD;n l&#x1ECD;c ch&#x1ED1;ng l&#x1EA1;i alen tr&#x1ED9;i.<br>
+C&#xE2;u 30: Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n t&#xE1;c &#x111;&#x1ED9;ng &#x111;&#x1EBF;n sinh v&#x1EAD;t nh&#x1B0; th&#x1EBF; n&#xE0;o?<br>
+A. T&#xE1;c &#x111;&#x1ED9;ng tr&#x1EF1;c ti&#x1EBF;p v&#xE0;o c&#xE1;c alen. B. T&#xE1;c &#x111;&#x1ED9;ng tr&#x1EF1;c ti&#x1EBF;p v&#xE0;o ki&#x1EC3;u h&#xEC;nh.<br>
+C. T&#xE1;c &#x111;&#x1ED9;ng tr&#x1EF1;c ti&#x1EBF;p v&#xE0;o ki&#x1EC3;u gen. D. T&#xE1;c &#x111;&#x1ED9;ng nhanh &#x111;&#x1ED1;i v&#x1EDB;i gen l&#x1EB7;n.</p>
+<p>C&#xE2;u 3 1: Nh&#xE2;n t&#x1ED1; ti&#x1EBF;n h&#xF3;a c&#x1A1; b&#x1EA3;n nh&#x1EA5;t l&#xE0;:<br>
+A. Bi&#x1EBF;n &#x111;&#x1ED9;ng di truy&#x1EC1;n<br>
+B. S&#x1EF1; ph&#xE2;n li t&#xED;nh tr&#x1EA1;ng<br>
+C. Qu&#xE1; tr&#xEC;nh &#x111;&#x1ED9;t bi&#x1EBF;n<br>
+D. Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+v&#xEC; trong c&#xE1;c nh&#xE2;n t&#x1ED1; ti&#x1EBF;n h&#xF3;a, ch&#x1EC9; c&#xF3; CLTN l&#xE0; nh&#xE2;n t&#x1ED1; t&#xE1;c &#x111;&#x1ED9;ng c&#xF3; &#x111;&#x1ECB;nh h&#x1B0;&#x1EDB;ng l&#xE0;m cho ti&#x1EBF;n h&#xF3;a di&#x1EC5;n ra theo m&#x1ED9;t h&#x1B0;&#x1EDB;ng x&#xE1;c &#x111;&#x1ECB;nh gi&#xFA;p sinh gi&#x1EDB;i c&#xF3; s&#x1EF1; ti&#x1EBF;n h&#xF3;a li&#xEA;n t&#x1EE5;c theo h&#x1B0;&#x1EDB;ng x&#xE1;c &#x111;&#x1ECB;nh, hi&#x1EC7;u qu&#x1EA3; h&#x1A1;n h&#x1EB3;n c&#xE1;c nh&#xE2;n t&#x1ED1; kh&#xE1;c.<br>
+C&#xE2;u 32: Vai tr&#xF2; ch&#x1EE7; y&#x1EBF;u c&#x1EE7;a &#x111;&#x1ED9;t bi&#x1EBF;n &#x111;&#x1ED1;i v&#x1EDB;i ti&#x1EBF;n h&#xF3;a l&#xE0;:<br>
+A. L&#xE0;m xu&#x1EA5;t hi&#x1EC7;n nh&#x1EEF;ng d&#x1EA1;ng m&#x1EDB;i trong n&#xF2;i.<br>
+B. Cung c&#x1EA5;p nguy&#xEA;n li&#x1EC7;u cho qu&#xE1; tr&#xEC;nh ch&#x1ECD;n l&#x1ECD;c.<br>
+C. C&#xF3; h&#x1EA1;i, c&#xF3; l&#x1EE3;i ho&#x1EB7;c trung t&#xED;nh<br>
+D. &#x110;&#x1ED9;t bi&#x1EBF;n NST c&#xF3; vai tr&#xF2; quan tr&#x1ECD;ng h&#x1A1;n &#x111;&#x1ED9;t bi&#x1EBF;n gene.<br>
+C&#xE2;u 33: &#x110;&#x1ED9;t bi&#x1EBF;n gene l&#xE0; ngu&#x1ED3;n nguy&#xEA;n li&#x1EC7;u s&#x1A1; c&#x1EA5;p cho qu&#xE1; tr&#xEC;nh ti&#x1EBF;n h&#xF3;a v&#xEC;:<br>
+A. t&#x1EA1;o ra c&#xE1;c ki&#x1EC3;u h&#xEC;nh m&#x1EDB;i.<br>
+B. t&#x1EA1;o ra c&#xE1;c ki&#x1EC3;u gene m&#x1EDB;i.<br>
+C. t&#x1EA1;o ra c&#xE1;c allele m&#x1EDB;i.<br>
+D. t&#x1EA1;o ra c&#xE1;c v&#x1ED1;n gene m&#x1EDB;i.<br>
+C&#xE2;u 34: Tuy c&#xF3; t&#x1EA7;n s&#x1ED1; th&#x1EA5;p, nh&#x1B0;ng &#x111;&#x1ED9;t bi&#x1EBF;n gene th&#x1B0;&#x1EDD;ng xuy&#xEA;n xu&#x1EA5;t hi&#x1EC7;n trong qu&#x1EA7;n th&#x1EC3; v&#xEC;:<br>
+A. Gene &#xED;t c&#xF3; &#x111;&#x1ED9; b&#x1EC1;n so v&#x1EDB;i NST.<br>
+B. &#x110;&#x1ED9;t bi&#x1EBF;n gene hay xu&#x1EA5;t hi&#x1EC7;n trong c&#x1A1; ch&#x1EBF; t&#xE1;i sinh ADN.<br>
+C. S&#x1ED1; l&#x1B0;&#x1EE3;ng gene trong qu&#x1EA7;n th&#x1EC3; qu&#xE1; l&#x1EDB;n.<br>
+D. Qua nguy&#xEA;n ph&#xE2;n th&#x1B0;&#x1EDD;ng xuy&#xEA;n xu&#x1EA5;t hi&#x1EC7;n &#x111;&#x1ED9;t bi&#x1EBF;n gene.<br>
+C&#xE2;u 35: Nh&#x1EEF;ng nh&#xE2;n t&#x1ED1; t&#x1EA1;o ra ngu&#x1ED3;n nguy&#xEA;n li&#x1EC7;u cho qu&#xE1; tr&#xEC;nh ti&#x1EBF;n h&#xF3;a l&#xE0;:<br>
+A. Giao ph&#x1ED1;i v&#xE0; ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+B. Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n v&#xE0; di - nh&#x1EAD;p gene.<br>
+C. &#x110;&#x1ED9;t bi&#x1EBF;n, ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+D. &#x110;&#x1ED9;t bi&#x1EBF;n v&#xE0; giao ph&#x1ED1;i.<br>
+C&#xE2;u3 6: Nh&#xE2;n t&#x1ED1; n&#xE0;o d&#x1B0;&#x1EDB;i &#x111;&#xE2;y kh&#xF4;ng ph&#x1EA3;i l&#xE0; nh&#xE2;n t&#x1ED1; ti&#x1EBF;n ho&#xE1;?<br>
+A. &#x110;&#x1ED9;t bi&#x1EBF;n.<br>
+B. Ch&#x1ECD;n l&#x1ECD;c nh&#xE2;n t&#x1EA1;o.<br>
+C. Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+D. Giao ph&#x1ED1;i kh&#xF4;ng ng&#x1EAB;u nhi&#xEA;n.<br>
+C&#xE2;u 37: Nh&#xE2;n t&#x1ED1; ti&#x1EBF;n ho&#xE1; l&#xE0; g&#xEC;?<br>
+A. L&#xE0; nh&#xE2;n t&#x1ED1; l&#xE0;m thay &#x111;&#x1ED5;i th&#xE0;nh ph&#x1EA7;n ki&#x1EC3;u gene c&#x1EE7;a qu&#x1EA7;n th&#x1EC3;.<br>
+B. L&#xE0; nh&#xE2;n t&#x1ED1; l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; allele v&#xE0; th&#xE0;nh ph&#x1EA7;n ki&#x1EC3;u gene c&#x1EE7;a qu&#x1EA7;n th&#x1EC3;.<br>
+C. L&#xE0; nh&#xE2;n t&#x1ED1; l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; allele c&#x1EE7;a qu&#x1EA7;n th&#x1EC3;.<br>
+D. L&#xE0; nh&#xE2;n t&#x1ED1; kh&#xF4;ng l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; allele v&#xE0; th&#xE0;nh ph&#x1EA7;n ki&#x1EC3;u gene c&#x1EE7;a qu&#x1EA7;n th&#x1EC3;<br>
+C&#xE2;u 38: Nh&#xE2;n t&#x1ED1; l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; ki&#x1EC3;u gene nh&#x1B0;ng kh&#xF4;ng l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; allele c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; l&#xE0;:<br>
+A. di nh&#x1EAD;p gene. B. &#x111;&#x1ED9;t bi&#x1EBF;n. C. ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n. D. giao ph&#x1ED1;i kh&#xF4;ng ng&#x1EAB;u nhi&#xEA;n.<br>
+C&#xE2;u 39: C&#xE1;c nh&#xE2;n t&#x1ED1; ti&#x1EBF;n ho&#xE1; bao g&#x1ED3;m:<br>
+A. Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n, y&#x1EBF;u t&#x1ED1; ng&#x1EAB;u nhi&#xEA;n, di nh&#x1EAD;p gene, &#x111;&#x1ED9;t bi&#x1EBF;n v&#xE0; giao ph&#x1ED1;i kh&#xF4;ng ng&#x1EAB;u nhi&#xEA;n.<br>
+B. Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n, y&#x1EBF;u t&#x1ED1; ng&#x1EAB;u nhi&#xEA;n, &#x111;&#x1ED9;t bi&#x1EBF;n.<br>
+C. Di nh&#x1EAD;p gene, giao ph&#x1ED1;i kh&#xF4;ng ng&#x1EAB;u nhi&#xEA;n, ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n, &#x111;&#x1ED9;t bi&#x1EBF;n.<br>
+D. Y&#x1EBF;u t&#x1ED1; ng&#x1EAB;u nhi&#xEA;n, di nh&#x1EAD;p gene, &#x111;&#x1ED9;t bi&#x1EBF;n.<br>
+C&#xE2;u 40: &#x110;i&#x1EC1;u n&#xE0;o sau &#x111;&#xE2;y kh&#xF4;ng &#x111;&#xFA;ng khi n&#xF3;i v&#x1EC1; vai tr&#xF2;, t&#xE1;c d&#x1EE5;ng c&#x1EE7;a qu&#xE1; tr&#xEC;nh giao ph&#x1ED1;i ng&#x1EAB;u nhi&#xEA;n?<br>
+A. Ph&#xE1;t t&#xE1;n &#x111;&#x1ED9;t bi&#x1EBF;n trong qu&#x1EA7;n th&#x1EC3;, trung h&#xF2;a t&#xED;nh c&#xF3; h&#x1EA1;i c&#x1EE7;a &#x111;&#x1ED9;t bi&#x1EBF;n<br>
+B. T&#x1EA1;o ra v&#xF4; s&#x1ED1; c&#xE1;c d&#x1EA1;ng bi&#x1EBF;n d&#x1ECB; t&#x1ED5; h&#x1EE3;p<br>
+C. L&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; c&#xE1;c allele trong qu&#x1EA7;n th&#x1EC3;<br>
+D. T&#x1EA1;o ra nh&#x1EEF;ng t&#x1ED5; h&#x1EE3;p gene th&#xED;ch nghi<br>
+C&#xE2;u 41: V&#xEC; sao qu&#xE1; tr&#xEC;nh giao ph&#x1ED1;i ng&#x1EAB;u nhi&#xEA;n ch&#x1B0;a &#x111;&#x1B0;&#x1EE3;c xem l&#xE0; nh&#xE2;n t&#x1ED1; ti&#x1EBF;n h&#xF3;a, v&#xEC;<br>
+A. t&#x1EA1;o ra tr&#x1EA1;ng th&#xE1;i c&#xE2;n b&#x1EB1;ng c&#x1EE7;a qu&#x1EA7;n th&#x1EC3;<br>
+B. g&#xF3;p ph&#x1EA7;n t&#x1EA1;o ra nh&#x1EEF;ng t&#x1ED5; h&#x1EE3;p gene th&#xED;ch nghi.<br>
+C. trung h&#xF2;a t&#xED;nh c&#xF3; h&#x1EA1;i c&#x1EE7;a &#x111;&#x1ED9;t bi&#x1EBF;n<br>
+D. t&#x1EA1;o ra v&#xF4; s&#x1ED1; bi&#x1EBF;n d&#x1ECB; t&#x1ED5; h&#x1EE3;p<br>
+C&#xE2;u42: C&#xE1;c nh&#xE2;n t&#x1ED1; c&#xF3; vai tr&#xF2; cung c&#x1EA5;p nguy&#xEA;n li&#x1EC7;u cho ti&#x1EBF;n h&#xF3;a l&#xE0;:<br>
+A. Qu&#xE1; tr&#xEC;nh giao ph&#x1ED1;i v&#xE0; CLTN<br>
+B. Qu&#xE1; tr&#xEC;nh &#x111;&#x1ED9;t bi&#x1EBF;n v&#xE0; c&#xE1;c c&#x1A1; ch&#x1EBF; c&#xE1;ch li<br>
+C. Qu&#xE1; tr&#xEC;nh &#x111;&#x1ED9;t bi&#x1EBF;n v&#xE0; bi&#x1EBF;n &#x111;&#x1ED9;ng di truy&#x1EC1;n<br>
+D. Qu&#xE1; tr&#xEC;nh &#x111;&#x1ED9;t bi&#x1EBF;n v&#xE0; qu&#xE1; tr&#xEC;nh giao ph&#x1ED1;i<br>
+C&#xE2;u 43: CLTN t&#xE1;c &#x111;&#x1ED9;ng nh&#x1B0; th&#x1EBF; n&#xE0;o v&#xE0;o sinh v&#x1EAD;t?<br>
+A. T&#xE1;c &#x111;&#x1ED9;ng tr&#x1EF1;c ti&#x1EBF;p v&#xE0;o ki&#x1EC3;u h&#xEC;nh<br>
+B. T&#xE1;c &#x111;&#x1ED9;ng tr&#x1EF1;c ti&#x1EBF;p v&#xE0;o ki&#x1EC3;u gene<br>
+C. T&#xE1;c &#x111;&#x1ED9;ng tr&#x1EF1;c ti&#x1EBF;p v&#xE0;o c&#xE1;c allele<br>
+D. T&#xE1;c &#x111;&#x1ED9;ng nhanh v&#x1EDB;i gene l&#x1EB7;n v&#xE0; ch&#x1EAD;m v&#x1EDB;i gene tr&#x1ED9;i.<br>
+C&#xE2;u44: Ti&#x1EBF;n ho&#xE1; l&#x1EDB;n l&#xE0; qu&#xE1; tr&#xEC;nh h&#xEC;nh th&#xE0;nh:<br>
+A. lo&#xE0;i m&#x1EDB;i. B. c&#xE1;c nh&#xF3;m ph&#xE2;n lo&#x1EA1;i tr&#xEA;n lo&#xE0;i. C. n&#xF2;i m&#x1EDB;i. D. c&#xE1;c c&#xE1; th&#x1EC3; th&#xED;ch nghi nh&#x1EA5;t.<br>
+C&#xE2;u 45: T&#xE1;c &#x111;&#x1ED9;ng &#x111;&#x1EB7;c tr&#x1B0;ng c&#x1EE7;a CLTN so v&#x1EDB;i c&#xE1;c nh&#xE2;n t&#x1ED1; ti&#x1EBF;n ho&#xE1; kh&#xE1;c l&#xE0;:<br>
+A. &#x111;&#x1ECB;nh h&#x1B0;&#x1EDB;ng cho qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1; nh&#x1ECF;.<br>
+B. l&#xE0;m thay &#x111;&#x1ED5;i nhanh ch&#xF3;ng t&#x1EA7;n s&#x1ED1; c&#x1EE7;a c&#xE1;c allele theo h&#x1B0;&#x1EDB;ng x&#xE1;c &#x111;&#x1ECB;nh.<br>
+C. t&#xE1;c &#x111;&#x1ED9;ng ph&#x1ED5; bi&#x1EBF;n trong qu&#x1EA7;n th&#x1EC3; c&#xF3; s&#x1ED1; l&#x1B0;&#x1EE3;ng nh&#x1ECF;.<br>
+D. t&#x1EA1;o n&#xEA;n nh&#x1EEF;ng c&#xE1; th&#x1EC3; th&#xED;ch nghi v&#x1EDB;i m&#xF4;i tr&#x1B0;&#x1EDD;ng.<br>
+C&#xE2;u 46: Nh&#xE2;n t&#x1ED1; ti&#x1EBF;n ho&#xE1; ch&#x1EC9; l&#xE0;m thay &#x111;&#x1ED5;i th&#xE0;nh ph&#x1EA7;n ki&#x1EC3;u gene c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; l&#xE0;:<br>
+A. &#x111;&#x1ED9;t bi&#x1EBF;n, CLTN B. c&#xE1;c y&#x1EBF;u t&#x1ED1; ng&#x1EAB;u nhi&#xEA;n. C. di - nh&#x1EAD;p gene. D. giao ph&#x1ED1;i kh&#xF4;ng ng&#x1EAB;u nhi&#xEA;n.<br>
+C&#xE2;u47: Nh&#xE2;n t&#x1ED1; ti&#x1EBF;n ho&#xE1; kh&#xF4;ng l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; allele thu&#x1ED9;c m&#x1ED9;t gene c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; l&#xE0;:<br>
+A. &#x111;&#x1ED9;t bi&#x1EBF;n. B. CLTN. C. di - nh&#x1EAD;p gene. D. giao ph&#x1ED1;i kh&#xF4;ng ng&#x1EAB;u nhi&#xEA;n.<br>
+C&#xE2;u48: Ngu&#x1ED3;n nguy&#xEA;n li&#x1EC7;u s&#x1A1; c&#x1EA5;p cho qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1; l&#xE0;:<br>
+A. bi&#x1EBF;n d&#x1ECB; &#x111;&#x1ED9;t bi&#x1EBF;n. B. bi&#x1EBF;n d&#x1ECB; t&#x1ED5; h&#x1EE3;p. C. &#x111;&#x1ED9;t bi&#x1EBF;n gene. D. &#x111;&#x1ED9;t bi&#x1EBF;n NST.<br>
+C&#xE2;u 49: Ngu&#x1ED3;n nguy&#xEA;n li&#x1EC7;u th&#x1EE9; c&#x1EA5;p cho qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1; l&#xE0;:<br>
+A. bi&#x1EBF;n d&#x1ECB; &#x111;&#x1ED9;t bi&#x1EBF;n. B. bi&#x1EBF;n d&#x1ECB; t&#x1ED5; h&#x1EE3;p. C. &#x111;&#x1ED9;t bi&#x1EBF;n gene. D. &#x111;&#x1ED9;t bi&#x1EBF;n s&#x1ED1; l&#x1B0;&#x1EE3;ng NST.<br>
+C&#xE2;u 50: Theo thuy&#x1EBF;t ti&#x1EBF;n ho&#xE1; hi&#x1EC7;n &#x111;&#x1EA1;i, &#x111;&#x1A1;n v&#x1ECB; ti&#x1EBF;n ho&#xE1; c&#x1A1; s&#x1EDF; &#x1EDF; nh&#x1EEF;ng lo&#xE0;i giao ph&#x1ED1;i l&#xE0;:<br>
+A. c&#xE1; th&#x1EC3;. B. qu&#x1EA7;n th&#x1EC3;. C. lo&#xE0;i D. n&#xF2;i sinh th&#xE1;i.<br>
+C&#xE2;u 51: T&#xE1;c &#x111;&#x1ED9;ng c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c s&#x1EBD; &#x111;&#xE0;o th&#x1EA3;i m&#x1ED9;t lo&#x1EA1;i allele kh&#x1ECF;i qu&#x1EA7;n th&#x1EC3; qua m&#x1ED9;t th&#x1EBF; h&#x1EC7; l&#xE0;:<br>
+A. Ch&#x1ECD;n l&#x1ECD;c ch&#x1ED1;ng l&#x1EA1;i th&#x1EC3; &#x111;&#x1ED3;ng h&#x1EE3;p.<br>
+B. Ch&#x1ECD;n l&#x1ECD;c ch&#x1ED1;ng l&#x1EA1;i th&#x1EC3; d&#x1ECB; h&#x1EE3;p.<br>
+C. Ch&#x1ECD;n l&#x1ECD;c ch&#x1ED1;ng l&#x1EA1;i allele l&#x1EB7;n.<br>
+D. Ch&#x1ECD;n l&#x1ECD;c ch&#x1ED1;ng l&#x1EA1;i allele tr&#x1ED9;i.<br>
+C&#xE2;u 52: C&#xE1;c nh&#xE2;n t&#x1ED1; ti&#x1EBF;n ho&#xE1; l&#xE0;m phong ph&#xFA; v&#x1ED1;n gene c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; l&#xE0;:<br>
+A. &#x111;&#x1ED9;t bi&#x1EBF;n, giao ph&#x1ED1;i kh&#xF4;ng ng&#x1EAB;u nhi&#xEA;n.<br>
+B. CLTN, c&#xE1;c y&#x1EBF;u t&#x1ED1; ng&#x1EAB;u nhi&#xEA;n.<br>
+C. giao ph&#x1ED1;i kh&#xF4;ng ng&#x1EAB;u nhi&#xEA;n, di- nh&#x1EAD;p gene.<br>
+D. &#x111;&#x1ED9;t bi&#x1EBF;n, di - nh&#x1EAD;p gene.<br>
+C&#xE2;u 53: Ph&#xE1;t bi&#x1EC3;u n&#xE0;o d&#x1B0;&#x1EDB;i &#x111;&#xE2;y v&#x1EC1; CLTN l&#xE0; kh&#xF4;ng &#x111;&#xFA;ng?<br>
+A. M&#x1EB7;t ch&#x1EE7; y&#x1EBF;u c&#x1EE7;a CLTN l&#xE0; s&#x1EF1; ph&#xE2;n ho&#xE1; kh&#x1EA3; n&#x103;ng sinh s&#x1EA3;n c&#x1EE7;a nh&#x1EEF;ng ki&#x1EC3;u gene kh&#xE1;c nhau trong qu&#x1EA7;n th&#x1EC3;.<br>
+B. Trong m&#x1ED9;t qu&#x1EA7;n th&#x1EC3; &#x111;a h&#xEC;nh th&#xEC; CLTN &#x111;&#x1EA3;m b&#x1EA3;o s&#x1EF1; s&#x1ED1;ng s&#xF3;t v&#xE0; sinh s&#x1EA3;n &#x1B0;u th&#x1EBF; c&#x1EE7;a nh&#x1EEF;ng c&#xE1; th&#x1EC3; mang nhi&#x1EC1;u &#x111;&#x1ED9;t bi&#x1EBF;n trung t&#xED;nh, qua &#x111;&#xF3; bi&#x1EBF;n &#x111;&#x1ED5;i th&#xE0;nh ph&#x1EA7;n ki&#x1EC3;u gene c&#x1EE7;a qu&#x1EA7;n th&#x1EC3;.<br>
+C. CLTN l&#xE0;m cho t&#x1EA7;n s&#x1ED1; c&#x1EE7;a c&#xE1;c allele trong m&#x1ED7;i gene bi&#x1EBF;n &#x111;&#x1ED5;i theo h&#x1B0;&#x1EDB;ng x&#xE1;c &#x111;&#x1ECB;nh.<br>
+D. CLTN kh&#xF4;ng ch&#x1EC9; t&#xE1;c &#x111;&#x1ED9;ng v&#x1EDB;i t&#x1EEB;ng gene ri&#xEA;ng r&#x1EBD; m&#xE0; t&#xE1;c &#x111;&#x1ED9;ng v&#x1EDB;i to&#xE0;n b&#x1ED9; ki&#x1EC3;u gene, kh&#xF4;ng ch&#x1EC9; t&#xE1;c &#x111;&#x1ED9;ng v&#x1EDB;i t&#x1EEB;ng c&#xE1; th&#x1EC3; ri&#xEA;ng r&#x1EBD; m&#xE0; c&#xF2;n &#x111;&#x1ED1;i v&#x1EDB;i c&#x1EA3; qu&#x1EA7;n th&#x1EC3;.<br>
+C&#xE2;u 54: (&#x110;2008) Theo quan ni&#x1EC7;m c&#x1EE7;a thuy&#x1EBF;t ti&#x1EBF;n h&#xF3;a hi&#x1EC7;n &#x111;&#x1EA1;i, ph&#xE1;t bi&#x1EC3;u n&#xE0;o sau &#x111;&#xE2;y l&#xE0; &#x111;&#xFA;ng?<br>
+A. T&#x1EA5;t c&#x1EA3; c&#xE1;c bi&#x1EBF;n d&#x1ECB; l&#xE0; nguy&#xEA;n li&#x1EC7;u c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+B. Kh&#xF4;ng ph&#x1EA3;i t&#x1EA5;t c&#x1EA3; c&#xE1;c bi&#x1EBF;n d&#x1ECB; di truy&#x1EC1;n &#x111;&#x1EC1;u l&#xE0; nguy&#xEA;n li&#x1EC7;u c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+C. T&#x1EA5;t c&#x1EA3; c&#xE1;c bi&#x1EBF;n d&#x1ECB; di truy&#x1EC1;n &#x111;&#x1EC1;u l&#xE0; nguy&#xEA;n li&#x1EC7;u c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+D. T&#x1EA5;t c&#x1EA3; c&#xE1;c bi&#x1EBF;n d&#x1ECB; &#x111;&#x1EC1;u di truy&#x1EC1;n &#x111;&#x1B0;&#x1EE3;c v&#xE0; &#x111;&#x1EC1;u l&#xE0; nguy&#xEA;n li&#x1EC7;u c&#x1EE7;a ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+C&#xE2;u 55: (&#x110;2009) &#x1EDE; m&#x1ED9;t lo&#xE0;i th&#x1EF1;c v&#x1EAD;t giao ph&#x1EA5;n, c&#xE1;c h&#x1EA1;t ph&#x1EA5;n c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; 1 theo gi&#xF3; bay sang qu&#x1EA7;n th&#x1EC3; 2 v&#xE0; th&#x1EE5; ph&#x1EA5;n cho c&#xE1;c c&#xE2;y c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; 2. &#x110;&#xE2;y l&#xE0; m&#x1ED9;t v&#xED; d&#x1EE5; v&#x1EC1;<br>
+A. bi&#x1EBF;n &#x111;&#x1ED9;ng di truy&#x1EC1;n.<br>
+B. di - nh&#x1EAD;p gene.<br>
+C. giao ph&#x1ED1;i kh&#xF4;ng ng&#x1EAB;u nhi&#xEA;n.<br>
+D. tho&#xE1;i ho&#xE1; gi&#x1ED1;ng.<br>
+C&#xE2;u 56: (&#x110;2009) Ph&#xE1;t bi&#x1EC3;u n&#xE0;o d&#x1B0;&#x1EDB;i &#x111;&#xE2;y kh&#xF4;ng &#x111;&#xFA;ng v&#x1EC1; vai tr&#xF2; c&#x1EE7;a &#x111;&#x1ED9;t bi&#x1EBF;n &#x111;&#x1ED1;i v&#x1EDB;i ti&#x1EBF;n h&#xF3;a?<br>
+A. &#x110;&#x1ED9;t bi&#x1EBF;n c&#x1EA5;u tr&#xFA;c nhi&#x1EC5;m s&#x1EAF;c th&#x1EC3; g&#xF3;p ph&#x1EA7;n h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i.<br>
+B. &#x110;&#x1ED9;t bi&#x1EBF;n nhi&#x1EC5;m s&#x1EAF;c th&#x1EC3; th&#x1B0;&#x1EDD;ng g&#xE2;y ch&#x1EBF;t cho th&#x1EC3; &#x111;&#x1ED9;t bi&#x1EBF;n, do &#x111;&#xF3; kh&#xF4;ng c&#xF3; &#xFD; ngh&#x129;a &#x111;&#x1ED1;i v&#x1EDB;i qu&#xE1; tr&#xEC;nh ti&#x1EBF;n h&#xF3;a.<br>
+C. &#x110;&#x1ED9;t bi&#x1EBF;n &#x111;a b&#x1ED9;i &#x111;&#xF3;ng vai tr&#xF2; quan tr&#x1ECD;ng trong qu&#xE1; tr&#xEC;nh ti&#x1EBF;n h&#xF3;a v&#xEC; n&#xF3; g&#xF3;p ph&#x1EA7;n h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i.<br>
+D. &#x110;&#x1ED9;t bi&#x1EBF;n gene cung c&#x1EA5;p nguy&#xEA;n li&#x1EC7;u cho qu&#xE1; tr&#xEC;nh ti&#x1EBF;n h&#xF3;a c&#x1EE7;a sinh v&#x1EAD;t.<br>
+C&#xE2;u 57: (&#x110;2009) Cho c&#xE1;c nh&#xE2;n t&#x1ED1; sau:<br>
+(1) Bi&#x1EBF;n &#x111;&#x1ED9;ng di truy&#x1EC1;n.<br>
+(2) &#x110;&#x1ED9;t bi&#x1EBF;n.<br>
+(3) Giao ph&#x1ED1;i kh&#xF4;ng ng&#x1EAB;u nhi&#xEA;n.<br>
+(4) Giao ph&#x1ED1;i ng&#x1EAB;u nhi&#xEA;n.<br>
+C&#xE1;c nh&#xE2;n t&#x1ED1; c&#xF3; th&#x1EC3; l&#xE0;m ngh&#xE8;o v&#x1ED1;n gene c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; l&#xE0;:<br>
+A. (2), (4). B. (1), (4).<br>
+C. (1), (3). D. (1), (2).<br>
+C&#xE2;u 58: (C2010) Theo quan ni&#x1EC7;m hi&#x1EC7;n &#x111;&#x1EA1;i, c&#xE1;c y&#x1EBF;u t&#x1ED1; ng&#x1EAB;u nhi&#xEA;n t&#xE1;c &#x111;&#x1ED9;ng v&#xE0;o qu&#x1EA7;n th&#x1EC3;<br>
+A. l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; c&#xE1;c allele kh&#xF4;ng theo m&#x1ED9;t h&#x1B0;&#x1EDB;ng x&#xE1;c &#x111;&#x1ECB;nh.<br>
+B. kh&#xF4;ng l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; c&#xE1;c allele c&#x1EE7;a qu&#x1EA7;n th&#x1EC3;.<br>
+C. lu&#xF4;n l&#xE0;m t&#x103;ng t&#x1EA7;n s&#x1ED1; ki&#x1EC3;u gene &#x111;&#x1ED3;ng h&#x1EE3;p t&#x1EED; v&#xE0; gi&#x1EA3;m t&#x1EA7;n s&#x1ED1; ki&#x1EC3;u gene d&#x1ECB; h&#x1EE3;p t&#x1EED;.<br>
+D. lu&#xF4;n l&#xE0;m t&#x103;ng t&#xED;nh &#x111;a d&#x1EA1;ng di truy&#x1EC1;n c&#x1EE7;a qu&#x1EA7;n th&#x1EC3;.<br>
+C&#xE2;u 59: Theo quan ni&#x1EC7;m ti&#x1EBF;n h&#xF3;a hi&#x1EC7;n &#x111;&#x1EA1;i, ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n<br>
+A. ph&#xE2;n h&#xF3;a kh&#x1EA3; n&#x103;ng s&#x1ED1;ng s&#xF3;t v&#xE0; kh&#x1EA3; n&#x103;ng sinh s&#x1EA3;n c&#x1EE7;a c&#xE1;c ki&#x1EC3;u gene kh&#xE1;c nhau trong qu&#x1EA7;n th&#x1EC3;.<br>
+B. t&#xE1;c &#x111;&#x1ED9;ng tr&#x1EF1;c ti&#x1EBF;p l&#xEA;n ki&#x1EC3;u gene m&#xE0; kh&#xF4;ng t&#xE1;c &#x111;&#x1ED9;ng l&#xEA;n ki&#x1EC3;u h&#xEC;nh c&#x1EE7;a sinh v&#x1EAD;t.<br>
+C. l&#xE0;m bi&#x1EBF;n &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; allele v&#xE0; th&#xE0;nh ph&#x1EA7;n ki&#x1EC3;u gene c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; kh&#xF4;ng theo m&#x1ED9;t h&#x1B0;&#x1EDB;ng x&#xE1;c &#x111;&#x1ECB;nh.<br>
+D. l&#xE0;m xu&#x1EA5;t hi&#x1EC7;n c&#xE1;c allele m&#x1EDB;i d&#x1EAB;n &#x111;&#x1EBF;n l&#xE0;m phong ph&#xFA; v&#x1ED1;n gene c&#x1EE7;a qu&#x1EA7;n th&#x1EC3;.<br>
+C&#xE2;u 60: Cho c&#xE1;c nh&#xE2;n t&#x1ED1; sau :<br>
+(1) Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+(2) Giao ph&#x1ED1;i ng&#x1EAB;u nhi&#xEA;n.<br>
+(3) Giao ph&#x1ED1;i kh&#xF4;ng ng&#x1EAB;u nhi&#xEA;n.<br>
+(4) C&#xE1;c y&#x1EBF;u t&#x1ED1; ng&#x1EAB;u nhi&#xEA;n.<br>
+(5) &#x110;&#x1ED9;t bi&#x1EBF;n.<br>
+(6) Di &#x2013; nh&#x1EAD;p gene.<br>
+C&#xE1;c nh&#xE2;n t&#x1ED1; c&#xF3; th&#x1EC3; v&#x1EEB;a l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; allele v&#x1EEB;a l&#xE0;m thay &#x111;&#x1ED5;i th&#xE0;nh ph&#x1EA7;n ki&#x1EC3;u gene c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; l&#xE0;:<br>
+A. (1), (3), (4), (5). B. (1), (2), (4), (5).<br>
+C. (2), (4), (5), (6). D. (1), (4), (5), (6).<br>
+C&#xE2;u 61: C&#x1EB7;p nh&#xE2;n t&#x1ED1; ti&#x1EBF;n h&#xF3;a n&#xE0;o sau &#x111;&#xE2;y c&#xF3; th&#x1EC3; l&#xE0;m xu&#x1EA5;t hi&#x1EC7;n c&#xE1;c allele m&#x1EDB;i trong qu&#x1EA7;n th&#x1EC3; sinh v&#x1EAD;t?<br>
+A. &#x110;&#x1ED9;t bi&#x1EBF;n v&#xE0; di &#x2013; nh&#x1EAD;p gene.<br>
+B. Giao ph&#x1ED1;i kh&#xF4;ng ng&#x1EAB;u nhi&#xEA;n v&#xE0; di &#x2013; nh&#x1EAD;p gene.<br>
+C. Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n v&#xE0; c&#xE1;c y&#x1EBF;u t&#x1ED1; ng&#x1EAB;u nhi&#xEA;n.<br>
+D. &#x110;&#x1ED9;t bi&#x1EBF;n v&#xE0; ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+Giao ph&#x1ED1;i kh&#xF4;ng ng&#x1EAB;u nhi&#xEA;n kh&#xF4;ng l&#xE0;m xu&#x1EA5;t hi&#x1EC7;n alen m&#x1EDB;i. C&#xE1;c qu&#xE1; tr&#xEC;nh giao ph&#x1ED1;i ch&#x1EE7; y&#x1EBF;u t&#x1EA1;o n&#xEA;n c&#xE1;c ngu&#x1ED3;n bi&#x1EBF;n d&#x1ECB; t&#x1ED5; h&#x1EE3;p v&#xE0; bi&#x1EBF;n d&#x1ECB; t&#x1ED5; h&#x1EE3;p l&#xE0; s&#x1EF1; s&#x1EAF;p x&#x1EBF;p l&#x1EA1;i v&#x1EAD;t ch&#x1EA5;t di truy&#x1EC1;n ch&#x1EE9; kh&#xF4;ng t&#x1EA1;o ra l&#x1B0;&#x1EE3;ng v&#x1EAD;t ch&#x1EA5;t di truy&#x1EC1;n m&#x1EDB;i.<br>
+Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n &#x111;&#xF3;ng vai tr&#xF2; s&#xE0;n l&#x1ECD;c, kh&#xF4;ng t&#x1EA1;o ra alen m&#x1EDB;i.<br>
+C&#xE1;c y&#x1EBF;u t&#x1ED1; ng&#x1EAB;u nhi&#xEA;n th&#x1B0;&#x1EDD;ng l&#xE0;m ngh&#xE8;o v&#x1ED1;n gen qu&#x1EA7;n th&#x1EC3;, kh&#xF4;ng l&#xE0;m xu&#x1EA5;t hi&#x1EC7;n alen m&#x1EDB;i l&#xE0;m phong ph&#xFA; v&#x1ED1;n gen qu&#x1EA7;n th&#x1EC3;<br>
+C&#xE2;u 62: Khi n&#xF3;i v&#x1EC1; ti&#x1EBF;n ho&#xE1; nh&#x1ECF;, ph&#xE1;t bi&#x1EC3;u n&#xE0;o sau &#x111;&#xE2;y l&#xE0; kh&#xF4;ng &#x111;&#xFA;ng?<br>
+A. Ti&#x1EBF;n ho&#xE1; nh&#x1ECF; l&#xE0; qu&#xE1; tr&#xEC;nh l&#xE0;m bi&#x1EBF;n &#x111;&#x1ED5;i c&#x1EA5;u tr&#xFA;c di truy&#x1EC1;n c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; (bi&#x1EBF;n &#x111;&#x1ED5;i v&#x1EC1; t&#x1EA7;n s&#x1ED1; allele v&#xE0; th&#xE0;nh ph&#x1EA7;n ki&#x1EC3;u gene c&#x1EE7;a qu&#x1EA7;n th&#x1EC3;) &#x111;&#x1B0;a &#x111;&#x1EBF;n s&#x1EF1; h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i.<br>
+B. K&#x1EBF;t qu&#x1EA3; c&#x1EE7;a ti&#x1EBF;n ho&#xE1; nh&#x1ECF; s&#x1EBD; d&#x1EAB;n t&#x1EDB;i h&#xEC;nh th&#xE0;nh c&#xE1;c nh&#xF3;m ph&#xE2;n lo&#x1EA1;i tr&#xEA;n lo&#xE0;i.<br>
+C. S&#x1EF1; bi&#x1EBF;n &#x111;&#x1ED5;i v&#x1EC1; t&#x1EA7;n s&#x1ED1; allele v&#xE0; th&#xE0;nh ph&#x1EA7;n ki&#x1EC3;u gene c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; &#x111;&#x1EBF;n m&#x1ED9;t l&#xFA;c l&#xE0;m xu&#x1EA5;t h&#x1EC7;n c&#xE1;ch li sinh s&#x1EA3;n c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; &#x111;&#xF3; v&#x1EDB;i qu&#x1EA7;n th&#x1EC3; g&#x1ED1;c m&#xE0; n&#xF3; &#x111;&#x1B0;&#x1EE3;c sinh ra th&#xEC; lo&#xE0;i m&#x1EDB;i xu&#x1EA5;t hi&#x1EC7;n.<br>
+D. Ti&#x1EBF;n ho&#xE1; nh&#x1ECF; l&#xE0; qu&#xE1; tr&#xEC;nh di&#x1EC5;n ra tr&#xEA;n quy m&#xF4; c&#x1EE7;a m&#x1ED9;t qu&#x1EA7;n th&#x1EC3; v&#xE0; di&#x1EC5;n bi&#x1EBF;n kh&#xF4;ng ng&#x1EEB;ng d&#x1B0;&#x1EDB;i t&#xE1;c &#x111;&#x1ED9;ng c&#x1EE7;a c&#xE1;c nh&#xE2;n t&#x1ED1; ti&#x1EBF;n ho&#xE1;.<br>
+C&#xE2;u 63: Theo quan ni&#x1EC7;m ti&#x1EBF;n ho&#xE1; hi&#x1EC7;n &#x111;&#x1EA1;i, giao ph&#x1ED1;i kh&#xF4;ng ng&#x1EAB;u nhi&#xEA;n<br>
+A. l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; allele c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; kh&#xF4;ng theo m&#x1ED9;t h&#x1B0;&#x1EDB;ng x&#xE1;c &#x111;&#x1ECB;nh.<br>
+B. l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; allele nh&#x1B0;ng kh&#xF4;ng l&#xE0;m thay &#x111;&#x1ED5;i th&#xE0;nh ph&#x1EA7;n ki&#x1EC3;u gene c&#x1EE7;a qu&#x1EA7;n th&#x1EC3;.<br>
+C. ch&#x1EC9; l&#xE0;m thay &#x111;&#x1ED5;i th&#xE0;nh ph&#x1EA7;n ki&#x1EC3;u gene m&#xE0; kh&#xF4;ng l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; allele c&#x1EE7;a qu&#x1EA7;n th&#x1EC3;.<br>
+D. l&#xE0;m xu&#x1EA5;t hi&#x1EC7;n nh&#x1EEF;ng allele m&#x1EDB;i trong qu&#x1EA7;n th&#x1EC3;.<br>
+C&#xE2;u 64: Cho c&#xE1;c th&#xF4;ng tin v&#x1EC1; vai tr&#xF2; c&#x1EE7;a c&#xE1;c nh&#xE2;n t&#x1ED1; ti&#x1EBF;n h&#xF3;a nh&#x1B0; sau:<br>
+(1) L&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; allele v&#xE0; th&#xE0;nh ph&#x1EA7;n ki&#x1EC3;u gene c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; theo m&#x1ED9;t h&#x1B0;&#x1EDB;ng x&#xE1;c &#x111;&#x1ECB;nh.<br>
+(2) L&#xE0;m ph&#xE1;t sinh c&#xE1;c bi&#x1EBF;n d&#x1ECB; di truy&#x1EC1;n c&#x1EE7;a qu&#x1EA7;n th&#x1EC3;, cung c&#x1EA5;p ngu&#x1ED3;n bi&#x1EBF;n d&#x1ECB; s&#x1A1; c&#x1EA5;p cho qu&#xE1; tr&#xEC;nh ti&#x1EBF;n h&#xF3;a.<br>
+(3) C&#xF3; th&#x1EC3; lo&#x1EA1;i b&#x1ECF; ho&#xE0;n to&#xE0;n m&#x1ED9;t allele n&#xE0;o &#x111;&#xF3; ra kh&#x1ECF;i qu&#x1EA7;n th&#x1EC3; cho d&#xF9; allele &#x111;&#xF3; l&#xE0; c&#xF3; l&#x1EE3;i.<br>
+(4) Kh&#xF4;ng l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; allele nh&#x1B0;ng l&#xE0;m thay &#x111;&#x1ED5;i th&#xE0;nh ph&#x1EA7;n ki&#x1EC3;n gene c&#x1EE7;a qu&#x1EA7;n th&#x1EC3;<br>
+(5) L&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; allele v&#xE0; th&#xE0;nh ph&#x1EA7;n ki&#x1EC3;u gene c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; r&#x1EA5;t ch&#x1EAD;m.<br>
+C&#xE1;c th&#xF4;ng tin n&#xF3;i v&#x1EC1; vai tr&#xF2; c&#x1EE7;a &#x111;&#x1ED9;t bi&#x1EBF;n gene l&#xE0;:<br>
+A.(1) v&#xE0; (4) B.(2) v&#xE0; (5)<br>
+C. (1) v&#xE0; (3) D.(3) v&#xE0; (4)<br>
+I sai v&#xEC; &#x111;&#x1ED9;t bi&#x1EBF;n l&#xE0; v&#xF4; h&#x1B0;&#x1EDB;ng.<br>
+II, V &#x111;&#xFA;ng<br>
+III sai v&#xEC; &#x111;&#xE2;y l&#xE0; vai tr&#xF2; c&#x1EE7;a y&#x1EBF;u t&#x1ED1; ng&#x1EAB;u nhi&#xEA;n.<br>
+IV sai v&#xEC; &#x111;&#x1ED9;t bi&#x1EBF;n l&#xE0;m thay &#x111;&#x1ED5;i c&#x1EA3; t&#x1EA7;n s&#x1ED5; alen v&#xE0; th&#xE0;nh ph&#x1EA7;n ki&#x1EC3;u gen trong qu&#x1EA7;n th&#x1EC3;<br>
+C&#xE2;u 65: Cho c&#xE1;c nh&#xE2;n t&#x1ED1; sau:<br>
+(1) Giao ph&#x1ED1;i kh&#xF4;ng ng&#x1EAB;u nhi&#xEA;n.<br>
+(2) Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+(3) &#x110;&#x1ED9;t bi&#x1EBF;n gene.<br>
+(4) Giao ph&#x1ED1;i ng&#x1EAB;u nhi&#xEA;n.<br>
+Theo quan ni&#x1EC7;m ti&#x1EBF;n ho&#xE1; hi&#x1EC7;n &#x111;&#x1EA1;i, nh&#x1EEF;ng nh&#xE2;n t&#x1ED1; l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; allele c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; l&#xE0;:<br>
+A. (2) v&#xE0; (3) B. (3) v&#xE0; (4)<br>
+C. (1) v&#xE0; (4) D. (2) v&#xE0; (4)<br>
+C&#xE2;u 66: Theo quan ni&#x1EC7;m c&#x1EE7;a &#x110;acuyn, ngu&#x1ED3;n nguy&#xEA;n li&#x1EC7;u ch&#x1EE7; y&#x1EBF;u c&#x1EE7;a ti&#x1EBF;n h&#xF3;a l&#xE0;<br>
+A. &#x111;&#x1ED9;t bi&#x1EBF;n gene B. &#x111;&#x1ED9;t bi&#x1EBF;n nhi&#x1EC5;m s&#x1EAF;c th&#x1EC3; C. bi&#x1EBF;n d&#x1ECB; c&#xE1; th&#x1EC3; D. th&#x1B0;&#x1EDD;ng bi&#x1EBF;n<br>
+C&#xE2;u 67: (C2013) Khi n&#xF3;i v&#x1EC1; ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n theo quan ni&#x1EC7;m hi&#x1EC7;n &#x111;&#x1EA1;i, ph&#xE1;t bi&#x1EC3;u n&#xE0;o sau &#x111;&#xE2;y l&#xE0; &#x111;&#xFA;ng?<br>
+A. Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n t&#xE1;c &#x111;&#x1ED9;ng tr&#x1EF1;c ti&#x1EBF;p l&#xEA;n ki&#x1EC3;u gen, t&#x1EEB; &#x111;&#xF3; l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; alen c&#x1EE7;a qu&#x1EA7;n th&#x1EC3;<br>
+B. Ch&#x1ECD;n l&#x1ECD;c ch&#x1ED1;ng l&#x1EA1;i alen l&#x1EB7;n l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; alen ch&#x1EAD;m h&#x1A1;n so v&#x1EDB;i ch&#x1ECD;n l&#x1ECD;c ch&#x1ED1;ng l&#x1EA1;i alen tr&#x1ED9;i<br>
+C. Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n kh&#xF4;ng bao gi&#x1EDD; &#x111;&#xE0;o th&#x1EA3;i h&#x1EBF;t alen tr&#x1ED9;i g&#xE2;y ch&#x1EBF;t ra kh&#x1ECF;i qu&#x1EA7;n th&#x1EC3;<br>
+D. Ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n l&#xE0;m thay &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; alen c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; vi khu&#x1EA9;n ch&#x1EAD;m h&#x1A1;n so v&#x1EDB;i qu&#x1EA7;n th&#x1EC3; sinh v&#x1EAD;t l&#x1B0;&#x1EE1;ng b&#x1ED9;i.<br>
+C&#xE2;u 68: (&#x110;2013) Khi n&#xF3;i v&#x1EC1; ngu&#x1ED3;n nguy&#xEA;n li&#x1EC7;u c&#x1EE7;a ti&#x1EBF;n h&#xF3;a, ph&#xE1;t bi&#x1EC3;u n&#xE0;o sau &#x111;&#xE2;y kh&#xF4;ng &#x111;&#xFA;ng?<br>
+A. Ti&#x1EBF;n h&#xF3;a s&#x1EBD; kh&#xF4;ng x&#x1EA3;y ra n&#x1EBF;u qu&#x1EA7;n th&#x1EC3; kh&#xF4;ng c&#xF3; c&#xE1;c bi&#x1EBF;n d&#x1ECB; di truy&#x1EC1;n.<br>
+B. M&#x1ECD;i bi&#x1EBF;n d&#x1ECB; trong qu&#x1EA7;n th&#x1EC3; &#x111;&#x1EC1;u l&#xE0; nguy&#xEA;n li&#x1EC7;u c&#x1EE7;a qu&#xE1; tr&#x1ECB; ti&#x1EBF;n h&#xF3;a.<br>
+C. &#x110;&#x1ED9;t bi&#x1EBF;n gene l&#xE0; nguy&#xEA;n li&#x1EC7;u s&#x1A1; c&#x1EA5;p ch&#x1EE7; y&#x1EBF;u c&#x1EE7;a qu&#xE1; tr&#xEC;nh ti&#x1EBF;n h&#xF3;a.<br>
+D. Ngu&#x1ED3;n bi&#x1EBF;n d&#x1ECB; c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; c&#xF3; th&#x1EC3; &#x111;&#x1B0;&#x1EE3;c b&#x1ED5; sung b&#x1EDF;i s&#x1EF1; nh&#x1EAD;p c&#x1B0;.<br>
+C&#xE2;u 69: (&#x110;2013) Nghi&#xEA;n c&#x1EE9;u s&#x1EF1; thay &#x111;&#x1ED5;i th&#xE0;nh ph&#x1EA7;n ki&#x1EC3;u gene &#x1EDF; m&#x1ED9;t qu&#x1EA7;n th&#x1EC3; qua 5 th&#x1EBF; h&#x1EC7; li&#xEA;n ti&#x1EBF;p &#x111;&#x1B0;&#x1EE3;c k&#x1EBF;t qu&#x1EA3;<br>
+Th&#xE0;nh ph&#x1EA7;n ki&#x1EC3;u gen Th&#x1EBF; h&#x1EC7; F1 Th&#x1EBF; h&#x1EC7; F2 Th&#x1EBF; h&#x1EC7; F3 Th&#x1EBF; h&#x1EC7; F4 Th&#x1EBF; h&#x1EC7; F5<br>
+AA 0,64 0,64 0,2 0,16 0,16<br>
+Aa 0,32 0,32 0,4 0,48 0,48<br>
+aa 0,04 0,04 0,4 0,36 0,36<br>
+Nh&#xE2;n t&#x1ED1; g&#xE2;y n&#xEA;n s&#x1EF1; thay &#x111;&#x1ED5;i c&#x1EA5;u tr&#xFA;c di truy&#x1EC1;n c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; &#x1EDF; th&#x1EBF; h&#x1EC7; F3 l&#xE0;<br>
+A. c&#xE1;c y&#x1EBF;u t&#x1ED1; ng&#x1EAB;u nhi&#xEA;n<br>
+B. &#x111;&#x1ED9;t bi&#x1EBF;n<br>
+C. giao ph&#x1ED1;i kh&#xF4;ng ng&#x1EAB;u nhi&#xEA;n<br>
+D. giao ph&#x1ED1;i ng&#x1EAB;u nhi&#xEA;n<br>
+B&#xE0;i 28. LO&#xC0;I<br>
+A. N&#x1ED8;I DUNG CH&#xCD;NH<br>
+I. Kh&#xE1;i ni&#x1EC7;m lo&#xE0;i sinh h&#x1ECD;c</p>
+<ol>
+<li>Kh&#xE1;i ni&#x1EC7;m<br>
+Lo&#xE0;i sinh h&#x1ECD;c l&#xE0; m&#x1ED9;t ho&#x1EB7;c m&#x1ED9;t nh&#xF3;m QT g&#x1ED3;m c&#xE1;c c&#xE1; th&#x1EC3; c&#xF3; kh&#x1EA3; n&#x103;ng giao ph&#x1ED1;i v&#x1EDB;i nhau trong t&#x1EF1; nhi&#xEA;n v&#xE0; sinh ra con c&#xF3; s&#x1EE9;c s&#x1ED1;ng, c&#xF3; kh&#x1EA3; n&#x103;ng sinh s&#x1EA3;n v&#xE0; c&#xE1;ch li sinh s&#x1EA3;n v&#x1EDB;i c&#xE1;c nh&#xF3;m QT kh&#xE1;c.</li>
+<li>C&#xE1;c ti&#xEA;u chu&#x1EA9;n ph&#xE2;n bi&#x1EC7;t 2 lo&#xE0;i - Ti&#xEA;u chu&#x1EA9;n h&#xEC;nh th&#xE1;i - Ti&#xEA;u chu&#x1EA9;n ho&#xE1; sinh : Ti&#xEA;u chu&#x1EA9;n h&#xE0;ng &#x111;&#x1EA7;u v&#x1EDB;i vi khu&#x1EA9;n. - Ti&#xEA;u chu&#x1EA9;n c&#xE1;ch li sinh s&#x1EA3;n : L&#xE0; ti&#xEA;u chu&#x1EA9;n ch&#xED;nh x&#xE1;c nh&#x1EA5;t v&#x1EDB;i lo&#xE0;i sinh s&#x1EA3;n h&#x1EEF;u t&#xED;nh.<br>
+II. C&#xE1;c c&#x1A1; ch&#x1EBF; c&#xE1;ch li sinh s&#x1EA3;n gi&#x1EEF;a c&#xE1;c lo&#xE0;i</li>
+<li>Kh&#xE1;i ni&#x1EC7;m
+<ul>
+<li>C&#x1A1; ch&#x1EBF; c&#xE1;ch li l&#xE0; tr&#x1EDF; ng&#x1EA1;i l&#xE0;m cho c&#xE1;c SV c&#xE1;ch li nhau.</li>
+<li>C&#xE1;ch li sinh s&#x1EA3;n l&#xE0; c&#xE1;c tr&#x1EDF; ng&#x1EA1;i (tr&#xEA;n c&#x1A1; th&#x1EC3; SV ) sinh h&#x1ECD;c ng&#x103;n c&#x1EA3;n c&#xE1;c c&#xE1; th&#x1EC3; giao ph&#x1ED1;i v&#x1EDB;i nhau ho&#x1EB7;c ng&#x103;n c&#x1EA3;n vi&#x1EC7;c t&#x1EA1;o ra con lai h&#x1EEF;u th&#x1EE5; ngay c&#x1EA3; khi c&#xE1;c SV n&#xE0;y c&#xF9;ng s&#x1ED1;ng m&#x1ED9;t ch&#x1ED7;.</li>
+</ul>
+</li>
+<li>C&#xE1;c h&#xEC;nh th&#x1EE9;c c&#xE1;ch li sinh s&#x1EA3;n (2 h&#xEC;nh th&#x1EE9;c):</li>
+</ol>
+<p>H&#xEC;nh th&#x1EE9;c<br>
+N&#x1ED9;i dung C&#xE1;ch li tr&#x1B0;&#x1EDB;c h&#x1EE3;p t&#x1EED; C&#xE1;ch li sau h&#x1EE3;p t&#x1EED;<br>
+Kh&#xE1;i ni&#x1EC7;m Nh&#x1EEF;ng tr&#x1EDF; ng&#x1EA1;i ng&#x103;n c&#x1EA3;n SV giao ph&#x1ED1;i v&#x1EDB;i nhau Nh&#x1EEF;ng tr&#x1EDF; ng&#x1EA1;i ng&#x103;n c&#x1EA3;n vi&#x1EC7;c t&#x1EA1;o ra con lai ho&#x1EB7;c ng&#x103;n c&#x1EA3;n t&#x1EA1;o ra con lai h&#x1EEF;u th&#x1EE5;<br>
+&#x110;&#x1EB7;c &#x111;i&#x1EC3;m - C&#xE1;ch li n&#x1A1;i &#x1EDF; c&#xE1;c c&#xE1; th&#x1EC3; trong nh&#x1EEF;ng sinh c&#x1EA3;nh kh&#xF4;ng giao ph&#x1ED1;i v&#x1EDB;i nhau.</p>
+<ul>
+<li>C&#xE1;ch li t&#x1EAD;p t&#xED;nh c&#xE1;c c&#xE1; th&#x1EC3; thu&#x1ED9;c c&#xE1;c lo&#xE0;i kh&#xE1;c nhau c&#xF3; nh&#x1EEF;ng t&#x1EAD;p t&#xED;nh giao ph&#x1ED1;i ri&#xEA;ng n&#xEA;n th&#x1B0;&#x1EDD;ng kh&#xF4;ng giao ph&#x1ED1;i v&#x1EDB;i nhau.</li>
+<li>C&#xE1;ch li m&#xF9;a v&#x1EE5; c&#xE1;c c&#xE1; th&#x1EC3; thu&#x1ED9;c c&#xE1;c lo&#xE0;i kh&#xE1;c nhau c&#xF3; th&#x1EC3; sinh s&#x1EA3;n v&#xE0;o c&#xE1;c m&#xF9;a v&#x1EE5; kh&#xE1;c nhau n&#xEA;n ch&#xFA;ng kh&#xF4;ng c&#xF3; &#x111;i&#x1EC1;u ki&#x1EC7;n giao ph&#x1ED1;i v&#x1EDB;i nhau.</li>
+<li>C&#xE1;ch li c&#x1A1; h&#x1ECD;c : c&#xE1;c c&#xE1; th&#x1EC3; thu&#x1ED9;c c&#xE1;c lo&#xE0;i kh&#xE1;c nhau n&#xEA;n ch&#xFA;ng kh&#xF4;ng giao ph&#x1ED1;i &#x111;&#x1B0;&#x1EE3;c v&#x1EDB;i nhau. - Ng&#x103;n c&#x1EA3;n t&#x1EA1;o ra con lai.</li>
+<li>Con lai kh&#xF4;ng sinh tr&#x1B0;&#x1EDF;ng t&#x1EDB;i tu&#x1ED5;i tr&#x1B0;&#x1EDF;ng th&#xE0;nh.</li>
+<li>Con lai kh&#xF4;ng c&#xF3; kh&#x1EA3; n&#x103;ng sinh s&#x1EA3;n do kh&#xE1;c nhau v&#x1EC1; c&#x1EA5;u tr&#xFA;c DT (s&#x1ED1; l&#x1B0;&#x1EE3;ng, h&#xEC;nh th&#xE1;i NST ,&#x2026;) &#x2192; gi&#x1EA3;m ph&#xE2;n kh&#xF4;ng b&#xEC;nh th&#x1B0;&#x1EDD;ng &#x2192;<br>
+&#x2192; GT m&#x1EA5;t c&#xE2;n b&#x1EB1;ng &#x2192; b&#x1EA5;t th&#x1EE5;.<br>
+Vai tr&#xF2; - &#x110;&#xF3;ng vai tr&#xF2; quan tr&#x1ECD;ng trong h&#xEC;nh th&#xE0;nh lo&#xE0;i</li>
+<li>Duy tr&#xEC; s&#x1EF1; to&#xE0;n v&#x1EB9;n c&#x1EE7;a lo&#xE0;i.<br>
+B&#xE0;i 29, 30. QU&#xC1; TR&#xCC;NH H&#xCC;NH TH&#xC0;NH LO&#xC0;I (ti&#x1EBF;n ho&#xE1; nh&#x1ECF;)<br>
+A. N&#x1ED8;I DUNG CH&#xCD;NH<br>
+Qu&#xE1; tr&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i l&#xE0; m&#x1ED9;t qu&#xE1; tr&#xEC;nh l&#x1ECB;ch s&#x1EED;, c&#x1EA3;i bi&#x1EBF;n th&#xE0;nh ph&#x1EA7;n KG c&#x1EE7;a QT ban &#x111;&#x1EA7;u theo h&#x1B0;&#x1EDB;ng th&#xED;ch nghi, t&#x1EA1;o ra KG m&#x1EDB;i c&#xE1;ch li sinh s&#x1EA3;n v&#x1EDB;i QT ban &#x111;&#x1EA7;u.<br>
+H&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i ch&#x1ECB;u s&#x1EF1; t&#xE1;c &#x111;&#x1ED9;ng c&#x1EE7;a 4 nh&#xE2;n t&#x1ED1; : &#x110;B, giao ph&#x1ED1;i, CLTN v&#xE0; c&#xE1;c c&#x1A1; ch&#x1EBF; c&#xE1;ch li.<br>
+I. H&#xEC;nh th&#xE0;nh lo&#xE0;i kh&#xE1;c khu v&#x1EF1;c &#x111;&#x1ECB;a l&#xED; (B&#xE0;i 29) 1. Vai tr&#xF2; c&#x1EE7;a c&#xE1;ch ly &#x111;&#x1ECB;a l&#xFD; trong qu&#xE1; tr&#xEC;nh h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i. - C&#xE1;ch ly &#x111;&#x1ECB;a l&#xED; l&#xE0; nh&#x1EEF;ng tr&#x1EDF; ng&#x1EA1;i &#x111;&#x1ECB;a l&#xFD; l&#xE0;m cho c&#xE1;c c&#xE1; th&#x1EC3; c&#x1EE7;a c&#xE1;c QT b&#x1ECB; c&#xE1;ch ly v&#xE0; kh&#xF4;ng th&#x1EC3; giao ph&#x1ED1;i v&#x1EDB;i nhau. - C&#xE1;ch ly &#x111;&#x1ECB;a l&#xED; c&#xF3; vai tr&#xF2; duy tr&#xEC; s&#x1EF1; kh&#xE1;c bi&#x1EC7;t v&#x1EC1; v&#x1ED1;n gen gi&#x1EEF;a c&#xE1;c QT do c&#xE1;c nh&#xE2;n t&#x1ED1; ti&#x1EBF;n h&#xF3;a t&#x1EA1;o ra. - Qu&#xE1; tr&#xEC;nh h&#xEC;nh th&#xE0;nh lo&#xE0;i b&#x1EB1;ng con &#x111;&#x1B0;&#x1EDD;ng &#x111;&#x1ECB;a l&#xFD; th&#x1B0;&#x1EDD;ng x&#x1EA3;y ra 1 c&#xE1;ch ch&#x1EAD;m ch&#x1EA1;p qua nhi&#x1EC1;u giai &#x111;o&#x1EA1;n trung gian chuy&#x1EC3;n ti&#x1EBF;p. * H&#xEC;nh th&#xE0;nh lo&#xE0;i b&#x1EB1;ng con &#x111;&#x1B0;&#x1EDD;ng &#x111;&#x1ECB;a l&#xED; hay x&#x1EA3;y ra &#x111;&#x1ED1;i v&#x1EDB;i c&#xE1;c lo&#xE0;i &#x110;V c&#xF3; kh&#x1EA3; n&#x103;ng ph&#xE1;t t&#xE1;n m&#x1EA1;nh.<br>
+II. H&#xEC;nh th&#xE0;nh lo&#xE0;i c&#xF9;ng khu v&#x1EF1;c &#x111;&#x1ECB;a l&#xED; (B&#xE0;i 30)</li>
+</ul>
+<ol>
+<li>H&#xEC;nh th&#xE0;nh lo&#xE0;i b&#x1EB1;ng c&#xE1;ch li t&#x1EAD;p t&#xED;nh v&#xE0; c&#xE1;ch li sinh th&#xE1;i<br>
+a. H&#xEC;nh th&#xE0;nh lo&#xE0;i b&#x1EB1;ng c&#xE1;ch li t&#x1EAD;p t&#xED;nh<br>
+C&#xE1;c c&#xE1; th&#x1EC3; c&#x1EE7;a 1 QT do &#x110;B c&#xF3; &#x111;&#x1B0;&#x1EE3;c KG nh&#x1EA5;t &#x111;&#x1ECB;nh l&#xE0;m thay &#x111;&#x1ED5;i 1 s&#x1ED1; &#x111;&#x1EB7;c &#x111;i&#x1EC3;m li&#xEA;n quan t&#x1EDB;i t&#x1EAD;p t&#xED;nh giao ph&#x1ED1;i th&#xEC; nh&#x1EEF;ng c&#xE1; th&#x1EC3; &#x111;&#xF3; s&#x1EBD; c&#xF3; xu h&#x1B0;&#x1EDB;ng giao ph&#x1ED1;i v&#x1EDB;i nhau t&#x1EA1;o n&#xEA;n QT c&#xE1;ch li v&#x1EDB;i QT g&#x1ED1;c &#x2192; c&#xE1;ch li sinh s&#x1EA3;n &#x2192;lo&#xE0;i m&#x1EDB;i.<br>
+b. H&#xEC;nh th&#xE0;nh lo&#xE0;i b&#x1EB1;ng c&#xE1;ch li sinh th&#xE1;i<br>
+Hai QT c&#x1EE7;a c&#xF9;ng m&#x1ED9;t lo&#xE0;i s&#x1ED1;ng trong 1 khu v&#x1EF1;c &#x111;&#x1ECB;a l&#xED; nh&#x1B0;ng &#x1EDF; hai &#x1ED5; sinh th&#xE1;i kh&#xE1;c nhau &#x2192; c&#xE1;ch li sinh s&#x1EA3;n &#x2192; lo&#xE0;i m&#x1EDB;i. - Th&#x1B0;&#x1EDD;ng g&#x1EB7;p &#x1EDF; TV v&#xE0; &#x110;V &#xED;t di chuy&#x1EC3;n.</li>
+<li>H&#xEC;nh th&#xE0;nh lo&#xE0;i nh&#x1EDD; lai xa v&#xE0; &#x111;a b&#x1ED9;i ho&#xE1; - G&#x1EB7;p &#x1EDF; TV c&#xF3; kh&#x1EA3; n&#x103;ng sinh s&#x1EA3;n sinh d&#x1B0;&#x1EE1;ng. - &#x110;&#xE2;y l&#xE0; ph&#x1B0;&#x1A1;ng th&#x1EE9;c h&#xEC;nh th&#xE0;nh lo&#xE0;i nhanh nh&#x1EA5;t.<br>
+VD. S&#x1EF1; h&#xEC;nh th&#xE0;nh chu&#x1ED1;i nh&#xE0; 3n:<br>
+P : 2n x 2n<br>
+Gp : 2n n<br>
+F1 : 3n (th&#x1EC3; tam b&#x1ED9;i)</li>
+</ol>
+<p>B. B&#x1ED4; SUNG</p>
+<ol>
+<li>C&#xE1;c c&#x1A1; ch&#x1EBF; c&#xE1;ch li c&#xF3; vai tr&#xF2; ng&#x103;n c&#x1EA3;n s&#x1EF1; giao ph&#x1ED1;i t&#x1EF1; do, c&#x1EE7;ng c&#x1ED1; v&#xE0; t&#x103;ng c&#x1B0;&#x1EDD;ng s&#x1EF1; ph&#xE2;n ho&#xE1; KG trong QT b&#x1ECB; chia c&#x1EAF;t.<br>
+C. B&#xC0;I T&#x1EAC;P.<br>
+C&#xE2;u 1: (&#x110;2013) C&#xE1;c v&#xED; d&#x1EE5; n&#xE0;o sau &#x111;&#xE2;y thu&#x1ED9;c c&#x1A1; ch&#x1EBF; c&#xE1;ch li sau h&#x1EE3;p t&#x1EED;?<br>
+(1) Ng&#x1EF1;a c&#xE1;i giao ph&#x1ED1;i v&#x1EDB;i l&#x1EEB;a &#x111;&#x1EF1;c sinh ra con la kh&#xF4;ng c&#xF3; kh&#x1EA3; n&#x103;ng sinh s&#x1EA3;n.<br>
+(2) C&#xE2;y thu&#x1ED9;c lo&#xE0;i n&#xE0;y th&#x1B0;&#x1EDD;ng kh&#xF4;ng th&#x1EE5; ph&#x1EA5;n &#x111;&#x1B0;&#x1EE3;c cho c&#xE2;y thu&#x1ED9;c lo&#xE0;i kh&#xE1;c<br>
+(3) Tr&#x1EE9;ng nh&#xE1;i th&#x1EE5; tinh v&#x1EDB;i tinh tr&#xF9;ng c&#xF3;c t&#x1EA1;o ra h&#x1EE3;p t&#x1EED; nh&#x1B0;ng h&#x1EE3;p t&#x1EED; kh&#xF4;ng ph&#xE1;t tri&#x1EC3;n.<br>
+(4) C&#xE1;c lo&#xE0;i ru&#x1ED3;i gi&#x1EA5;m kh&#xE1;c nhau c&#xF3; t&#x1EAD;p t&#xED;nh giao ph&#x1ED1;i kh&#xE1;c nhau.<br>
+&#x110;&#xE1;p &#xE1;n &#x111;&#xFA;ng l&#xE0;<br>
+A. (1), (3) B. (1), (4)<br>
+C. (2), (4) D. (2), (3)<br>
+C&#xE2;u 2: Con lai &#x111;&#x1B0;&#x1EE3;c sinh ra t&#x1EEB; ph&#xE9;p lai kh&#xE1;c lo&#xE0;i th&#x1B0;&#x1EDD;ng b&#x1EA5;t th&#x1EE5;, nguy&#xEA;n nh&#xE2;n ch&#x1EE7; y&#x1EBF;u l&#xE0; do<br>
+A. s&#x1ED1; l&#x1B0;&#x1EE3;ng nhi&#x1EC5;m s&#x1EAF;c th&#x1EC3; c&#x1EE7;a hai lo&#xE0;i kh&#xF4;ng b&#x1EB1;ng nhau, g&#xE2;y tr&#x1EDF; ng&#x1EA1;i cho s&#x1EF1; nh&#xE2;n &#x111;&#xF4;i nhi&#x1EC5;m s&#x1EAF;c th&#x1EC3;.<br>
+B. c&#xE1;c nhi&#x1EC5;m s&#x1EAF;c th&#x1EC3; trong t&#x1EBF; b&#xE0;o kh&#xF4;ng ti&#x1EBF;p h&#x1EE3;p v&#x1EDB;i nhau khi gi&#x1EA3;m ph&#xE2;n, g&#xE2;y tr&#x1EDF; ng&#x1EA1;i cho s&#x1EF1; ph&#xE1;t sinh giao t&#x1EED;.<br>
+C. c&#x1EA5;u t&#x1EA1;o c&#x1A1; quan sinh s&#x1EA3;n c&#x1EE7;a hai lo&#xE0;i kh&#xF4;ng ph&#xF9; h&#x1EE3;p.<br>
+D. s&#x1ED1; l&#x1B0;&#x1EE3;ng gene c&#x1EE7;a hai lo&#xE0;i kh&#xF4;ng b&#x1EB1;ng nhau.<br>
+C&#xE2;u 3: Ph&#xE1;t bi&#x1EC3;u n&#xE0;o sau &#x111;&#xE2;y kh&#xF4;ng &#x111;&#xFA;ng v&#x1EC1; qu&#xE1; tr&#xEC;nh h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i b&#x1EB1;ng con &#x111;&#x1B0;&#x1EDD;ng &#x111;&#x1ECB;a l&#xED; (h&#xEC;nh th&#xE0;nh lo&#xE0;i kh&#xE1;c khu v&#x1EF1;c &#x111;&#x1ECB;a l&#xFD;)?<br>
+A. H&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i b&#x1EB1;ng con &#x111;&#x1B0;&#x1EDD;ng &#x111;&#x1ECB;a l&#xFD; di&#x1EC5;n ra ch&#x1EAD;m ch&#x1EA1;p trong th&#x1EDD;i gian l&#x1ECB;ch s&#x1EED; l&#xE2;u d&#xE0;i.<br>
+B. Trong nh&#x1EEF;ng &#x111;i&#x1EC1;u ki&#x1EC7;n &#x111;&#x1ECB;a l&#xFD; kh&#xE1;c nhau, ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n &#x111;&#xE3; t&#xED;ch lu&#x1EF9; c&#xE1;c &#x111;&#x1ED9;t bi&#x1EBF;n v&#xE0; bi&#x1EBF;n d&#x1ECB; t&#x1ED5; h&#x1EE3;p theo nh&#x1EEF;ng h&#x1B0;&#x1EDB;ng kh&#xE1;c nhau.<br>
+C. H&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i b&#x1EB1;ng con &#x111;&#x1B0;&#x1EDD;ng &#x111;&#x1ECB;a l&#xFD; th&#x1B0;&#x1EDD;ng g&#x1EB7;p &#x1EDF; c&#x1EA3; &#x111;&#x1ED9;ng v&#x1EAD;t v&#xE0; th&#x1EF1;c v&#x1EAD;t.<br>
+D. &#x110;i&#x1EC1;u ki&#x1EC7;n &#x111;&#x1ECB;a l&#xFD; l&#xE0; nguy&#xEA;n nh&#xE2;n tr&#x1EF1;c ti&#x1EBF;p g&#xE2;y ra nh&#x1EEF;ng bi&#x1EBF;n &#x111;&#x1ED5;i t&#x1B0;&#x1A1;ng &#x1EE9;ng tr&#xEA;n c&#x1A1; th&#x1EC3; sinh v&#x1EAD;t, t&#x1EEB; &#x111;&#xF3; t&#x1EA1;o ra lo&#xE0;i m&#x1EDB;i.<br>
+C&#xE2;u 4: Hai lo&#xE0;i sinh h&#x1ECD;c (lo&#xE0;i giao ph&#x1ED1;i) th&#xE2;n thu&#x1ED9;c th&#xEC;<br>
+A. c&#xE1;ch li sinh s&#x1EA3;n v&#x1EDB;i nhau trong &#x111;i&#x1EC1;u ki&#x1EC7;n t&#x1EF1; nhi&#xEA;n.<br>
+B. ho&#xE0;n to&#xE0;n kh&#xE1;c nhau v&#x1EC1; h&#xEC;nh th&#xE1;i.<br>
+C. ho&#xE0;n to&#xE0;n bi&#x1EC7;t l&#x1EAD;p v&#x1EC1; khu ph&#xE2;n b&#x1ED1;.<br>
+D. giao ph&#x1ED1;i t&#x1EF1; do v&#x1EDB;i nhau trong &#x111;i&#x1EC1;u ki&#x1EC7;n t&#x1EF1; nhi&#xEA;n.<br>
+C&#xE2;u 5 :H&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i<br>
+A. kh&#xE1;c khu v&#x1EF1;c &#x111;&#x1ECB;a l&#xED; (b&#x1EB1;ng con &#x111;&#x1B0;&#x1EDD;ng &#x111;&#x1ECB;a l&#xED;) di&#x1EC5;n ra nhanh trong m&#x1ED9;t th&#x1EDD;i gian ng&#x1EAF;n.<br>
+B. b&#x1EB1;ng con &#x111;&#x1B0;&#x1EDD;ng lai xa v&#xE0; &#x111;a b&#x1ED9;i h&#xF3;a di&#x1EC5;n ra nhanh v&#xE0; g&#x1EB7;p ph&#x1ED5; bi&#x1EBF;n &#x1EDF; th&#x1EF1;c v&#x1EAD;t.<br>
+C. b&#x1EB1;ng con &#x111;&#x1B0;&#x1EDD;ng lai xa v&#xE0; &#x111;a b&#x1ED9;i h&#xF3;a di&#x1EC5;n ra ch&#x1EAD;m v&#xE0; hi&#x1EBF;m g&#x1EB7;p trong t&#x1EF1; nhi&#xEA;n.<br>
+D. &#x1EDF; &#x111;&#x1ED9;ng v&#x1EAD;t ch&#x1EE7; y&#x1EBF;u di&#x1EC5;n ra b&#x1EB1;ng con &#x111;&#x1B0;&#x1EDD;ng lai xa v&#xE0; &#x111;a b&#x1ED9;i h&#xF3;a.<br>
+C&#xE2;u 6: Trong ph&#x1B0;&#x1A1;ng th&#x1EE9;c h&#xEC;nh th&#xE0;nh lo&#xE0;i b&#x1EB1;ng con &#x111;&#x1B0;&#x1EDD;ng &#x111;&#x1ECB;a l&#xED; (h&#xEC;nh th&#xE0;nh lo&#xE0;i kh&#xE1;c khu v&#x1EF1;c &#x111;&#x1ECB;a l&#xED;), nh&#xE2;n t&#x1ED1; tr&#x1EF1;c ti&#x1EBF;p g&#xE2;y ra s&#x1EF1; ph&#xE2;n h&#xF3;a v&#x1ED1;n gene c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; g&#x1ED1;c l&#xE0;<br>
+A. c&#xE1;ch li &#x111;&#x1ECB;a l&#xED;. B. c&#xE1;ch li sinh th&#xE1;i.<br>
+C. t&#x1EAD;p qu&#xE1;n h&#x1ECD;at &#x111;&#x1ED9;ng. D. ch&#x1ECD;n l&#x1ECD;c t&#x1EF1; nhi&#xEA;n.<br>
+C&#xE2;u 7: Ph&#xE1;t bi&#x1EC3;u n&#xE0;o sau &#x111;&#xE2;y l&#xE0; &#x111;&#xFA;ng khi n&#xF3;i v&#x1EC1; qu&#xE1; tr&#xEC;nh h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i?<br>
+A. Qu&#xE1; tr&#xEC;nh h&#xEC;nh th&#xE0;nh qu&#x1EA7;n th&#x1EC3; th&#xED;ch nghi lu&#xF4;n d&#x1EAB;n &#x111;&#x1EBF;n h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i.<br>
+B. S&#x1EF1; c&#xE1;ch li &#x111;&#x1ECB;a l&#xED; t&#x1EA5;t y&#x1EBF;u d&#x1EAB;n &#x111;&#x1EBF;n s&#x1EF1; h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i.<br>
+C. S&#x1EF1; h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i kh&#xF4;ng li&#xEA;n quan &#x111;&#x1EBF;n qu&#xE1; tr&#xEC;nh ph&#xE1;t sinh c&#xE1;c &#x111;&#x1ED9;t bi&#x1EBF;n.<br>
+D. Qu&#xE1; tr&#xEC;nh h&#xEC;nh th&#xE0;nh qu&#x1EA7;n th&#x1EC3; th&#xED;ch nghi kh&#xF4;ng nh&#x1EA5;t thi&#x1EBF;t d&#x1EAB;n &#x111;&#x1EBF;n h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i.<br>
+C&#xE2;u 8: Trong qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1;, c&#xE1;ch li &#x111;&#x1ECB;a l&#xED; c&#xF3; vai tr&#xF2;<br>
+A. h&#x1EA1;n ch&#x1EBF; s&#x1EF1; giao ph&#x1ED1;i t&#x1EF1; do gi&#x1EEF;a c&#xE1;c c&#xE1; th&#x1EC3; thu&#x1ED9;c c&#xE1;c qu&#x1EA7;n th&#x1EC3; c&#xF9;ng lo&#xE0;i.<br>
+B. h&#x1EA1;n ch&#x1EBF; s&#x1EF1; giao ph&#x1ED1;i t&#x1EF1; do gi&#x1EEF;a c&#xE1;c c&#xE1; th&#x1EC3; thu&#x1ED9;c c&#xE1;c qu&#x1EA7;n th&#x1EC3; kh&#xE1;c lo&#xE0;i.<br>
+C. l&#xE0;m bi&#x1EBF;n &#x111;&#x1ED5;i t&#x1EA7;n s&#x1ED1; allele c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; theo nh&#x1EEF;ng h&#x1B0;&#x1EDB;ng kh&#xE1;c nhau.<br>
+D. l&#xE0;m ph&#xE1;t sinh c&#xE1;c allele m&#x1EDB;i, qua &#x111;&#xF3; l&#xE0;m t&#x103;ng s&#x1EF1; &#x111;a d&#x1EA1;ng di truy&#x1EC1;n trong qu&#x1EA7;n th&#x1EC3;.<br>
+C&#xE2;u 10: Ph&#xE1;t bi&#x1EC3;u n&#xE0;o sau &#x111;&#xE2;y l&#xE0; &#x111;&#xFA;ng khi n&#xF3;i v&#x1EC1; qu&#xE1; tr&#xEC;nh h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i?<br>
+A. C&#xE1;c c&#xE1; th&#x1EC3; &#x111;a b&#x1ED9;i &#x111;&#x1B0;&#x1EE3;c c&#xE1;ch li sinh th&#xE1;i v&#x1EDB;i c&#xE1;c c&#xE1; th&#x1EC3; c&#xF9;ng lo&#xE0;i d&#x1EC5; d&#x1EAB;n &#x111;&#x1EBF;n h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i.<br>
+B. Qu&#xE1; tr&#xEC;nh h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i b&#x1EB1;ng con &#x111;&#x1B0;&#x1EDD;ng &#x111;&#x1ECB;a l&#xED; v&#xE0; sinh th&#xE1;i lu&#xF4;n lu&#xF4;n di&#x1EC5;n ra &#x111;&#x1ED9;c l&#x1EAD;p nhau.<br>
+C. Qu&#xE1; tr&#xEC;nh h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i b&#x1EB1;ng con &#x111;&#x1B0;&#x1EDD;ng &#x111;&#x1ECB;a l&#xED; v&#xE0; sinh th&#xE1;i r&#x1EA5;t kh&#xF3; t&#xE1;ch b&#x1EA1;ch nhau, v&#xEC; khi lo&#xE0;i m&#x1EDF; r&#x1ED9;ng khu ph&#xE2;n b&#x1ED1; &#x111;&#x1ECB;a l&#xED; th&#xEC; n&#xF3; c&#x169;ng &#x111;&#x1ED3;ng th&#x1EDD;i g&#x1EB7;p nh&#x1EEF;ng &#x111;i&#x1EC1;u ki&#x1EC7;n sinh th&#xE1;i kh&#xE1;c nhau.<br>
+D. H&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i b&#x1EB1;ng con &#x111;&#x1B0;&#x1EDD;ng (c&#x1A1; ch&#x1EBF;) lai xa v&#xE0; &#x111;a b&#x1ED9;i ho&#xE1; lu&#xF4;n lu&#xF4;n g&#x1EAF;n li&#x1EC1;n v&#x1EDB;i c&#x1A1; ch&#x1EBF; c&#xE1;ch li &#x111;&#x1ECB;a l&#xED;.<br>
+A sai, c&#xE1;c th&#x1EC3; &#x111;a b&#x1ED9;i &#x111;&#x1B0;&#x1EE3;c c&#xE1;ch li sinh s&#x1EA3;n v&#x1EDB;i c&#xE1;c c&#xE1; th&#x1EC3; c&#xF9;ng lo&#xE0;i s&#x1EBD; d&#x1EAB;n &#x111;&#x1EBF;n h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i: VD: 4n 2n 3n b&#x1EA5;t th&#x1EE5;.<br>
+B sai,lai xa v&#xE0; &#x111;a b&#x1ED9;i h&#xF3;a c&#xF3; th&#x1EC3; x&#x1EA3;y ra c&#xF9;ng khu v&#x1EF1;c, kh&#xF4;ng c&#xF3; c&#xE1;ch li &#x111;&#x1ECB;a l&#xED;.<br>
+C &#x111;&#xFA;ng.<br>
+D sai<br>
+C&#xE2;u 11: N&#x1ED9;i dung n&#xE0;o sau &#x111;&#xE2;y n&#xF3;i v&#x1EC1; c&#xE1;ch li sau h&#x1EE3;p t&#x1EED;?<br>
+A. C&#xE1;c c&#xE1; th&#x1EC3; giao ph&#x1ED1;i v&#x1EDB;i nhau t&#x1EA1;o ra h&#x1EE3;p t&#x1EED;, nh&#x1B0;ng h&#x1EE3;p t&#x1EED; kh&#xF4;ng ph&#xE1;t tri&#x1EC3;n th&#xE0;nh con lai.<br>
+B. C&#xE1;c c&#xE1; th&#x1EC3; c&#xF3; c&#x1EA5;u t&#x1EA1;o c&#x1A1; quan sinh s&#x1EA3;n kh&#xE1;c nhau, n&#xEA;n kh&#xF4;ng giao ph&#x1ED1;i v&#x1EDB;i nhau.<br>
+C. C&#xE1;c c&#xE1; th&#x1EC3; s&#x1ED1;ng &#x1EDF; nh&#x1EEF;ng sinh c&#x1EA3;nh kh&#xE1;c nhau, n&#xEA;n kh&#xF4;ng giao ph&#x1ED1;i v&#x1EDB;i nhau.<br>
+D. C&#xE1;c c&#xE1; th&#x1EC3; c&#xF3; nh&#x1EEF;ng t&#x1EAD;p t&#xED;nh giao ph&#x1ED1;i ri&#xEA;ng, n&#xEA;n th&#x1B0;&#x1EDD;ng kh&#xF4;ng giao ph&#x1ED1;i v&#x1EDB;i nhau.<br>
+C&#xE2;u 13: Trong c&#xE1;c c&#x1A1; ch&#x1EBF; c&#xE1;ch li sinh s&#x1EA3;n, c&#xE1;ch li tr&#x1B0;&#x1EDB;c h&#x1EE3;p t&#x1EED; th&#x1EF1;c ch&#x1EA5;t l&#xE0;<br>
+A. ng&#x103;n c&#x1EA3;n s&#x1EF1; th&#x1EE5; tinh t&#x1EA1;o th&#xE0;nh h&#x1EE3;p t&#x1EED;.<br>
+B. ng&#x103;n c&#x1EA3;n h&#x1EE3;p t&#x1EED; ph&#xE1;t tri&#x1EC3;n th&#xE0;nh con lai.<br>
+C. ng&#x103;n c&#x1EA3;n con lai h&#xEC;nh th&#xE0;nh giao t&#x1EED;.<br>
+D. ng&#x103;n c&#x1EA3;n h&#x1EE3;p t&#x1EED; ph&#xE1;t tri&#x1EC3;n th&#xE0;nh con lai h&#x1EEF;u th&#x1EE5;.<br>
+C&#xE2;u 14: Trong c&#xE1;c lo&#x1EA1;i c&#xE1;ch li tr&#x1B0;&#x1EDB;c h&#x1EE3;p t&#x1EED;, c&#xE1;ch li t&#x1EAD;p t&#xED;nh c&#xF3; &#x111;&#x1EB7;c &#x111;i&#x1EC3;m:<br>
+A. M&#x1EB7;c d&#xF9; s&#x1ED1;ng trong c&#xF9;ng m&#x1ED9;t khu v&#x1EF1;c &#x111;&#x1ECB;a l&#xED; nh&#x1B0;ng c&#xE1;c c&#xE1; th&#x1EC3; c&#x1EE7;a c&#xE1;c lo&#xE0;i c&#xF3; h&#x1ECD; h&#xE0;ng g&#x1EA7;n g&#x169;i v&#xE0; s&#x1ED1;ng trong nh&#x1EEF;ng sinh c&#x1EA3;nh kh&#xE1;c nhau n&#xEA;n kh&#xF4;ng th&#x1EC3; giao ph&#x1ED1;i v&#x1EDB;i nhau.<br>
+B. C&#xE1;c c&#xE1; th&#x1EC3; c&#x1EE7;a c&#xE1;c lo&#xE0;i kh&#xE1;c nhau c&#xF3; th&#x1EC3; c&#xF3; nh&#x1EEF;ng t&#x1EAD;p t&#xED;nh giao ph&#x1ED1;i ri&#xEA;ng n&#xEA;n ch&#xFA;ng th&#x1B0;&#x1EDD;ng kh&#xF4;ng giao ph&#x1ED1;i v&#x1EDB;i nhau.<br>
+C. C&#xE1;c c&#xE1; th&#x1EC3; c&#x1EE7;a c&#xE1;c lo&#xE0;i kh&#xE1;c nhau c&#xF3; th&#x1EC3; sinh s&#x1EA3;n v&#xE0;o nh&#x1EEF;ng m&#xF9;a kh&#xE1;c nhau n&#xEA;n ch&#xFA;ng kh&#xF4;ng c&#xF3; &#x111;i&#x1EC1;u ki&#x1EC7;n giao ph&#x1ED1;i v&#x1EDB;i nhau.<br>
+D. C&#xE1;c c&#xE1; th&#x1EC3; thu&#x1ED9;c c&#xE1;c lo&#xE0;i kh&#xE1;c nhau c&#xF3; th&#x1EC3; c&#xF3; c&#x1EA5;u t&#x1EA1;o c&#xE1;c c&#x1A1; quan sinh s&#x1EA3;n kh&#xE1;c nhau n&#xEA;n ch&#xFA;ng kh&#xF4;ng th&#x1EC3; giao ph&#x1ED1;i v&#x1EDB;i nhau.<br>
+C&#xE2;u 15: Ti&#xEA;u chu&#x1EA9;n hay nh&#xF3;m ti&#xEA;u chu&#x1EA9;n n&#xE0;o th&#x1B0;&#x1EDD;ng d&#xF9;ng &#x111;&#x1EC3; ph&#xE2;n bi&#x1EC7;t hai lo&#xE0;i giao ph&#x1ED1;i c&#xF3; quan h&#x1EC7; th&#xE2;n thu&#x1ED9;c?<br>
+A. Ti&#xEA;u chu&#x1EA9;n c&#xE1;ch li sinh s&#x1EA3;n.<br>
+B. Ti&#xEA;u chu&#x1EA9;n ho&#xE1; sinh.<br>
+C. Ti&#xEA;u chu&#x1EA9;n h&#xEC;nh th&#xE1;i v&#xE0; ho&#xE1; sinh.<br>
+D. Ti&#xEA;u chu&#x1EA9;n h&#xEC;nh th&#xE1;i.<br>
+C&#xE2;u 16: Kh&#xF4;ng giao ph&#x1ED1;i &#x111;&#x1B0;&#x1EE3;c do s&#x1EF1; ch&#xEA;nh l&#x1EC7;ch v&#x1EC1; m&#xF9;a sinh s&#x1EA3;n nh&#x1B0; th&#x1EDD;i k&#x1EF3; ra hoa, &#x111;&#x1EBB; tr&#x1EE9;ng thu&#x1ED9;c d&#x1EA1;ng c&#xE1;ch li n&#xE0;o?<br>
+A. C&#xE1;ch li sinh th&#xE1;i. B. C&#xE1;ch li c&#x1A1; h&#x1ECD;c.<br>
+C. C&#xE1;ch li th&#x1EDD;i gian. D. C&#xE1;ch li t&#x1EAD;p t&#xED;nh.<br>
+C&#xE2;u 17: Kh&#xF4;ng giao ph&#x1ED1;i &#x111;&#x1B0;&#x1EE3;c do kh&#xF4;ng t&#x1B0;&#x1A1;ng h&#x1EE3;p v&#x1EC1; c&#x1A1; quan sinh d&#x1EE5;c thu&#x1ED9;c d&#x1EA1;ng c&#xE1;ch li n&#xE0;o?<br>
+A. C&#xE1;ch li sinh th&#xE1;i. B. C&#xE1;ch li c&#x1A1; h&#x1ECD;c.<br>
+C. C&#xE1;ch li th&#x1EDD;i gian. D. C&#xE1;ch li t&#x1EAD;p t&#xED;nh.<br>
+C&#xE2;u 18: Ti&#xEA;u chu&#x1EA9;n hay nh&#xF3;m ti&#xEA;u chu&#x1EA9;n n&#xE0;o th&#x1B0;&#x1EDD;ng d&#xF9;ng &#x111;&#x1EC3; ph&#xE2;n bi&#x1EC7;t hai lo&#xE0;i vi khu&#x1EA9;n c&#xF3; quan h&#x1EC7; th&#xE2;n thu&#x1ED9;c?<br>
+A. Ti&#xEA;u chu&#x1EA9;n c&#xE1;ch li sinh s&#x1EA3;n.<br>
+B. Ti&#xEA;u chu&#x1EA9;n ho&#xE1; sinh.<br>
+C. Ti&#xEA;u chu&#x1EA9;n h&#xEC;nh th&#xE1;i v&#xE0; ho&#xE1; sinh.<br>
+D. Ti&#xEA;u chu&#x1EA9;n h&#xEC;nh th&#xE1;i.<br>
+C&#xE2;u 19: &#x110;i&#x1EC1;u n&#xE0;o kh&#xF4;ng thu&#x1ED9;c c&#xE1;ch li sau h&#x1EE3;p t&#x1EED;?<br>
+A. H&#x1EE3;p t&#x1EED; &#x111;&#x1B0;&#x1EE3;c t&#x1EA1;o th&#xE0;nh v&#xE0; ph&#xE1;t tri&#x1EC3;n th&#xE0;nh con lai nh&#x1B0;ng con lai ch&#x1EBF;t non.<br>
+B. Th&#x1EE5; tinh &#x111;&#x1B0;&#x1EE3;c nh&#x1B0;ng h&#x1EE3;p t&#x1EED; kh&#xF4;ng ph&#xE1;t tri&#x1EC3;n.<br>
+C. H&#x1EE3;p t&#x1EED; &#x111;&#x1B0;&#x1EE3;c t&#x1EA1;o th&#xE0;nh v&#xE0; ph&#xE1;t tri&#x1EC3;n th&#xE0;nh con lai s&#x1ED1;ng &#x111;&#x1B0;&#x1EE3;c &#x111;&#x1EBF;n khi tr&#x1B0;&#x1EDF;ng th&#xE0;nh nh&#x1B0;ng kh&#xF4;ng c&#xF3; kh&#x1EA3; n&#x103;ng sinh s&#x1EA3;n.<br>
+D. Giao t&#x1EED; &#x111;&#x1EF1;c v&#xE0; c&#xE1;i kh&#xF4;ng k&#x1EBF;t h&#x1EE3;p v&#x1EDB;i nhau &#x111;&#x1B0;&#x1EE3;c khi th&#x1EE5; tinh.<br>
+C&#xE2;u 20: S&#x1EF1; xu&#x1EA5;t hi&#x1EC7;n lo&#xE0;i m&#x1EDB;i &#x111;&#x1B0;&#x1EE3;c &#x111;&#xE1;nh d&#x1EA5;u b&#x1EB1;ng:<br>
+A. C&#xE1;ch li sinh s&#x1EA3;n. B. C&#xE1;ch li sinh th&#xE1;i.<br>
+C. C&#xE1;ch li t&#x1EAD;p t&#xED;nh. D. C&#xE1;ch li c&#x1A1; h&#x1ECD;c.<br>
+C&#xE2;u 21: D&#x1EA1;ng c&#xE1;ch li kh&#xF4;ng thu&#x1ED9;c c&#xE1;ch li tr&#x1B0;&#x1EDB;c h&#x1EE3;p t&#x1EED; l&#xE0;:<br>
+A. C&#xE1;ch li &#x111;&#x1ECB;a l&#xED;. B. C&#xE1;ch li sinh th&#xE1;i.<br>
+C. C&#xE1;ch li t&#x1EAD;p t&#xED;nh. D. C&#xE1;ch li c&#x1A1; h&#x1ECD;c.<br>
+C&#xE2;u 22: Nh&#x1EEF;ng con &#x111;&#x1B0;&#x1EDD;ng n&#xE0;o l&#xE0; ph&#x1B0;&#x1A1;ng th&#x1EE9;c h&#xEC;nh th&#xE0;nh lo&#xE0;i c&#xF9;ng khu?<br>
+A. Con &#x111;&#x1B0;&#x1EDD;ng &#x111;&#x1ECB;a l&#xED;, con &#x111;&#x1B0;&#x1EDD;ng lai xa v&#xE0; &#x111;a b&#x1ED9;i ho&#xE1;.<br>
+B. Con &#x111;&#x1B0;&#x1EDD;ng &#x111;&#x1ECB;a l&#xED; v&#xE0; c&#xE1;ch li t&#x1EAD;p t&#xED;nh.<br>
+C. Con &#x111;&#x1B0;&#x1EDD;ng sinh th&#xE1;i; con &#x111;&#x1B0;&#x1EDD;ng lai xa v&#xE0; &#x111;a b&#x1ED9;i ho&#xE1;.<br>
+D. Con &#x111;&#x1B0;&#x1EDD;ng &#x111;&#x1ECB;a l&#xED; v&#xE0; sinh th&#xE1;i.<br>
+C&#xE2;u 23: Khi n&#xF3;i v&#x1EC1; qu&#xE1; tr&#xEC;nh h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i theo quan ni&#x1EC7;m c&#x1EE7;a thuy&#x1EBF;t ti&#x1EBF;n h&#xF3;a hi&#x1EC7;n &#x111;&#x1EA1;i, ph&#xE1;t bi&#x1EC3;u n&#xE0;o sau &#x111;&#xE2;y kh&#xF4;ng &#x111;&#xFA;ng?<br>
+A. H&#xEC;nh th&#xE0;nh lo&#xE0;i b&#x1EB1;ng con &#x111;&#x1B0;&#x1EDD;ng c&#xE1;ch li &#x111;&#x1ECB;a l&#xED; th&#x1B0;&#x1EDD;ng x&#x1EA3;y ra m&#x1ED9;t c&#xE1;ch ch&#x1EAD;m ch&#x1EA1;p qua nhi&#x1EC1;u giai &#x111;o&#x1EA1;n trung gian chuy&#x1EC3;n ti&#x1EBF;p.<br>
+B. H&#xEC;nh th&#xE0;nh lo&#xE0;i b&#x1EB1;ng con &#x111;&#x1B0;&#x1EDD;ng sinh th&#xE1;i th&#x1B0;&#x1EDD;ng g&#x1EB7;p &#x1EDF; th&#x1EF1;c v&#x1EAD;t v&#xE0; &#x111;&#x1ED9;ng v&#x1EAD;t &#xED;t di chuy&#x1EC3;n xa.<br>
+C. H&#xEC;nh th&#xE0;nh lo&#xE0;i l&#xE0; qu&#xE1; tr&#xEC;nh t&#xED;ch lu&#x1EF9; c&#xE1;c bi&#x1EBF;n &#x111;&#x1ED5;i &#x111;&#x1ED3;ng lo&#x1EA1;t do t&#xE1;c &#x111;&#x1ED9;ng tr&#x1EF1;c ti&#x1EBF;p c&#x1EE7;a ngo&#x1EA1;i c&#x1EA3;nh ho&#x1EB7;c do t&#x1EAD;p qu&#xE1;n ho&#x1EA1;t &#x111;&#x1ED9;ng c&#x1EE7;a &#x111;&#x1ED9;ng v&#x1EAD;t.<br>
+D. H&#xEC;nh th&#xE0;nh lo&#xE0;i b&#x1EB1;ng con &#x111;&#x1B0;&#x1EDD;ng lai xa v&#xE0; &#x111;a b&#x1ED9;i h&#xF3;a x&#x1EA3;y ra ph&#x1ED5; bi&#x1EBF;n &#x1EDF; th&#x1EF1;c v&#x1EAD;t.<br>
+C&#xE2;u 25: H&#xEC;nh th&#xE0;nh lo&#xE0;i b&#x1EB1;ng con &#x111;&#x1B0;&#x1EDD;ng lai xa v&#xE0; &#x111;a b&#x1ED9;i ho&#xE1; l&#xE0; ph&#x1B0;&#x1A1;ng th&#x1EE9;c th&#x1B0;&#x1EDD;ng g&#x1EB7;p &#x1EDF;:<br>
+A. th&#x1EF1;c v&#x1EAD;t. B. &#x111;&#x1ED9;ng v&#x1EAD;t k&#xED; sinh.<br>
+C. &#x111;&#x1ED9;ng v&#x1EAD;t D th&#x1EF1;c v&#x1EAD;t v&#xE0; &#x111;&#x1ED9;ng v&#x1EAD;t.<br>
+C&#xE2;u 26: H&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i b&#x1EB1;ng con &#x111;&#x1B0;&#x1EDD;ng sinh th&#xE1;i l&#xE0; ph&#x1B0;&#x1A1;ng th&#x1EE9;c th&#x1B0;&#x1EDD;ng g&#x1EB7;p &#x1EDF;:<br>
+A. th&#x1EF1;c v&#x1EAD;t.<br>
+B. &#x111;&#x1ED9;ng v&#x1EAD;t s&#x1ED1;ng c&#x1ED1; &#x111;&#x1ECB;nh<br>
+C. &#x111;&#x1ED9;ng v&#x1EAD;t di &#x111;&#x1ED9;ng &#x111;i xa.<br>
+D. &#x111;&#x1ED9;ng v&#x1EAD;t &#xED;t di chuy&#x1EC3;n.<br>
+C&#xE2;u 27: Ph&#x1B0;&#x1A1;ng th&#x1EE9;c h&#xEC;nh th&#xE0;nh lo&#xE0;i n&#xE0;o di&#x1EC5;n ra nhanh?<br>
+A. Con &#x111;&#x1B0;&#x1EDD;ng &#x111;&#x1ECB;a l&#xED;.<br>
+B. Con &#x111;&#x1B0;&#x1EDD;ng c&#xE1;ch li t&#x1EAD;p t&#xED;nh.<br>
+C. Con &#x111;&#x1B0;&#x1EDD;ng sinh th&#xE1;i.<br>
+D. Con &#x111;&#x1B0;&#x1EDD;ng lai xa v&#xE0; &#x111;a b&#x1ED9;i ho&#xE1;.<br>
+C&#xE2;u 28: Ph&#x1B0;&#x1A1;ng th&#x1EE9;c h&#xEC;nh th&#xE0;nh lo&#xE0;i n&#xE0;o di&#x1EC5;n ra ch&#x1EAD;m?<br>
+A. Con &#x111;&#x1B0;&#x1EDD;ng &#x111;&#x1ECB;a l&#xED; v&#xE0; sinh th&#xE1;i.<br>
+B. Con &#x111;&#x1B0;&#x1EDD;ng c&#xE1;ch li t&#x1EAD;p t&#xED;nh, lai xa v&#xE0; &#x111;a b&#x1ED9;i.<br>
+C. Con &#x111;&#x1B0;&#x1EDD;ng &#x111;&#x1ECB;a l&#xED;, lai xa v&#xE0; &#x111;a b&#x1ED9;i ho&#xE1;.<br>
+D. Con &#x111;&#x1B0;&#x1EDD;ng sinh th&#xE1;i, lai xa v&#xE0; &#x111;a b&#x1ED9;i ho&#xE1;.<br>
+C&#xE2;u 29: Hi&#x1EC7;n t&#x1B0;&#x1EE3;ng b&#x1EA5;t th&#x1EE5; &#x1EDF; c&#x1A1; th&#x1EC3; lai xa l&#xE0; do:<br>
+A. B&#x1ED9; NST c&#x1EE7;a 2 lo&#xE0;i b&#x1ED1; m&#x1EB9; kh&#xE1;c nhau g&#xE2;y ra s&#x1EF1; tr&#x1EDF; ng&#x1EA1;i trong qu&#xE1; tr&#xEC;nh ph&#xE1;t sinh giao t&#x1EED;.<br>
+B. S&#x1EF1; kh&#xE1;c bi&#x1EC7;t trong chu k&#x1EF3; sinh s&#x1EA3;n, b&#x1ED9; m&#xE1;y sinh d&#x1EE5;c kh&#xF4;ng t&#x1B0;&#x1A1;ng &#x1EE9;ng &#x1EDF; &#x111;&#x1ED9;ng v&#x1EAD;t.<br>
+C. Chi&#x1EC1;u d&#xE0;i &#x1ED1;ng ph&#x1EA5;n kh&#xF4;ng ph&#xF9; h&#x1EE3;p v&#x1EDB;i chi&#x1EC1;u d&#xE0;i v&#xF2;i nhu&#x1EF5; c&#x1EE7;a lo&#xE0;i kia &#x1EDF; th&#x1EF1;c v&#x1EAD;t.<br>
+D. H&#x1EA1;t ph&#x1EA5;n c&#x1EE7;a lo&#xE0;i n&#xE0;y kh&#xF4;ng n&#x1EA3;y m&#x1EA7;m &#x111;&#x1B0;&#x1EE3;c tr&#xEA;n v&#xF2;i nhu&#x1EF5; c&#x1EE7;a lo&#xE0;i kia &#x1EDF; th&#x1EF1;c v&#x1EAD;t.<br>
+C&#xE2;u 30: &#x110;&#x1EC3; kh&#x1EAF;c ph&#x1EE5;c hi&#x1EC7;n t&#x1B0;&#x1EE3;ng b&#x1EA5;t th&#x1EE5; c&#x1EE7;a c&#x1A1; th&#x1EC3; lai xa &#x1EDF; &#x111;&#x1ED9;ng v&#x1EAD;t, ng&#x1B0;&#x1EDD;i ta s&#x1EED; d&#x1EE5;ng bi&#x1EC7;n ph&#xE1;p n&#xE0;o sau &#x111;&#xE2;y?<br>
+A. G&#xE2;y &#x111;&#x1ED9;t bi&#x1EBF;n &#x111;a b&#x1ED9;i th&#x1EC3;.<br>
+B. Kh&#xF4;ng c&#xF3; bi&#x1EC7;n ph&#xE1;p.<br>
+C. G&#xE2;y &#x111;&#x1ED9;t bi&#x1EBF;n gene.<br>
+D. T&#x1EA1;o &#x1B0;u th&#x1EBF; lai.<br>
+C&#xE2;u 33: &#x110;&#x1EC3; ph&#xE2;n bi&#x1EC7;t 2 lo&#xE0;i th&#xE2;n thu&#x1ED9;c, ng&#x1B0;&#x1EDD;i ta ph&#x1EA3;i d&#x1EF1;a v&#xE0;o m&#x1ED9;t s&#x1ED1; &#x111;&#x1EB7;c &#x111;i&#x1EC3;m sau<br>
+A. ti&#xEA;u chu&#x1EA9;n h&#xEC;nh th&#xE1;i, ti&#xEA;u chu&#x1EA9;n di truy&#x1EC1;n.<br>
+B. ti&#xEA;u chu&#x1EA9;n &#x111;&#x1ECB;a l&#xFD; - sinh th&#xE1;i, ti&#xEA;u chu&#x1EA9;n di truy&#x1EC1;n.<br>
+C. ti&#xEA;u chu&#x1EA9;n sinh l&#xFD; - h&#xF3;a sinh, ti&#xEA;u chu&#x1EA9;n di truy&#x1EC1;n,ti&#xEA;u chu&#x1EA9;n &#x111;&#x1ECB;a l&#xFD; - sinh th&#xE1;i.<br>
+D. ti&#xEA;u chu&#x1EA9;n h&#xEC;nh th&#xE1;i, ti&#xEA;u chu&#x1EA9;n di truy&#x1EC1;n, ti&#xEA;u chu&#x1EA9;n sinh l&#xFD; - h&#xF3;a sinh, ti&#xEA;u chu&#x1EA9;n &#x111;&#x1ECB;a l&#xFD; - sinh th&#xE1;i.<br>
+C&#xE2;u 34: Lo&#xE0;i s&#xE1;o &#x111;en m&#x1ECF; v&#xE0;ng, lo&#xE0;i s&#xE1;o &#x111;en m&#x1ECF; tr&#x1EAF;ng v&#xE0; lo&#xE0;i s&#xE1;o n&#xE2;u. Ti&#xEA;u chu&#x1EA9;n &#x111;&#x1EC3; ph&#xE2;n bi&#x1EC7;t c&#xE1;c lo&#xE0;i v&#x1EEB;a n&#xEA;u tr&#xEA;n l&#xE0;<br>
+A. ti&#xEA;u chu&#x1EA9;n h&#xEC;nh th&#xE1;i.<br>
+B. ti&#xEA;u chu&#x1EA9;n &#x111;&#x1ECB;a l&#xED; - sinh th&#xE1;i.<br>
+C. ti&#xEA;u chu&#x1EA9;n sinh l&#xED; - ho&#xE1; sinh.<br>
+D. ti&#xEA;u chu&#x1EA9;n di truy&#x1EC1;n.<br>
+C&#xE2;u 35: Lo&#xE0;i mao l&#x1B0;&#x1A1;ng s&#x1ED1;ng &#x1EDF; b&#xE3;i c&#x1ECF; &#x1EA9;m c&#xF3; ch&#x1ED3;i n&#xE1;ch, l&#xE1; v&#x1B0;&#x1A1;n d&#xE0;i, b&#xF2; tr&#xEA;n m&#x1EB7;t &#x111;&#x1EA5;t. Lo&#xE0;i mao l&#x1B0;&#x1A1;ng s&#x1ED1;ng &#x1EDF; b&#x1EDD; ao c&#xF3; l&#xE1; h&#xEC;nh b&#x1EA7;u d&#x1EE5;c &#xED;t r&#x103;ng c&#x1B0;a h&#x1A1;n. Y&#x1EBF;u t&#x1ED1; ch&#x1EE7; y&#x1EBF;u t&#x1EA1;o ra s&#x1EF1; sai kh&#xE1;c &#x1EDF; hai lo&#xE0;i mao l&#x1B0;&#x1A1;ng n&#xF3;i tr&#xEA;n l&#xE0;<br>
+A. y&#x1EBF;u t&#x1ED1; &#x111;&#x1ECB;a l&#xED;. B. y&#x1EBF;u t&#x1ED1; sinh th&#xE1;i.<br>
+C. y&#x1EBF;u t&#x1ED1; sinh l&#xED;. D. y&#x1EBF;u t&#x1ED1; ho&#xE1; sinh.<br>
+C&#xE2;u 36: Ti&#xEA;u chu&#x1EA9;n ho&#xE1; sinh &#x111;&#x1B0;&#x1EE3;c xem l&#xE0; ti&#xEA;u chu&#x1EA9;n ch&#x1EE7; y&#x1EBF;u &#x111;&#x1EC3; ph&#xE2;n bi&#x1EC7;t c&#xE1;c ch&#x1EE7;ng, lo&#xE0;i &#x1EDF; d&#x1EA1;ng sinh v&#x1EAD;t n&#xE0;o sau &#x111;&#xE2;y?<br>
+A. &#x110;&#x1ED9;ng v&#x1EAD;t b&#x1EAD;c cao.<br>
+B. Th&#x1EF1;c v&#x1EAD;t b&#x1EAD;c cao.<br>
+C. Th&#x1EF1;c v&#x1EAD;t v&#xE0; &#x111;&#x1ED9;ng v&#x1EAD;t b&#x1EAD;c th&#x1EA5;p.<br>
+D. Vi khu&#x1EA9;n.<br>
+C&#xE2;u 37: D&#x1EA5;u hi&#x1EC7;u quan tr&#x1ECD;ng nh&#x1EA5;t &#x111;&#x1EC3; ph&#xE2;n bi&#x1EC7;t 2 lo&#xE0;i l&#xE0;<br>
+A. c&#xE1;ch ly sinh s&#x1EA3;n. B. c&#xE1;ch ly &#x111;&#x1ECB;a l&#xFD;.<br>
+C. c&#xE1;ch ly sinh th&#xE1;i. D. c&#xE1;ch ly sinh h&#x1ECD;c.<br>
+C&#xE2;u 38: Trong m&#x1ED9;t h&#x1ED3; &#x1EDF; ch&#xE2;u Phi, ng&#x1B0;&#x1EDD;i ta th&#x1EA5;y c&#xF3; hai lo&#xE0;i c&#xE1; r&#x1EA5;t gi&#x1ED1;ng nhau v&#x1EC1; c&#xE1;c &#x111;&#x1EB7;c &#x111;i&#x1EC3;m h&#xEC;nh th&#xE1;i v&#xE0; ch&#x1EC9; kh&#xE1;c nhau v&#x1EC1; m&#xE0;u s&#x1EAF;c, m&#x1ED9;t lo&#xE0;i m&#xE0;u &#x111;&#x1ECF; v&#xE0; m&#x1ED9;t lo&#xE0;i m&#xE0;u x&#xE1;m. M&#x1EB7;c d&#xF9; c&#xF9;ng s&#x1ED1;ng trong m&#x1ED9;t h&#x1ED3; nh&#x1B0;ng ch&#xFA;ng kh&#xF4;ng giao ph&#x1ED1;i v&#x1EDB;i nhau. Tuy nhi&#xEA;n, khi nu&#xF4;i c&#xE1;c c&#xE1; th&#x1EC3; c&#x1EE7;a hai lo&#xE0;i n&#xE0;y trong m&#x1ED9;t b&#x1EC3; c&#xE1; c&#xF3; chi&#x1EBF;u &#xE1;nh s&#xE1;ng &#x111;&#x1A1;n s&#x1EAF;c l&#xE0;m cho ch&#xFA;ng c&#xF3; m&#xE0;u gi&#x1ED1;ng nhau th&#xEC; ch&#xFA;ng l&#x1EA1;i giao ph&#x1ED1;i v&#x1EDB;i nhau v&#xE0; sinh con. D&#x1EA1;ng c&#xE1;ch li n&#xE0;o sau &#x111;&#xE2;y l&#xE0;m cho hai lo&#xE0;i n&#xE0;y kh&#xF4;ng giao ph&#x1ED1;i v&#x1EDB;i nhau trong &#x111;i&#x1EC1;u ki&#x1EC7;n t&#x1EF1; nhi&#xEA;n?<br>
+A. C&#xE1;ch li sinh th&#xE1;i B. C&#xE1;ch li &#x111;&#x1ECB;a l&#xED;<br>
+C. C&#xE1;ch li c&#x1A1; h&#x1ECD;c D. C&#xE1;ch li t&#x1EAD;p t&#xED;nh<br>
+C&#xE2;u 39: Do c&#xE1;c tr&#x1EDF; ng&#x1EA1;i &#x111;&#x1ECB;a l&#xED;, t&#x1EEB; m&#x1ED9;t qu&#x1EA7;n th&#x1EC3; ban &#x111;&#x1EA7;u &#x111;&#x1B0;&#x1EE3;c chia th&#xE0;nh nhi&#x1EC1;u qu&#x1EA7;n th&#x1EC3; c&#xE1;ch li v&#x1EDB;i nhau. N&#x1EBF;u c&#xE1;c nh&#xE2;n t&#x1ED1; ti&#x1EBF;n h&#xF3;a l&#xE0;m ph&#xE2;n h&#xF3;a v&#x1ED1;n gen c&#x1EE7;a qu&#x1EA7;n th&#x1EC3; n&#xE0;y &#x111;&#x1EBF;n m&#x1EE9;c l&#xE0;m xu&#x1EA5;t hi&#x1EC7;n c&#xE1;c c&#x1A1; ch&#x1EBF; c&#xE1;ch li sinh s&#x1EA3;n th&#xEC; lo&#xE0;i m&#x1EDB;i s&#x1EBD; h&#xEC;nh th&#xE0;nh. &#x110;&#xE2;y l&#xE0; qu&#xE1; tr&#xEC;nh h&#xEC;nh th&#xE0;nh lo&#xE0;i m&#x1EDB;i b&#x1EB1;ng con &#x111;&#x1B0;&#x1EDD;ng<br>
+A. lai xa v&#xE0; &#x111;a b&#x1ED9;i h&#xF3;a<br>
+B. c&#xE1;ch li t&#x1EAD;p t&#xED;nh<br>
+C. c&#xE1;ch li sinh th&#xE1;i<br>
+D. c&#xE1;ch li &#x111;&#x1ECB;a l&#xED;</li>
+</ol>
+<p>Ch&#x1B0;&#x1A1;ng II. S&#x1EF0; PH&#xC1;T SINH V&#xC0; PH&#xC1;T TRI&#x1EC2;N C&#x1EE6;A<br>
+S&#x1EF0; S&#x1ED0;NG TR&#xCA;N TR&#xC1;I &#x110;&#x1EA4;T<br>
+B&#xE0;i 32. NGU&#x1ED2;N G&#x1ED0;C S&#x1EF0; S&#x1ED0;NG<br>
+A. N&#x1ED8;I DUNG CH&#xCD;NH<br>
+C&#xE1;c giai &#x111;o&#x1EA1;n ch&#xED;nh trong qu&#xE1; tr&#xEC;nh ph&#xE1;t sinh s&#x1EF1; s&#x1ED1;ng tr&#xEA;n Tr&#xE1;i &#x110;&#x1EA5;t l&#xE0;: Ti&#x1EBF;n ho&#xE1; ho&#xE1; h&#x1ECD;c &#x2192; Ti&#x1EBF;n ho&#xE1; ti&#x1EC1;n sinh h&#x1ECD;c &#x2192; ti&#x1EBF;n ho&#xE1; sinh h&#x1ECD;c.<br>
+I. Ti&#x1EBF;n h&#xF3;a h&#xF3;a h&#x1ECD;c - Giai &#x111;o&#x1EA1;n t&#x1ED5;ng h&#x1EE3;p nh&#x1EEF;ng ch&#x1EA5;t h&#x1EEF;u c&#x1A1; cho s&#x1EF1; s&#x1ED1;ng t&#x1EEB; c&#xE1;c ch&#x1EA5;t v&#xF4; c&#x1A1; theo ph&#x1B0;&#x1A1;ng th&#x1EE9;c ho&#xE1; h&#x1ECD;c. - Th&#xED; nghi&#x1EC7;m c&#x1EE7;a Mil&#x1A1; &#x111;&#xE3; ch&#x1EE9;ng minh ph&#xE2;n t&#x1EED; h&#x1EEF;u c&#x1A1; c&#xF3; th&#x1EC3; h&#xEC;nh th&#xE0;nh t&#x1EF1; ph&#xE1;t trong t&#x1EF1; nhi&#xEA;n.</p>
+<pre class="language-text">- C&#x1A1; s&#x1EDF; v&#x1EAD;t ch&#x1EA5;t ch&#x1EE7; y&#x1EBF;u c&#x1EE7;a s&#x1EF1; s&#x1ED1;ng l&#xE0; axit nucl&#xEA;ic v&#xE0; pr&#xF4;t&#xEA;in (p&#xF4;lipeptit)
+II. Ti&#x1EBF;n h&#xF3;a ti&#x1EC1;n sinh h&#x1ECD;c
+- C&#xE1;c &#x111;&#x1EA1;i ph&#xE2;n t&#x1EED; xu&#x1EA5;t hi&#x1EC7;n trong n&#x1B0;&#x1EDB;c v&#xE0; t&#x1EAD;p trung v&#x1EDB;i nhau, c&#xE1;c ph&#xE2;n t&#x1EED; lipit do &#x111;&#x1EB7;c t&#xED;nh k&#x1ECB; n&#x1B0;&#x1EDB;c s&#x1EBD; h&#xEC;nh th&#xE0;nh l&#x1EDB;p m&#xE0;ng bao b&#x1ECD;c c&#xE1;c &#x111;&#x1EA1;i ph&#xE2;n t&#x1EED; h&#x1EEF;u c&#x1A1; =&gt; gi&#x1ECD;t nh&#x1ECF; (C&#xF4;axecva - h&#x1ED7;n h&#x1EE3;p dung d&#x1ECB;ch keo &#x111;&#xF4;ng t&#x1EE5; th&#xE0;nh gi&#x1ECD;t nh&#x1ECF;, c&#xF3; m&#xE0;ng bao b&#x1ECD;c ).
+- C&#xE1;c C&#xF4;axecva c&#xF3; kh&#x1EA3; n&#x103;ng trao &#x111;&#x1ED5;i ch&#x1EA5;t, kh&#x1EA3; n&#x103;ng ph&#xE2;n chia v&#xE0; duy tr&#xEC; th&#xE0;nh ph&#x1EA7;n ho&#xE1; h&#x1ECD;c &#x111;&#x1B0;&#x1EE3;c CLTN gi&#x1EEF; l&#x1EA1;i h&#xEC;nh th&#xE0;nh c&#xE1;c TB s&#x1A1; khai (m&#x1EA7;m m&#x1ED1;ng c&#x1A1; th&#x1EC3; &#x111;&#x1EA7;u ti&#xEA;n)        ti&#x1EBF;n ho&#xE1; sinh h&#x1ECD;c         C&#xE1;c lo&#xE0;i nh&#x1B0; ng&#xE0;y nay.
+</pre>
+<p>B. B&#x1ED4; SUNG<br>
+1- Ng&#xE0;y nay, s&#x1EF1; s&#x1ED1;ng kh&#xF4;ng c&#xF2;n &#x111;&#x1B0;&#x1EE3;c h&#xEC;nh th&#xE0;nh theo ph&#x1B0;&#x1A1;ng th&#x1EE9;c ho&#xE1; h&#x1ECD;c v&#xEC; : + Thi&#x1EBF;u c&#xE1;c &#x111;i&#x1EC1;u ki&#x1EC7;n l&#x1ECB;ch s&#x1EED; c&#x1EA7;n thi&#x1EBF;t v&#xE0; n&#x1EBF;u ch&#x1EA5;t h&#x1EEF;u c&#x1A1; + N&#x1EBF;u ch&#x1EA5;t h&#x1EEF;u c&#x1A1; &#x111;&#x1B0;&#x1EE3;c t&#x1EA1;o th&#xE0;nh ngo&#xE0;i c&#x1A1; t h&#x1EC3; s&#x1ED1;ng s&#x1EBD; l&#x1EAD;p t&#x1EE9;c b&#x1ECB; vi khu&#x1EA9;n ph&#xE2;n hu&#x1EF7; .<br>
+2- Ng&#xE0;y nay, ch&#x1EA5;t h&#x1EEF;u c&#x1A1; ch&#x1EE7; y&#x1EBF;u &#x111;&#x1B0;&#x1EE3;c t&#x1ED5;ng h&#x1EE3;p trong c&#xE1;c TB s&#x1ED1;ng.<br>
+3- &#x110;&#x1EB7;c &#x111;i&#x1EC3;m ch&#x1EC9; &#x1EDF; v&#x1EAD;t th&#x1EC3; s&#x1ED1;ng m&#x1EDB;i c&#xF3; l&#xE0; : trao &#x111;&#x1ED5;i ch&#x1EA5;t th&#xF4;ng qua &#x111;&#x1ED3;ng ho&#xE1;, d&#x1ECB; ho&#xE1; v&#xE0; c&#xF3; kh&#x1EA3; n&#x103;ng sinh s&#x1EA3;n.<br>
+4- C&#x1A1; th&#x1EC3; s&#x1ED1;ng &#x111;&#x1EA7;u ti&#xEA;n c&#xF3; &#x111;&#x1EB7;c &#x111;i&#x1EC3;m : c&#x1EA5;u t&#x1EA1;o &#x111;&#x1A1;n gi&#x1EA3;m - D&#x1ECB; d&#x1B0;&#x1EE1;ng - Y&#x1EBF;m kh&#xED;.<br>
+5- Lo&#x1EA1;i axit nucl&#xEA;ic &#x111;&#x1B0;&#x1EE3;c xu&#x1EA5;t hi&#x1EC7;n &#x111;&#x1EA7;u ti&#xEA;n l&#xE0; ARN. hi&#x1EC7;n nay, ADN l&#x1B0;u tr&#x1EEF; v&#xE0; b&#x1EA3;o qu&#x1EA3;n th&#xF4;ng tin DT do c&#xF3; c&#x1EA5;u tr&#xFA;c b&#x1EC1;n v&#x1EEF;ng h&#x1A1;n v&#xE0; phi&#xEA;n m&#xE3; ch&#xED;nh x&#xE1;c h&#x1A1;n.<br>
+6- Lipit l&#xE0; ph&#xE2;n t&#x1EED; h&#x1EEF;u c&#x1A1; duy nh&#x1EA5;t kh&#xF4;ng c&#xF3; c&#x1EA5;u tr&#xFA;c &#x111;a ph&#xE2;n. C&#x1EA5;u tr&#xFA;c &#x111;a ph&#xE2;n t&#x1EE9;c l&#xE0; &#x111;&#x1B0;&#x1EE3;c h&#xEC;nh th&#xE0;nh t&#x1EEB; nhi&#x1EC1;u &#x111;&#x1A1;n ph&#xE2;n.<br>
+7- Ch&#x1EA5;t h&#x1EEF;u c&#x1A1; v&#xE0; qu&#xE1; tr&#xEC;nh quan tr&#x1ECD;ng nh&#x1EA5;t &#x111;&#x1ED1;i v&#x1EDB;i s&#x1EF1; s&#x1ED1;ng l&#xE0; axit nucl&#xEA;ic v&#xE0; qu&#xE1; tr&#xEC;nh nh&#xE2;n &#x111;&#xF4;i.<br>
+8- Nh&#x1EDD; c&#xF3; qu&#xE1; tr&#xEC;nh t&#xED;ch lu&#x1EF9; th&#xF4;ng tin DT m&#xE0; ADN ng&#xE0;y c&#xE0;ng ph&#x1EE9;c t&#x1EA1;p v&#xE0; &#x111;a d&#x1EA1;ng.</p>
+<p>C. B&#xC0;I T&#x1EAC;P<br>
+C&#xE2;u 1: S&#x1EF1; ph&#xE1;t sinh v&#xE0; ph&#xE1;t tri&#x1EC3;n c&#x1EE7;a s&#x1EF1; s&#x1ED1;ng bao g&#x1ED3;m nh&#x1EEF;ng giai &#x111;o&#x1EA1;n ch&#xED;nh<br>
+A. ti&#x1EBF;n ho&#xE1; h&#x1ECD;c v&#xE0; ti&#x1EBF;n ho&#xE1; ti&#x1EC1;n sinh h&#x1ECD;c.<br>
+B. ti&#x1EBF;n ho&#xE1; ti&#x1EC1;n sinh h&#x1ECD;c v&#xE0; ti&#x1EBF;n ho&#xE1; sinh h&#x1ECD;c.<br>
+C. ti&#x1EBF;n ho&#xE1; ho&#xE1; h&#x1ECD;c, ti&#x1EBF;n ho&#xE1; ti&#x1EC1;n sinh h&#x1ECD;c v&#xE0; ti&#x1EBF;n ho&#xE1; sinh h&#x1ECD;c.<br>
+D. ti&#x1EBF;n ho&#xE1; ho&#xE1; h&#x1ECD;c v&#xE0; ti&#x1EBF;n ho&#xE1; sinh h&#x1ECD;c.<br>
+C&#xE2;u 2: Ph&#xE1;t bi&#x1EC3;u n&#xE0;o d&#x1B0;&#x1EDB;i &#x111;&#xE2;y kh&#xF4;ng &#x111;&#xFA;ng v&#x1EC1; giai &#x111;o&#x1EA1;n ti&#x1EBF;n ho&#xE1; ho&#xE1; h&#x1ECD;c?<br>
+A. &#x110;&#x1EA7;u ti&#xEA;n h&#xEC;nh th&#xE0;nh nh&#x1EEF;ng ph&#xE2;n t&#x1EED; h&#x1EEF;u c&#x1A1; &#x111;&#x1A1;n gi&#x1EA3;n r&#x1ED3;i &#x111;&#x1EBF;n nh&#x1EEF;ng<br>
+ph&#xE2;n t&#x1EED; h&#x1EEF;u c&#x1A1; ph&#x1EE9;c t&#x1EA1;p, nh&#x1EEF;ng &#x111;&#x1EA1;i ph&#xE2;n t&#x1EED; v&#xE0; h&#x1EC7; &#x111;&#x1EA1;i ph&#xE2;n t&#x1EED;.<br>
+B. Ch&#x1EA5;t h&#x1EEF;u c&#x1A1; &#x111;&#x1B0;&#x1EE3;c t&#x1ED5;ng h&#x1EE3;p nh&#x1EDD; ngu&#x1ED3;n n&#x103;ng l&#x1B0;&#x1EE3;ng t&#x1EF1; nhi&#xEA;n trong<br>
+&#x111;i&#x1EC1;u ki&#x1EC7;n kh&#xED; h&#x1EAD;u v&#xE0; &#x111;&#x1ECB;a ch&#x1EA5;t c&#x1EE7;a &#x111;&#x1ECB;a c&#x1EA7;u nguy&#xEA;n thu&#x1EF7;.<br>
+C. Ch&#x1EA5;t h&#x1EEF;u c&#x1A1; &#x111;&#x1B0;&#x1EE3;c t&#x1ED5;ng h&#x1EE3;p t&#x1EEB; c&#xE1;c ch&#x1EA5;t v&#xF4; c&#x1A1; theo ph&#x1B0;&#x1A1;ng th&#x1EE9;c ho&#xE1; h&#x1ECD;c.<br>
+D. Cho &#x111;i&#x1EC7;n th&#x1EBF; cao ph&#xF3;ng qua m&#x1ED9;t h&#x1ED7;n h&#x1EE3;p h&#x1A1;i n&#x1B0;&#x1EDB;c, CO2, CH4, NH3... ng&#x1B0;&#x1EDD;i ta thu &#x111;&#x1B0;&#x1EE3;c m&#x1ED9;t s&#x1ED1; lo&#x1EA1;i axit amin.<br>
+C&#xE2;u 3: Trong giai &#x111;o&#x1EA1;n ti&#x1EBF;n ho&#xE1; ho&#xE1; h&#x1ECD;c &#x111;&#xE3;<br>
+A. t&#x1ED5;ng h&#x1EE3;p nh&#x1EEF;ng ch&#x1EA5;t h&#x1EEF;u c&#x1A1; t&#x1EEB; nh&#x1EEF;ng ch&#x1EA5;t v&#xF4; c&#x1A1; theo ph&#x1B0;&#x1A1;ng th&#x1EE9;c<br>
+ho&#xE1; h&#x1ECD;c.<br>
+B. h&#xEC;nh th&#xE0;nh m&#x1EA7;n m&#x1ED1;ng nh&#x1EEF;ng c&#x1A1; th&#x1EC3; &#x111;&#x1EA7;u ti&#xEA;n.<br>
+C. t&#x1EA1;o th&#xE0;nh c&#xE1;c c&#xF4;axecva.<br>
+D. xu&#x1EA5;t hi&#x1EC7;n c&#xE1;c enzim.<br>
+C&#xE2;u 4: Theo quan ni&#x1EC7;m hi&#x1EC7;n &#x111;&#x1EA1;i, ngu&#x1ED3;n n&#x103;ng l&#x1B0;&#x1EE3;ng &#x111;&#x1EC3; t&#x1ED5;ng h&#x1EE3;p n&#xEA;n c&#xE1;c &#x111;&#x1EA1;i ph&#xE2;n t&#x1EED; h&#x1EEF;u c&#x1A1; h&#xEC;nh th&#xE0;nh s&#x1EF1; s&#x1ED1;ng l&#xE0;<br>
+A. ATP. B. n&#x103;ng l&#x1B0;&#x1EE3;ng ho&#xE1; h&#x1ECD;c.<br>
+C. n&#x103;ng l&#x1B0;&#x1EE3;ng sinh h&#x1ECD;c. D. n&#x103;ng l&#x1B0;&#x1EE3;ng t&#x1EF1; nhi&#xEA;n.<br>
+C&#xE2;u 5: Nhi&#x1EC1;u th&#xED; nghi&#x1EC7;m &#x111;&#xE3; ch&#x1EE9;ng minh r&#x1EB1;ng c&#xE1;c &#x111;&#x1A1;n ph&#xE2;n nucl&#xEA;&#xF4;tit c&#xF3; th&#x1EC3; t&#x1EF1; l&#x1EAF;p gh&#xE9;p th&#xE0;nh nh&#x1EEF;ng &#x111;o&#x1EA1;n ARN ng&#x1EAF;n, c&#x169;ng c&#xF3; th&#x1EC3; nh&#xE2;n &#x111;&#xF4;i m&#xE0; kh&#xF4;ng c&#x1EA7;n &#x111;&#x1EBF;n s&#x1EF1; x&#xFA;c t&#xE1;c c&#x1EE7;a enzim. &#x110;i&#x1EC1;u n&#xE0;y c&#xF3; &#xFD; ngh&#x129;a g&#xEC;?<br>
+A. C&#x1A1; th&#x1EC3; s&#x1ED1;ng h&#xEC;nh th&#xE0;nh t&#x1EEB; s&#x1EF1; t&#x1B0;&#x1A1;ng t&#xE1;c gi&#x1EEF;a pr&#xF4;t&#xEA;in v&#xE0; axit nucl&#xEA;ic.<br>
+B. Trong qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1;, ARN xu&#x1EA5;t hi&#x1EC7;n tr&#x1B0;&#x1EDB;c ADN v&#xE0; pr&#xF4;t&#xEA;in.<br>
+C. Pr&#xF4;t&#xEA;in c&#x169;ng c&#xF3; th&#x1EC3; t&#x1EF1; t&#x1ED5;ng h&#x1EE3;p m&#xE0; kh&#xF4;ng c&#x1EA7;n c&#x1A1; ch&#x1EBF; phi&#xEA;n m&#xE3; v&#xE0; d&#x1ECB;ch m&#xE3;.<br>
+D. S&#x1EF1; xu&#x1EA5;t hi&#x1EC7;n axit nucl&#xEA;ic v&#xE0; pr&#xF4;t&#xEA;in ch&#x1B0;a ph&#x1EA3;i l&#xE0; xu&#x1EA5;t hi&#x1EC7;n s&#x1EF1; s&#x1ED1;ng.<br>
+C&#xE2;u 6: Theo quan &#x111;i&#x1EC3;m c&#x1EE7;a Oparin th&#xEC; n&#x1A1;i xu&#x1EA5;t hi&#x1EC7;n v&#xE0; ph&#x1B0;&#x1A1;ng th&#x1EE9;c dinh d&#x1B0;&#x1EE1;ng c&#x1EE7;a v&#x1EAD;t th&#x1EC3; s&#x1ED1;ng &#x111;&#x1EA7;u ti&#xEA;n l&#xE0;<br>
+A. m&#xF4;i tr&#x1B0;&#x1EDD;ng &#x111;&#x1EA5;t; d&#x1ECB; d&#x1B0;&#x1EE1;ng. B. m&#xF4;i tr&#x1B0;&#x1EDD;ng n&#x1B0;&#x1EDB;c; d&#x1ECB; d&#x1B0;&#x1EE1;ng.<br>
+C. m&#xF4;i tr&#x1B0;&#x1EDD;ng n&#x1B0;&#x1EDB;c; t&#x1EF1; d&#x1B0;&#x1EE1;ng. D. m&#xF4;i tr&#x1B0;&#x1EDD;ng &#x111;&#x1EA5;t; t&#x1EF1; d&#x1B0;&#x1EE1;ng.<br>
+C&#xE2;u7: C&#x1A1; s&#x1EDF; v&#x1EAD;t ch&#x1EA5;t ch&#x1EE7; y&#x1EBF;u c&#x1EE7;a s&#x1EF1; s&#x1ED1;ng l&#xE0;<br>
+A. cacbohy&#x111;rat v&#xE0; lipit. B. pr&#xF4;t&#xEA;in v&#xE0; cacbohy&#x111;rat.<br>
+C. pr&#xF4;t&#xEA;in v&#xE0; axit nucl&#xEA;ic. D. axit nucl&#xEA;ic v&#xE0; cacbohy&#x111;rat.<br>
+C&#xE2;u 8: Ch&#x1EA5;t h&#x1EEF;u c&#x1A1; n&#xE0;o v&#xE0; qu&#xE1; tr&#xEC;nh n&#xE0;o c&#xF3; &#xFD; ngh&#x129;a qua tr&#x1ECD;ng nh&#x1EA5;t &#x111;&#x1ED1;i v&#x1EDB;i s&#x1EF1; s&#x1ED1;ng?<br>
+A. Axit nucl&#xEA;ic v&#xE0; qu&#xE1; tr&#xEC;nh phi&#xEA;n m&#xE3;.<br>
+B. Pr&#xF4;t&#xEA;in v&#xE0; qu&#xE1; tr&#xEC;nh sinh t&#x1ED5;ng h&#x1EE3;p pr&#xF4;t&#xEA;in.<br>
+C. Axit nucl&#xEA;ic v&#xE0; qu&#xE1; tr&#xEC;nh nh&#xE2;n &#x111;&#xF4;i.<br>
+D. Glic&#xF4;pr&#xF4;t&#xEA;in v&#xE0; s&#x1EF1; nh&#x1EAD;n bi&#x1EBF;t c&#xE1;c d&#x1EA5;u chu&#x1EA9;n c&#x1EE7;a t&#x1EBF; b&#xE0;o trong c&#x1A1; th&#x1EC3; &#x111;a b&#xE0;o.<br>
+C&#xE2;u 9: Trong kh&#xED; quy&#x1EC3;n nguy&#xEA;n thu&#x1EF7; c&#x1EE7;a Qu&#x1EA3; &#x110;&#x1EA5;t ch&#x1B0;a c&#xF3;<br>
+A. Am&#xF4;niac. B. &#xD4;xy v&#xE0; r&#x1EA5;t &#xED;t nit&#x1A1;.<br>
+C. H&#x1A1;i n&#x1B0;&#x1EDB;c. D. Xian&#xF4;gen, Cacbon &#xF4;xit.<br>
+C&#xE2;u 10: Mil&#x1A1; &#x111;&#xE3; cho tia &#x111;i&#x1EC7;n cao th&#x1EBF; ph&#xF3;ng qua h&#x1ED7;n h&#x1EE3;p c&#xE1;c ch&#x1EA5;t n&#xE0;o sau &#x111;&#xE2;y &#x111;&#x1EC3; ch&#x1EE9;ng minh qu&#xE1; tr&#xEC;nh ti&#x1EBF;n ho&#xE1; tr&#xEA;n Tr&#xE1;i &#x110;&#x1EA5;t b&#x1EAF;t &#x111;&#x1EA7;u b&#x1EB1;ng ti&#x1EBF;n ho&#xE1; ho&#xE1; h&#x1ECD;c?<br>
+A. CH4, N2, CO2, H2O. B. CH4, NH3, H2, H2O.<br>
+C. CH4, O2, CO2, H2O. D. CH4, N2, CO, H2O.<br>
+C&#xE2;u 11: T&#x1EEB; th&#xED; nghi&#x1EC7;m c&#x1EE7;a Mil&#x1A1; v&#xE0; nh&#x1EEF;ng th&#xED; nghi&#x1EC7;m t&#x1B0;&#x1A1;ng t&#x1EF1;, ta c&#xF3; th&#x1EC3; r&#xFA;t ra &#x111;&#x1B0;&#x1EE3;c nh&#x1EAD;n &#x111;&#x1ECB;nh n&#xE0;o?<br>
+A. Cho tia t&#x1EED; ngo&#x1EA1;i chi&#x1EBF;u qua m&#x1ED9;t h&#x1ED7;n h&#x1EE3;p h&#x1A1;i n&#x1B0;&#x1EDB;c, cacbon &#x2013; &#xF4;xit,<br>
+m&#xEA;tan, am&#xF4;niac&#x2026; ng&#x1B0;&#x1EDD;i ta thu &#x111;&#x1B0;&#x1EE3;c m&#x1ED9;t s&#x1ED1; lo&#x1EA1;i axit amin.<br>
+B. Ch&#x1EA5;t h&#x1EEF;u c&#x1A1; ph&#x1EE9;c t&#x1EA1;p &#x111;&#x1B0;&#x1EE3;c t&#x1ED5;ng h&#x1EE3;p t&#x1EEB; c&#xE1;c ch&#x1EA5;t &#x111;&#x1A1;n gi&#x1EA3;n trong<br>
+&#x111;i&#x1EC1;u ki&#x1EC7;n c&#x1EE7;a &#x111;&#x1ECB;a c&#x1EA7;u nguy&#xEA;n thu&#x1EF7;.<br>
+C. C&#x1A1; th&#x1EC3; s&#x1ED1;ng c&#xF3; t&#xED;nh ph&#x1EE9;c t&#x1EA1;p, &#x111;a d&#x1EA1;ng v&#xE0; &#x111;&#x1EB7;c th&#xF9;.<br>
+D. C&#xE1;c v&#x1EAD;t th&#x1EC3; s&#x1ED1;ng t&#x1ED3;n t&#x1EA1;i tr&#xEA;n qu&#x1EA3; &#x111;&#x1EA5;t l&#xE0; nh&#x1EEF;ng h&#x1EC7; m&#x1EDF;, c&#x1EA5;u t&#x1EA1;o b&#x1EDF;i pr&#xF4;t&#xEA;in<br>
+v&#xE0; axit nucl&#xEA;ic &#x111;&#x1EB7;c tr&#x1B0;ng.</p>
+<p>B&#xE0;i 33. S&#x1EF0; PH&#xC1;T TRI&#x1EC2;N C&#x1EE6;A SINH GI&#x1EDA;I QUA C&#xC1;C &#x110;&#x1EA0;I &#x110;&#x1ECA;A CH&#x1EA4;T<br>
+A. N&#x1ED8;I DUNG CH&#xCD;NH<br>
+I. H&#xF3;a th&#x1EA1;ch</p>
+<ol>
+<li>&#x110;&#x1ECB;nh ngh&#x129;a<br>
+H&#xF3;a th&#x1EA1;ch l&#xE0; di t&#xED;ch c&#x1EE7;a c&#xE1;c SV &#x111;&#x1EC3; l&#x1EA1;i trong c&#xE1;c l&#x1EDB;p &#x111;&#x1EA5;t &#x111;&#xE1; c&#x1EE7;a v&#x1ECF; Tr&#xE1;i &#x110;&#x1EA5;t.</li>
+<li>Vai tr&#xDF; c&#xF1;a c&#xB8;c h&#xE3;a th&#xB9;ch trong nghi&#xAA;n c&#xF8;u l&#xDE;ch s&#xF6; ph&#xB8;t tri&#xD3;n c&#xF1;a sinh gi&#xED;i - Cung c&#xCA;p nh&#xF7;ng b&#xBB;ng ch&#xF8;ng tr&#xF9;c ti&#xD5;p v&#xD2; l&#xDE;ch s&#xF6; ph&#xB8;t tri&#xD3;n c&#xF1;a sinh gi&#xED;i. - X&#xB8;c &#xAE;&#xDE;nh &#xAE;&#xAD;&#xEE;c lo&#xE0;i n&#xE0;o xu&#xCA;t hi&#xD6;n tr&#xAD;&#xED;c, lo&#xB5;i n&#xB5;o xu&#xCA;t hi&#xD6;n sau v&#xE0; m&#xE8;i quan h&#xD6; h&#xE4; h&#xB5;ng gi&#xF7;a c&#xB8;c lo&#xE0;i. * X&#xB8;c &#xAE;&#xDE;nh tu&#xE6;i h&#xE3;a th&#xB9;ch d&#xF9;a v&#xB5;o ph&#xA9;n t&#xDD;ch c&#xB8;c &#xAE;&#xE5;ng v&#xDE; ph&#xE3;ng x&#xB9; trong h&#xE3;a th&#xB9;ch nh&#xAD; cacbon 14 (th&#xEA;i gian b&#xB8;n r&#xB7; 5730 n&#xA8;m), urani 238 (th&#xEA;i gian b&#xB8;n r&#xB7; 4,5 t&#xD8; n&#xA8;m).<br>
+II. L&#x1ECB;ch s&#x1EED; ph&#xE1;t tri&#x1EC3;n c&#x1EE7;a sinh gi&#x1EDB;i qua c&#xE1;c &#x111;&#x1EA1;i &#x111;&#x1ECB;a ch&#x1EA5;t</li>
+<li>Hi&#x1EC7;n t&#x1B0;&#x1EE3;ng tr&#xF4;i d&#x1EA1;t l&#x1EE5;c &#x111;&#x1ECB;a<br>
+L&#xE0; hi&#x1EC7;n t&#x1B0;&#x1EE3;ng c&#xE1;c phi&#x1EBF;n ki&#x1EBF;n t&#x1EA1;o c&#x1EE7;a v&#x1ECF; Tr&#xE1;i &#x110;&#x1EA5;t li&#xEA;n t&#x1EE5;c di chuy&#x1EC3;n do l&#x1EDB;p dung nham n&#xF3;ng b&#x1ECF;ng b&#xEA;n d&#x1B0;&#x1EDB;i chuy&#x1EC3;n &#x111;&#x1ED9;ng - C&#x103;n c&#x1EE9; &#x111;&#x1EC3; ph&#xE2;n &#x111;&#x1ECB;nh c&#xE1;c m&#x1ED1;c th&#x1EDD;i gian &#x111;&#x1ECB;a ch&#x1EA5;t l&#xE0; nh&#x1EEF;ng bi&#x1EBF;n &#x111;&#x1ED5;i l&#x1EDB;n v&#x1EC1; &#x111;&#x1ECB;a ch&#x1EA5;t, kh&#xED; h&#x1EAD;u v&#xE0; c&#xE1;c h&#xF3;a th&#x1EA1;ch &#x111;i&#x1EC3;n h&#xEC;nh.<br>
+=&gt; Chia l&#xE0;m 5 &#x111;&#x1EA1;i &#x111;&#x1ECB;a ch&#x1EA5;t: Th&#xE1;i c&#x1ED5;, Nguy&#xEA;n sinh, C&#x1ED5; sinh, Trung sinh, T&#xE2;n sinh.</li>
+<li>SV trong c&#xE1;c &#x111;&#x1EA1;i &#x111;&#x1ECB;a ch&#x1EA5;t<br>
+(B&#x1EA3;ng 33, SGK trang 142)<br>
+B. B&#x1ED4; SUNG</li>
+</ol>
+<p>C. B&#xC0;I T&#x1EAC;P.<br>
+C&#xE2;u 1Trong &#x111;&#x1EA1;i C&#x1ED5; sinh, d&#x1B0;&#x1A1;ng x&#x1EC9; ph&#xE1;t tri&#x1EC3;n m&#x1EA1;nh &#x1EDF; k&#x1EC9;<br>
+A. Silua. B. Pecmi.<br>
+C. Carbon (Than &#x111;&#xE1;). D. Cambri.<br>
+C&#xE2;u 2: ... l&#xE0; di t&#xED;ch c&#x1EE7;a c&#xE1;c sinh v&#x1EAD;t &#x111;&#x1EC3; l&#x1EA1;i trong c&#xE1;c l&#x1EDB;p &#x111;&#x1EA5;t &#x111;&#xE1; c&#x1EE7;a v&#x1ECF; Tr&#xE1;i &#x110;&#x1EA5;t.<br>
+A. Sinh v&#x1EAD;t c&#x1ED5; B. Sinh v&#x1EAD;t nguy&#xEA;n th&#x1EE7;y<br>
+C. H&#xF3;a th&#x1EA1;ch D. C&#x1ED5; sinh v&#x1EAD;t h&#x1ECD;c<br>
+C&#xE2;u 3: &#x110;&#x1EA1;i C&#x1ED5; sinh g&#x1ED3;m c&#xE1;c k&#x1EC9;:<br>
+A. P&#xE9;cmi, Than &#x111;&#xE1;, &#x110;&#xEA;v&#xF4;n, Silua, Tam &#x111;i&#x1EC7;p, Cambri<br>
+B. P&#xE9;cmi, Than &#x111;&#xE1;, &#x110;&#xEA;v&#xF4;n, Silua, Jura, Cambri<br>
+C. P&#xE9;cmi, Than &#x111;&#xE1;, &#x110;&#xEA;v&#xF4;n, Silua, Ph&#x1EA5;n tr&#x1EAF;ng, Cambri<br>
+D. P&#xE9;cmi, Than &#x111;&#xE1;, &#x110;&#xEA;v&#xF4;n, Silua, Oc&#x111;vi, Cambri<br>
+C&#xE2;u 4: S&#x1EF1; ki&#x1EC7;n x&#x1EA3;y ra &#x1EDF; k&#x1EC9; Tam &#x111;i&#x1EC7;p l&#xE0;:<br>
+A. Ph&#xE1;t sinh th&#xFA; v&#xE0; chim<br>
+B. Xu&#x1EA5;t hi&#x1EC7;n lo&#xE0;i ng&#x1B0;&#x1EDD;i<br>
+C. Xu&#x1EA5;t hi&#x1EC7;n th&#x1EF1;c v&#x1EAD;t c&#xF3; hoa<br>
+D. D&#x1B0;&#x1A1;ng x&#x1EC9; ph&#xE1;t tri&#x1EC3;n m&#x1EA1;nh m&#x1EBD;<br>
+C&#xE2;u 5: Hi&#x1EC7;n t&#x1B0;&#x1EE3;ng th&#x1EF1;c v&#x1EAD;t c&#xF3; m&#x1EA1;ch v&#xE0; &#x111;&#x1ED9;ng v&#x1EAD;t chuy&#x1EC3;n l&#xEA;n c&#x1EA1;n x&#x1EA3;y ra v&#xE0;o k&#x1EC9; :<br>
+A. Pecmi B. Cambri<br>
+C. Silua D. Oc&#x111;&#xF4;vi<br>
+C&#xE2;u 6: B&#xF2; s&#xE1;t xu&#x1EA5;t hi&#x1EC7;n &#x1EDF; k&#x1EC9;:<br>
+A. &#x110;&#xEA;v&#xF4;n B. Tam &#x111;i&#x1EC7;p<br>
+C. Pecme D. Than &#x111;&#xE1;<br>
+C&#xE2;u 7: Lo&#xE0;i ng&#x1B0;&#x1EDD;i xu&#x1EA5;t hi&#x1EC7;n v&#xE0;o k&#x1EC9;:<br>
+A. &#x110;&#x1EC7; t&#x1EE9; c&#x1EE7;a &#x111;&#x1EA1;i T&#xE2;n sinh<br>
+B. Ph&#x1EA5;n tr&#x1EAF;ng c&#x1EE7;a &#x111;&#x1EA1;i Trung sinh<br>
+C. &#x110;&#x1EC7; tam c&#x1EE7;a &#x111;&#x1EA1;i T&#xE2;n sinh<br>
+D. Jura c&#x1EE7;a &#x111;&#x1EA1;i Trung sinh<br>
+C&#xE2;u 8: D&#x1B0;&#x1A1;ng x&#x1EC9; ph&#xE1;t tri&#x1EC3;n m&#x1EA1;nh &#x1EDF; k&#x1EC9;:<br>
+A. Devon B. Silua C. Carbon D. Pecmi<br>
+C&#xE2;u 9: &#x110;&#x1EB7;c &#x111;i&#x1EC3;m &#x111;&#x1ECB;a ch&#x1EA5;t, kh&#xED; h&#x1EAD;u c&#x1EE7;a k&#x1EC9; &#x110;&#xEA;v&#xF4;n l&#xE0;:<br>
+A. H&#xEC;nh th&#xE0;nh 2 &#x111;&#x1EA1;i l&#x1EE5;c B&#x1EAF;c v&#xE0; Nam<br>
+B. Kh&#xED; h&#x1EAD;u kh&#xF4; hanh, ven bi&#x1EC3;n &#x1EA9;m &#x1B0;&#x1EDB;t, h&#xEC;nh th&#xE0;nh sa m&#x1EA1;c<br>
+D. B&#x103;ng h&#xE0;, kh&#xED; h&#x1EAD;u l&#x1EA1;nh kh&#xF4;<br>
+C. Ph&#xE2;n b&#x1ED1; &#x111;&#x1EA1;i l&#x1EE5;c v&#xE0; &#x111;&#x1EA1;i d&#x1B0;&#x1A1;ng kh&#xE1;c xa hi&#x1EC7;n nay, kh&#xED; quy&#x1EC3;n nhi&#x1EC1;u CO2<br>
+C&#xE2;u 10: &#x110;&#x1EB7;c &#x111;i&#x1EC3;m &#x111;&#x1ECB;a ch&#x1EA5;t, kh&#xED; h&#x1EAD;u c&#x1EE7;a k&#x1EC9; Cambri l&#xE0;:<br>
+A. H&#xEC;nh th&#xE0;nh sa m&#x1EA1;c<br>
+B. Ph&#xE2;n b&#x1ED1; &#x111;&#x1EA1;i l&#x1EE5;c v&#xE0; &#x111;&#x1EA1;i d&#x1B0;&#x1A1;ng kh&#xE1;c xa hi&#x1EC7;n nay, kh&#xED; quy&#x1EC3;n nhi&#x1EC1;u CO2<br>
+C. Di chuy&#x1EC3;n &#x111;&#x1EA1;i l&#x1EE5;c, b&#x103;ng h&#xE0;, kh&#xED; h&#x1EAD;u kh&#xF4;<br>
+D. H&#xEC;nh th&#xE0;nh 2 &#x111;&#x1EA1;i l&#x1EE5;c B&#x1EAF;c v&#xE0; Nam, bi&#x1EC3;n ti&#x1EBF;n v&#xE0;o l&#x1EE5;c &#x111;&#x1ECB;a, kh&#xED; h&#x1EAD;u &#x1EA5;m &#xE1;p.<br>
+C&#xE2;u 11: S&#x1EF1; ki&#x1EC7;n x&#x1EA3;y ra &#x1EDF; k&#x1EC9; &#x110;&#x1EC7; Tam l&#xE0;:<br>
+A. C&#xE2;y h&#x1EA1;t tr&#x1EA7;n ng&#x1EF1; tr&#x1ECB;, ph&#xE2;n h&#xF3;a chim<br>
+B. Ph&#xE1;t sinh c&#xE1;c nh&#xF3;m linh tr&#x1B0;&#x1EDF;ng, c&#xE2;y c&#xF3; hoa ng&#x1EF1; tr&#x1ECB;<br>
+C. Xu&#x1EA5;t hi&#x1EC7;n th&#x1EF1;c v&#x1EAD;t c&#xF3; hoa, ti&#x1EBF;n h&#xF3;a &#x111;&#x1ED9;ng v&#x1EAD;t c&#xF3; v&#xFA;<br>
+D. Xu&#x1EA5;t hi&#x1EC7;n th&#x1EF1;c v&#x1EAD;t c&#xF3; h&#x1EA1;t, d&#x1B0;&#x1A1;ng x&#x1EC9; ph&#xE1;t tri&#x1EC3;n m&#x1EA1;nh<br>
+C&#xE2;u 12: &#x110;&#x1EA1;i T&#xE2;n sinh g&#x1ED3;m c&#xE1;c k&#x1EC9;:<br>
+A. Ph&#x1EA5;n tr&#x1EAF;ng, &#x110;&#x1EC7; tam<br>
+B. Ph&#x1EA5;n tr&#x1EAF;ng, &#x110;&#x1EC7; t&#x1EE9;<br>
+C. Than &#x111;&#xE1;, &#x110;&#x1EC7; tam<br>
+D. &#x110;&#x1EC7; tam, &#x110;&#x1EC7; t&#x1EE9;<br>
+C&#xE2;u 13: S&#x1EF1; ki&#x1EC7;n x&#x1EA3;y ra &#x1EDF; k&#x1EC9; &#x110;&#xEA;v&#xF4;n l&#xE0;:<br>
+A. C&#xE2;y h&#x1EA1;t tr&#x1EA7;n ng&#x1EF1; tr&#x1ECB;<br>
+B. D&#x1B0;&#x1A1;ng x&#x1EC9; ph&#xE1;t tri&#x1EC3;n m&#x1EA1;nh, th&#x1EF1;c v&#x1EAD;t c&#xF3; h&#x1EA1;t xu&#x1EA5;t hi&#x1EC7;n<br>
+C. Ph&#xE1;t sinh th&#x1EF1;c v&#x1EAD;t, t&#x1EA3;o bi&#x1EC3;n ng&#x1EF1; tr&#x1ECB;<br>
+D. Ph&#xE2;n h&#xF3;a c&#xE1; x&#x1B0;&#x1A1;ng, ph&#xE1;t sinh l&#x1B0;&#x1EE1;ng c&#x1B0; v&#xE0; c&#xF4;n tr&#xF9;ng<br>
+C&#xE2;u 14: S&#x1EF1; ki&#x1EC7;n x&#x1EA3;y ra &#x1EDF; k&#x1EC9; Cambri l&#xE0;:<br>
+A. Ph&#xE1;t sinh c&#xE1;c ng&#xE0;nh &#x111;&#x1ED9;ng v&#x1EAD;t, ph&#xE2;n h&#xF3;a t&#x1EA3;o<br>
+B. C&#xE2;y c&#xF3; m&#x1EA1;ch v&#xE0; &#x111;&#x1ED9;ng v&#x1EAD;t l&#xEA;n c&#x1EA1;n<br>
+C. Ph&#xE1;t sinh th&#x1EF1;c v&#x1EAD;t, t&#x1EA3;o bi&#x1EC3;n ng&#x1EF1; tr&#x1ECB;<br>
+D. Ph&#xE2;n h&#xF3;a c&#xE1; x&#x1B0;&#x1A1;ng, ph&#xE1;t sinh l&#x1B0;&#x1EE1;ng c&#x1B0; v&#xE0; c&#xF4;n tr&#xF9;ng<br>
+C&#xE2;u 15: &#x110;&#x1EA1;i &#x111;&#x1ECB;a ch&#x1EA5;t n&#xE0;o &#x111;&#xF4;i khi c&#xF2;n &#x111;&#x1B0;&#x1EE3;c g&#x1ECD;i l&#xE0; k&#x1EC9; nguy&#xEA;n c&#x1EE7;a b&#xF2; s&#xE1;t?<br>
+A. &#x110;&#x1EA1;i Trung sinh B. &#x110;&#x1EA1;i Th&#xE1;i c&#x1ED5;<br>
+C. &#x110;&#x1EA1;i C&#x1ED5; sinh D. &#x110;&#x1EA1;i T&#xE2;n sinh<br>
+C&#xE2;u 16: &#x110;&#x1EA1;i trung sinh g&#x1ED3;m c&#xE1;c k&#x1EC9;:<br>
+A. Ph&#x1EA5;n tr&#x1EAF;ng, Jura, Tam &#x111;i&#x1EC7;p<br>
+B. &#x110;&#xEA;v&#xF4;n, Jura, Cambi<br>
+C. Ph&#x1EA5;n tr&#x1EAF;ng, Than &#x111;&#xE1;, Tam &#x111;i&#x1EC7;p<br>
+D. Than &#x111;&#xE1;, Tam &#x111;i&#x1EC7;p, Pecmi<br>
+C&#xE2;u 17: S&#x1EF1; s&#x1ED1;ng t&#x1EEB; d&#x1B0;&#x1EDB;i n&#x1B0;&#x1EDB;c c&#xF3; &#x111;i&#x1EC1;u ki&#x1EC7;n di c&#x1B0; l&#xEA;n c&#x1EA1;n l&#xE0; nh&#x1EDD;:<br>
+A. H&#xEC;nh th&#xE0;nh l&#x1EDB;p &#xF4;z&#xF4;n l&#xE0;m m&#xE0;n ch&#x1EAF;n tia t&#x1EED; ngo&#x1EA1;i<br>
+B. Ho&#x1EA1;t &#x111;&#x1ED9;ng quang h&#x1EE3;p c&#x1EE7;a sinh v&#x1EAD;t c&#xF3; di&#x1EC7;p l&#x1EE5;c tao ra &#xF4;xi ph&#xE2;n t&#x1EED;<br>
+C. Xu&#x1EA5;t hi&#x1EC7;n th&#x1EF1;c v&#x1EAD;t c&#xF3; hoa h&#x1EA1;t k&#xED;n<br>
+D. C&#x1EA3; A v&#xE0; B<br>
+C&#xE2;u 18: C&#xE2;y c&#xF3; hoa ng&#x1EF1; tr&#x1ECB; &#x1EDF; k&#x1EC9;:<br>
+A. &#x110;&#x1EC7; tam B. Tam &#x111;i&#x1EC7;p<br>
+C. Ph&#x1EA5;n tr&#x1EAF;ng D. &#x110;&#x1EC7; t&#x1EE9;<br>
+C&#xE2;u 19: (C2010) Trong l&#x1ECB;ch s&#x1EED; ph&#xE1;t tri&#x1EC3;n c&#x1EE7;a sinh gi&#x1EDB;i tr&#xEA;n Tr&#xE1;i &#x110;&#x1EA5;t, d&#x1B0;&#x1A1;ng x&#x1EC9; ph&#xE1;t tri&#x1EC3;n m&#x1EA1;nh &#x1EDF;<br>
+A. k&#x1EC9; Silua thu&#x1ED9;c &#x111;&#x1EA1;i C&#x1ED5; sinh.<br>
+B. k&#x1EC9; Jura thu&#x1ED9;c &#x111;&#x1EA1;i Trung sinh.<br>
+C. k&#x1EC9; Carbon (Than &#x111;&#xE1;) thu&#x1ED9;c &#x111;&#x1EA1;i C&#x1ED5; sinh.<br>
+D. k&#x1EC9; Kr&#xEA;ta (Ph&#x1EA5;n tr&#x1EAF;ng) thu&#x1ED9;c &#x111;&#x1EA1;i Trung sinh.<br>
+C&#xE2;u 20: (&#x110;2010) Ca&#x301;c b&#x103;&#x300;ng ch&#x1B0;&#x301;ng c&#xF4;&#x309; sinh v&#xE2;&#x323;t ho&#x323;c cho th&#xE2;&#x301;y: Trong li&#x323;ch s&#x1B0;&#x309; pha&#x301;t tri&#xEA;&#x309;n s&#x1B0;&#x323; s&#xF4;&#x301;ng tr&#xEA;n Tra&#x301;i &#x110;&#xE2;&#x301;t, th&#x1B0;&#x323;c v&#xE2;&#x323;t co&#x301; hoa xu&#xE2;&#x301;t hi&#xEA;&#x323;n &#x1A1;&#x309;<br>
+A. ki&#x309; Triat (Tam &#x111;i&#xEA;&#x323;p) thu&#xF4;&#x323;c &#x111;a&#x323;i Trung sinh<br>
+B. ki&#x309; Kr&#xEA;ta (Ph&#xE2;&#x301;n tr&#x103;&#x301;ng) thu&#xF4;&#x323;c &#x111;a&#x323;i Trung sinh<br>
+C. ki&#x309; Jura thu&#xF4;&#x323;c &#x111;a&#x323;i Trung sinh<br>
+D. ki&#x309; &#x110;&#xEA;&#x323; tam (Th&#x1B0;&#x301; ba) thu&#xF4;&#x323;c &#x111;a&#x323;i T&#xE2;n sinh<br>
+C&#xE2;u 21: Trong l&#x1ECB;ch s&#x1EED; ph&#xE1;t tri&#x1EC3;n c&#x1EE7;a sinh gi&#x1EDB;i qua c&#xE1;c &#x111;&#x1EA1;i &#x111;&#x1ECB;a ch&#x1EA5;t, b&#xF2; s&#xE1;t c&#x1ED5; ng&#x1EF1; tr&#x1ECB; &#x1EDF;:<br>
+A. k&#x1EC9; Triat (Tam &#x111;i&#x1EC7;p) thu&#x1ED9;c &#x111;&#x1EA1;i Trung sinh<br>
+B. k&#x1EC9; &#x110;&#x1EC7; tam thu&#x1ED9;c &#x111;&#x1EA1;i T&#xE2;n sinh<br>
+C. k&#x1EC9; Jura thu&#x1ED9;c &#x111;&#x1EA1;i Trung sinh<br>
+D. k&#x1EC9; Pecmi thu&#x1ED9;c &#x111;&#x1EA1;i C&#x1ED5; sinh</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

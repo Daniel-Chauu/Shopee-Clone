@@ -12,7 +12,6 @@ interface ProductItemProps {
 }
 
 const ProductItem = ({ product }: ProductItemProps) => {
-  console.log(product);
   return (
     <>
       <Link to="/">
