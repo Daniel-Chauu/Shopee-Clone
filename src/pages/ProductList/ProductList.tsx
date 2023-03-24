@@ -9,6 +9,7 @@ import { ProductListConfig } from "../../types/product.type";
 import AsideFilter from "./AsideFilter";
 import ProductItem from "./ProductItem";
 import SortProductList from "./SortProductList";
+import categoryApi from "../../apis/category.api";
 
 interface ProductListProps {}
 
@@ -35,10 +36,18 @@ const ProductList = ({}: ProductListProps) => {
     isUndefined
   );
 
-  const { data } = useQuery({
-    queryKey: ["products", queryParams],
+  const { data: productsData } = useQuery({
+    queryKey: ["products", queryConfig],
     queryFn: () => {
       return productApi.getProductList(queryConfig as ProductListConfig);
+    },
+    keepPreviousData: true,
+  });
+
+  const { data: categoriesData } = useQuery({
+    queryKey: ["categories", queryConfig],
+    queryFn: () => {
+      return categoryApi.getCategories();
     },
     keepPreviousData: true,
   });
@@ -47,26 +56,29 @@ const ProductList = ({}: ProductListProps) => {
     <div className="bg-gray-200 px-12 py-3">
       <div className="grid grid-cols-12 gap-x-2">
         <div className="col-span-2">
-          <AsideFilter />
+          <AsideFilter
+            queryConfig={queryConfig}
+            categories={categoriesData?.data.data || []}
+          />
         </div>
         <div className="col-span-10  p-2">
-          {data && (
+          {productsData && (
             <SortProductList
               queryConfig={queryConfig}
-              pageSize={data.data.data.pagination.page_size}
+              pageSize={productsData.data.data.pagination.page_size}
             />
           )}
           <div className="grid mt-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
-            {data?.data.data.products.map((product) => (
-              <div className="col-span-1 bg-white">
+            {productsData?.data.data.products.map((product) => (
+              <div className="col-span-1 bg-white" key={product._id}>
                 <ProductItem product={product} />
               </div>
             ))}
           </div>
-          {data && (
+          {productsData && (
             <Pagination
               queryConfig={queryConfig}
-              pageSize={data.data.data.pagination.page_size}
+              pageSize={productsData.data.data.pagination.page_size}
             ></Pagination>
           )}
         </div>
