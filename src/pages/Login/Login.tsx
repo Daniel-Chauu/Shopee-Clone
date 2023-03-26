@@ -12,6 +12,7 @@ import { ErrorResponse } from "../../types/utils.type";
 import { AppContext } from "../../contexts/app.context";
 import Button from "../../components/Button";
 import path from "../../constant/path";
+import { AxiosError } from "axios";
 
 interface LoginProps {}
 
@@ -41,23 +42,15 @@ const Login = ({}: LoginProps) => {
         navigate(path.home);
       },
       onError: (error) => {
-        if (
-          isAxiosUnprocessableEntityError<
-            ErrorResponse<Omit<FormData, "confirm_password">>
-          >(error)
-        ) {
+        if (isAxiosUnprocessableEntityError<ErrorResponse<FormData>>(error)) {
           const formError = error.response?.data.data;
-          if (formError?.email) {
-            setError("email", {
-              message: formError.email,
-              type: "Server",
-            });
-            if (formError?.password) {
-              setError("password", {
-                message: formError.password,
+          if (formError) {
+            Object.keys(formError).forEach((key) => {
+              setError(key as keyof FormData, {
+                message: formError[key as keyof FormData],
                 type: "Server",
               });
-            }
+            });
           }
         }
       },
@@ -94,7 +87,7 @@ const Login = ({}: LoginProps) => {
                 <Button
                   isLoading={loginMutation.isLoading}
                   disabled={loginMutation.isLoading}
-                  className="py-4 px-2 w-full bg-red-500 text-center rounded-sm text-white"
+                  className="flex w-full items-center justify-center bg-red-500 py-4 px-2 text-sm uppercase text-white hover:bg-red-600"
                 >
                   Đăng Nhập
                 </Button>

@@ -45,6 +45,7 @@ class Http {
       },
       function (error: AxiosError) {
         if (error.request.status !== HttpStatusCode.UnprocessableEntity) {
+          console.log("interceptor res", error);
           const data: any | undefined = error.response?.data;
           const message = data.message || error.message;
           toast.error(message);

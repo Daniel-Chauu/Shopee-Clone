@@ -10,14 +10,11 @@ import Input from "../../components/Input";
 import path from "../../constant/path";
 import { AppContext } from "../../contexts/app.context";
 import { ErrorResponse } from "../../types/utils.type";
-import { schema } from "../../utils/rules";
+import { Schema, schema } from "../../utils/rules";
 import { isAxiosUnprocessableEntityError } from "../../utils/utils";
 interface RegisterProps {}
-interface FormData {
-  email: string;
-  password: string;
-  confirm_password: string;
-}
+
+type FormData = Pick<Schema, "email" | "password" | "confirm_password">;
 
 const registerSchema = schema.pick(["email", "password", "confirm_password"]);
 
@@ -28,7 +25,7 @@ const Register = ({}: RegisterProps) => {
     setError,
     formState: { errors },
   } = useForm<FormData>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(registerSchema),
   });
 
   const navigate = useNavigate();
@@ -47,11 +44,7 @@ const Register = ({}: RegisterProps) => {
         navigate(path.home);
       },
       onError: (error) => {
-        if (
-          isAxiosUnprocessableEntityError<
-            ErrorResponse<Omit<FormData, "confirm_password">>
-          >(error)
-        ) {
+        if (isAxiosUnprocessableEntityError<ErrorResponse<FormData>>(error)) {
           const formError = error.response?.data.data;
           if (formError?.email) {
             setError("email", {
@@ -71,64 +64,64 @@ const Register = ({}: RegisterProps) => {
   });
 
   return (
-    <>
-      <div className="bg-orange">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-5 py-12 lg:py-32 ">
-            <div className="lg:col-span-2 lg:col-start-4 ">
-              <form
-                className="p-10 rounded bg-white shadow-sm"
-                onSubmit={onSubmit}
-              >
-                <h3 className="mb-5 text-center text-2xl font-semibold">
-                  Đăng Ký
-                </h3>
+    <div className="bg-orange">
+      <div className="container">
+        <div className="grid grid-cols-1 py-12 lg:grid-cols-5 lg:py-32 lg:pr-10">
+          <div className="lg:col-span-2 lg:col-start-4">
+            <form
+              className="rounded bg-white p-10 shadow-sm"
+              onSubmit={onSubmit}
+              noValidate
+            >
+              <div className="text-2xl">Đăng ký</div>
+              <Input
+                name="email"
+                register={register}
+                type="email"
+                className="mt-8"
+                errorMessage={errors.email?.message}
+                placeholder="Email"
+              />
+              <Input
+                name="password"
+                register={register}
+                type="password"
+                className="mt-2"
+                errorMessage={errors.password?.message}
+                placeholder="Password"
+                autoComplete="on"
+              />
 
-                <Input
-                  type="text"
-                  name="email"
-                  placeholder="Email"
-                  errorMessage={errors.email?.message}
-                  register={register}
-                />
-                <Input
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  errorMessage={errors.password?.message}
-                  register={register}
-                />
-                <Input
-                  type="password"
-                  name="confirm_password"
-                  placeholder="Confirm Password"
-                  errorMessage={errors.confirm_password?.message}
-                  register={register}
-                />
+              <Input
+                name="confirm_password"
+                register={register}
+                type="password"
+                className="mt-2"
+                errorMessage={errors.confirm_password?.message}
+                placeholder="Confirm Password"
+                autoComplete="on"
+              />
 
-                <div className="mt-3">
-                  <Button
-                    isLoading={registerAccountMutation.isLoading}
-                    disabled={registerAccountMutation.isLoading}
-                    className="py-4 px-2 w-full bg-red-500 text-center rounded-sm text-white"
-                  >
-                    Đăng Ký
-                  </Button>
-                </div>
-                <div className="mt-8 text-center">
-                  <span className="text-slate-400 mr-2">
-                    Bạn đã có tài khoản?
-                  </span>
-                  <Link to={path.login} className="text-orange">
-                    Đăng nhập
-                  </Link>
-                </div>
-              </form>
-            </div>
+              <div className="mt-2">
+                <Button
+                  className="flex w-full items-center justify-center bg-red-500 py-4 px-2 text-sm uppercase text-white hover:bg-red-600"
+                  isLoading={registerAccountMutation.isLoading}
+                  disabled={registerAccountMutation.isLoading}
+                >
+                  Đăng ký
+                </Button>
+              </div>
+              <div className="mt-8 flex items-center justify-center">
+                <span className="text-gray-400">Bạn đã có tài khoản?</span>
+                <Link className="ml-1 text-red-400" to="/login">
+                  Đăng nhập
+                </Link>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -8,4 +8,8 @@ interface ErrorResponse<Data> {
   data?: Data;
 }
 
-export type { ErrorResponse, SuccessResponse };
+type NoUndefinedField<T> = {
+  [P in keyof T]-?: NoUndefinedField<NonNullable<T[P]>>;
+};
+
+export type { SuccessResponse, ErrorResponse, NoUndefinedField };
