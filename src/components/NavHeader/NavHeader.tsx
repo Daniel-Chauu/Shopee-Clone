@@ -69,7 +69,7 @@ const NavHeader = ({}: NavHeaderProps) => {
           renderPopover={
             <div className='bg-white relative shadow-md rounded-sm border border-gray-200 z-99 text-[14px] text-left'>
               <div className='flex flex-col py-2 px-3'>
-                <Link to={'/'} className='py-2 pr-3 hover:text-orange text-left'>
+                <Link to={'/user'} className='py-2 pr-3 hover:text-orange text-left'>
                   Tài khoản của tôi
                 </Link>
                 <Link to={'/'} className='py-2 pr-3 hover:text-orange mt-2 text-left'>
