@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { productApi } from '../../apis/product.api'
 import ProductRating from '../../components/ProductRating'
 import { formatCurrency, formatNumberToSocialStyle, generateNameId, getIdFromNameId, rateSale } from '../../utils/utils'
@@ -13,10 +13,12 @@ import QuantityController from '../../components/QuantityController'
 import { purchaseApi } from '../../apis/purchase.api'
 import { toast } from 'react-toastify'
 import { purchasesStatus } from '../../constant/purchase'
+import path from '../../constant/path'
 
 interface ProductDetailProps {}
 
 const ProductDetail = ({}: ProductDetailProps) => {
+  const navigate = useNavigate()
   const { nameId } = useParams()
   const queryClient = useQueryClient()
   const id = getIdFromNameId(nameId as string)
@@ -92,8 +94,19 @@ const ProductDetail = ({}: ProductDetailProps) => {
   const resetImage = () => {
     imageRef.current?.removeAttribute('style')
   }
+
   const handleBuyCount = (value: number) => {
     setBuyCount(value)
+  }
+
+  const handleBuyNow = async () => {
+    const res = await addToCartMutation.mutateAsync({ product_id: product?._id as string, buy_count: buyCount })
+    const purchaseId = res.data.data._id
+    navigate(path.cart, {
+      state: {
+        purchaseId
+      }
+    })
   }
 
   if (!product) return null
@@ -218,7 +231,9 @@ const ProductDetail = ({}: ProductDetailProps) => {
                     </svg>
                     Thêm vào giỏ hàng
                   </Button>
-                  <Button className='bg-orange  capitalize text-white rounded-sm cursor-pointer py-4 px-4'>Mua ngay</Button>
+                  <Button className='bg-orange  capitalize text-white rounded-sm cursor-pointer py-4 px-4' onClick={handleBuyNow}>
+                    Mua ngay
+                  </Button>
                 </div>
               </div>
             </div>

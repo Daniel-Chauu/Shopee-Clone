@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import InputNumber, { InputNumberProps } from '../InputNumber'
 
 interface QuantityControllerProps extends InputNumberProps {
@@ -6,6 +6,7 @@ interface QuantityControllerProps extends InputNumberProps {
   onType?: (value: number) => void
   onIncrease?: (value: number) => void
   onDecrease?: (value: number) => void
+  onFocusOut?: (value: number) => void
   classNameWrapper?: string
 }
 
@@ -14,53 +15,63 @@ const QuantityController = ({
   onDecrease,
   onType,
   onIncrease,
+  onFocusOut,
   classNameWrapper = 'ml-10 h-[32px]',
   value,
   ...rest
 }: QuantityControllerProps) => {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let _value = Number(e.target.value)
-    if (max && _value > max) {
+  const [localValue, setLocalValue] = useState<number>(Number(value || 0))
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let _value = Number(event.target.value)
+    if (max !== undefined && _value > max) {
       _value = max
     } else if (_value < 1) {
       _value = 1
     }
-
     onType && onType(_value)
+    setLocalValue(_value)
   }
 
-  const handleIncrease = () => {
-    let _value = Number(value) + 1
-    if (max && _value > max) {
+  const increase = () => {
+    let _value = Number(value || localValue) + 1
+    if (max !== undefined && _value > max) {
       _value = max
     }
     onIncrease && onIncrease(_value)
+    setLocalValue(_value)
   }
-  const handleDecrease = () => {
-    let _value = Number(value) - 1
+
+  const decrease = () => {
+    let _value = Number(value || localValue) - 1
     if (_value < 1) {
       _value = 1
     }
     onDecrease && onDecrease(_value)
+    setLocalValue(_value)
+  }
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement, Element>) => {
+    onFocusOut && onFocusOut(Number(e.target.value))
   }
 
   return (
-    <div className={`flex items-center text-gray-500 ${classNameWrapper}`}>
-      <button className='border border-gray-200 flex items-center justify-center w-[32px] h-full cursor-pointer' onClick={handleDecrease}>
-        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={1.5} stroke='currentColor' className='w-6 h-6'>
+    <div className={'flex items-center ' + classNameWrapper}>
+      <button className='flex h-8 w-8 items-center justify-center rounded-l-sm border border-gray-300 text-gray-600' onClick={decrease}>
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={1.5} stroke='currentColor' className='h-4 w-4'>
           <path strokeLinecap='round' strokeLinejoin='round' d='M19.5 12h-15' />
         </svg>
       </button>
       <InputNumber
-        classNameInput=' border-gray-300 outline-none text-center border-t border-b w-14 h-full'
+        className=''
         classNameError='hidden'
-        value={value}
+        classNameInput='h-8 w-14 border-t border-b border-gray-300 p-1 text-center outline-none'
         onChange={handleChange}
-        className='h-full'
+        onBlur={handleBlur}
+        value={value || localValue}
         {...rest}
-      ></InputNumber>
-      <button className='border border-gray-200 flex items-center justify-center w-[32px] h-full cursor-pointer' onClick={handleIncrease}>
-        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={1.5} stroke='currentColor' className='w-6 h-6'>
+      />
+      <button className='flex h-8 w-8 items-center justify-center rounded-r-sm border border-gray-300 text-gray-600' onClick={increase}>
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={1.5} stroke='currentColor' className='h-4 w-4'>
           <path strokeLinecap='round' strokeLinejoin='round' d='M12 4.5v15m7.5-7.5h-15' />
         </svg>
       </button>
