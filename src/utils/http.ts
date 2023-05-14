@@ -1,61 +1,61 @@
-import { HttpStatusCode } from "./../constant/httpStatusCode.enum";
-import axios, { AxiosError, AxiosInstance } from "axios";
-import { toast } from "react-toastify";
-import {
-  clearLS,
-  getAccessTokenFromLS,
-  setAccessTokenToLS,
-  setProfileToLS,
-} from "./auth";
-import { SuccessResponse } from "../types/utils.type";
-import { AuthResponse } from "../types/auth.type";
-import path from "../constant/path";
+import { HttpStatusCode } from './../constant/httpStatusCode.enum'
+import axios, { AxiosError, AxiosInstance } from 'axios'
+import { toast } from 'react-toastify'
+import { clearLS, getAccessTokenFromLS, setAccessTokenToLS, setProfileToLS } from './auth'
+import { SuccessResponse } from '../types/utils.type'
+import { AuthResponse } from '../types/auth.type'
+import path from '../constant/path'
 
 class Http {
-  instance: AxiosInstance;
-  private _accessToken: string;
+  instance: AxiosInstance
+  private _accessToken: string
   constructor() {
-    this._accessToken = getAccessTokenFromLS();
+    this._accessToken = getAccessTokenFromLS()
     this.instance = axios.create({
-      baseURL: "https://api-ecom.duthanhduoc.com/",
+      baseURL: 'https://api-ecom.duthanhduoc.com/',
       timeout: 10000,
       headers: {
-        "Content-Type": "application/json",
-      },
-    });
+        'Content-Type': 'application/json'
+      }
+    })
     this.instance.interceptors.request.use((config) => {
       if (this._accessToken) {
-        config.headers.authorization = this._accessToken;
+        config.headers.authorization = this._accessToken
       }
-      return config;
-    });
+      return config
+    })
     this.instance.interceptors.response.use(
       (res) => {
-        const { url } = res.config;
+        const { url } = res.config
         if (url == path.login || url == path.register) {
-          const data = res.data as AuthResponse;
-          this._accessToken = data.data.access_token;
-          setAccessTokenToLS(this._accessToken);
-          setProfileToLS(data.data.user);
+          const data = res.data as AuthResponse
+          this._accessToken = data.data.access_token
+          setAccessTokenToLS(this._accessToken)
+          setProfileToLS(data.data.user)
         } else if (url === path.logout) {
-          this._accessToken = "";
-          clearLS();
+          this._accessToken = ''
+          clearLS()
         }
-        return res;
+        return res
       },
       function (error: AxiosError) {
         if (error.request.status !== HttpStatusCode.UnprocessableEntity) {
-          console.log("interceptor res", error);
-          const data: any | undefined = error.response?.data;
-          const message = data.message || error.message;
-          toast.error(message);
+          const data: any | undefined = error.response?.data
+          const message = data.message || error.message
+          toast.error(message, {
+            autoClose: 1700,
+            pauseOnFocusLoss: false
+          })
         }
-        return Promise.reject(error);
+        if (error.request.status === HttpStatusCode.Unauthorized) {
+          clearLS()
+        }
+        return Promise.reject(error)
       }
-    );
+    )
   }
 }
 
-const http = new Http().instance;
+const http = new Http().instance
 
-export default http;
+export default http
