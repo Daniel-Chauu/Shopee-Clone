@@ -1,74 +1,63 @@
-import classNames from "classnames";
-import React from "react";
-import { createSearchParams, Link } from "react-router-dom";
-import path from "../../constant/path";
-import { QueryConfig } from "../../pages/ProductList/ProductList";
-import Button from "../Button";
+import classNames from 'classnames'
+import React from 'react'
+import { createSearchParams, Link } from 'react-router-dom'
+import path from '../../constant/path'
+import Button from '../Button'
+import { QueryConfig } from '../../hooks/useQueryConfig'
 // import {} from "classnames"
 
 interface PaginationProps {
-  queryConfig: QueryConfig;
-  pageSize: number;
+  queryConfig: QueryConfig
+  pageSize: number
 }
 
-const RANGE = 2;
+const RANGE = 2
 
 const Pagination = ({ queryConfig, pageSize }: PaginationProps) => {
-  const page = Number(queryConfig.page);
+  const page = Number(queryConfig.page)
 
   const renderPaginate = () => {
-    let dotBefore = false;
-    let dotAfter = false;
+    let dotBefore = false
+    let dotAfter = false
     const renderDotBefore = (index: number) => {
       if (!dotBefore) {
-        dotBefore = true;
+        dotBefore = true
         return (
-          <span className="mx-2 py-2 px-4 " key={index}>
+          <span className='mx-2 py-2 px-4 ' key={index}>
             ...
           </span>
-        );
+        )
       }
-      return null;
-    };
+      return null
+    }
     const renderDotAfter = (index: number) => {
       if (!dotAfter) {
-        dotAfter = true;
+        dotAfter = true
         return (
-          <span className="mx-2 py-2 px-4 " key={index}>
+          <span className='mx-2 py-2 px-4 ' key={index}>
             ...
           </span>
-        );
+        )
       }
-      return null;
-    };
+      return null
+    }
     return (
       <>
         {Array(pageSize)
           .fill(0)
           .map((_, index) => {
-            const pageNumber = index + 1;
+            const pageNumber = index + 1
 
-            if (
-              page <= RANGE * 2 + 1 &&
-              pageNumber > page + RANGE &&
-              pageNumber < pageSize - RANGE + 1
-            ) {
-              return renderDotBefore(index);
+            if (page <= RANGE * 2 + 1 && pageNumber > page + RANGE && pageNumber < pageSize - RANGE + 1) {
+              return renderDotBefore(index)
             } else if (page > RANGE * 2 + 1 && page < pageSize - RANGE * 2) {
               if (pageNumber < page - RANGE && pageNumber > RANGE) {
-                return renderDotBefore(index);
-              } else if (
-                pageNumber > page + RANGE &&
-                pageNumber < pageSize - RANGE + 1
-              ) {
-                return renderDotAfter(index);
+                return renderDotBefore(index)
+              } else if (pageNumber > page + RANGE && pageNumber < pageSize - RANGE + 1) {
+                return renderDotAfter(index)
               }
-            } else if (
-              page >= pageSize - RANGE * 2 &&
-              pageNumber > RANGE &&
-              pageNumber < page - RANGE
-            ) {
-              return renderDotBefore(index);
+            } else if (page >= pageSize - RANGE * 2 && pageNumber > RANGE && pageNumber < page - RANGE) {
+              return renderDotBefore(index)
             }
             return (
               <Link
@@ -76,40 +65,36 @@ const Pagination = ({ queryConfig, pageSize }: PaginationProps) => {
                   pathname: path.home,
                   search: createSearchParams({
                     ...queryConfig,
-                    page: pageNumber.toString(),
-                  }).toString(),
+                    page: pageNumber.toString()
+                  }).toString()
                 }}
-                className={classNames("mx-2 py-2 px-4 inline-block", {
-                  "bg-orange rounded-md": pageNumber === page,
+                className={classNames('mx-2 py-2 px-4 inline-block', {
+                  'bg-orange rounded-md': pageNumber === page
                 })}
                 key={index}
               >
                 {pageNumber}
               </Link>
-            );
+            )
           })}
       </>
-    );
-  };
+    )
+  }
 
   return (
-    <div className="flex items-center justify-center mt-5  w-full">
-      <div className="flex items-center gap-x-2">
+    <div className='flex items-center justify-center mt-5  w-full'>
+      <div className='flex items-center gap-x-2'>
         {page === 1 ? (
-          <span className="p-2 border cursor-not-allowed opacity-70">
+          <span className='p-2 border cursor-not-allowed opacity-70'>
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
+              xmlns='http://www.w3.org/2000/svg'
+              fill='none'
+              viewBox='0 0 24 24'
               strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
+              stroke='currentColor'
+              className='w-6 h-6'
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 19.5L8.25 12l7.5-7.5"
-              />
+              <path strokeLinecap='round' strokeLinejoin='round' d='M15.75 19.5L8.25 12l7.5-7.5' />
             </svg>
           </span>
         ) : (
@@ -118,24 +103,20 @@ const Pagination = ({ queryConfig, pageSize }: PaginationProps) => {
               pathname: path.home,
               search: createSearchParams({
                 ...queryConfig,
-                page: (page - 1).toString(),
-              }).toString(),
+                page: (page - 1).toString()
+              }).toString()
             }}
-            className="p-2 border "
+            className='p-2 border '
           >
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
+              xmlns='http://www.w3.org/2000/svg'
+              fill='none'
+              viewBox='0 0 24 24'
               strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
+              stroke='currentColor'
+              className='w-6 h-6'
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 19.5L8.25 12l7.5-7.5"
-              />
+              <path strokeLinecap='round' strokeLinejoin='round' d='M15.75 19.5L8.25 12l7.5-7.5' />
             </svg>
           </Link>
         )}
@@ -157,20 +138,16 @@ const Pagination = ({ queryConfig, pageSize }: PaginationProps) => {
           </svg>
         </Button> */}
         {page === pageSize ? (
-          <span className="p-2 border cursor-not-allowed opacity-70">
+          <span className='p-2 border cursor-not-allowed opacity-70'>
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
+              xmlns='http://www.w3.org/2000/svg'
+              fill='none'
+              viewBox='0 0 24 24'
               strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
+              stroke='currentColor'
+              className='w-6 h-6'
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M8.25 4.5l7.5 7.5-7.5 7.5"
-              />
+              <path strokeLinecap='round' strokeLinejoin='round' d='M8.25 4.5l7.5 7.5-7.5 7.5' />
             </svg>
           </span>
         ) : (
@@ -179,30 +156,26 @@ const Pagination = ({ queryConfig, pageSize }: PaginationProps) => {
               pathname: path.home,
               search: createSearchParams({
                 ...queryConfig,
-                page: (page + 1).toString(),
-              }).toString(),
+                page: (page + 1).toString()
+              }).toString()
             }}
-            className="p-2 border "
+            className='p-2 border '
           >
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
+              xmlns='http://www.w3.org/2000/svg'
+              fill='none'
+              viewBox='0 0 24 24'
               strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
+              stroke='currentColor'
+              className='w-6 h-6'
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M8.25 4.5l7.5 7.5-7.5 7.5"
-              />
+              <path strokeLinecap='round' strokeLinejoin='round' d='M8.25 4.5l7.5 7.5-7.5 7.5' />
             </svg>
           </Link>
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Pagination;
+export default Pagination

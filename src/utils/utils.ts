@@ -1,3 +1,4 @@
+import { config } from '../constant/config'
 import { HttpStatusCode } from './../constant/httpStatusCode.enum'
 import axios, { AxiosError } from 'axios'
 function isAxiosError<T>(error: unknown): error is AxiosError<T> {
@@ -44,6 +45,10 @@ const getIdFromNameId = (nameId: string) => {
   return id[1]
 }
 
+const generateAvatar = (url: string) => {
+  return `${config.baseUrl}images/${url}`
+}
+
 export {
   isAxiosError,
   isAxiosUnprocessableEntityError,
@@ -52,5 +57,6 @@ export {
   rateSale,
   removeSpecialCharacter,
   generateNameId,
-  getIdFromNameId
+  getIdFromNameId,
+  generateAvatar
 }

@@ -1,28 +1,16 @@
-import { useFloating } from '@floating-ui/react-dom'
-import { arrow, offset, shift } from '@floating-ui/react-dom-interactions'
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { useContext, useRef, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { Link, createSearchParams, useNavigate } from 'react-router-dom'
-import { authApi } from '../../apis/auth.api'
-import path from '../../constant/path'
-import { AppContext } from '../../contexts/app.context'
-import { getProfileFromLS } from '../../utils/auth'
-import { CartIcon, ShopeeIcon } from '../Icons/Shopee'
-import Popover from '../Popover'
-import { Schema, schema } from '../../utils/rules'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { omit } from 'lodash'
-import useQueryConfig from '../../hooks/useQueryConfig'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { purchaseApi } from '../../apis/purchase.api'
 import { purchasesStatus } from '../../constant/purchase'
+import { AppContext } from '../../contexts/app.context'
+import { CartIcon, ShopeeIcon } from '../Icons/Shopee'
+import Popover from '../Popover'
 
 import noproduct from '../../assets/images/no-product.png'
-import { formatCurrency } from '../../utils/utils'
-import InputNumber from '../InputNumber'
-import { toast } from 'react-toastify'
-import NavHeader from '../NavHeader/NavHeader'
 import useSearchProduct from '../../hooks/useSearchProduct'
+import { formatCurrency } from '../../utils/utils'
+import NavHeader from '../NavHeader/NavHeader'
 
 interface HeaderProps {}
 
@@ -30,7 +18,6 @@ const MAX_PURCHASE = 5
 
 const Header = ({}: HeaderProps) => {
   const { isAuthenticated, setIsAuthenticated } = useContext(AppContext)
-  const profile = getProfileFromLS()
   const queriClient = useQueryClient()
   const { handleSearch, register } = useSearchProduct()
 

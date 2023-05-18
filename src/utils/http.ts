@@ -5,6 +5,7 @@ import { clearLS, getAccessTokenFromLS, setAccessTokenToLS, setProfileToLS } fro
 import { SuccessResponse } from '../types/utils.type'
 import { AuthResponse } from '../types/auth.type'
 import path from '../constant/path'
+import { config } from '../constant/config'
 
 class Http {
   instance: AxiosInstance
@@ -12,7 +13,7 @@ class Http {
   constructor() {
     this._accessToken = getAccessTokenFromLS()
     this.instance = axios.create({
-      baseURL: 'https://api-ecom.duthanhduoc.com/',
+      baseURL: config.baseUrl,
       timeout: 10000,
       headers: {
         'Content-Type': 'application/json'
@@ -41,7 +42,7 @@ class Http {
       function (error: AxiosError) {
         if (error.request.status !== HttpStatusCode.UnprocessableEntity) {
           const data: any | undefined = error.response?.data
-          const message = data.message || error.message
+          const message = data?.message || error.message
           toast.error(message, {
             autoClose: 1700,
             pauseOnFocusLoss: false

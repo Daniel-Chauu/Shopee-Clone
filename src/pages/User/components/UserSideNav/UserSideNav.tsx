@@ -1,15 +1,21 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import path from '../../../../constant/path'
+import { AppContext } from '../../../../contexts/app.context'
+import userIcon from '../../../../components/Icons/Shopee/user-icon.jpg'
+import { generateAvatar } from '../../../../utils/utils'
+import classNames from 'classnames'
 
 interface UserSideNavProps {}
 
 const UserSideNav = ({}: UserSideNavProps) => {
+  const { profile } = useContext(AppContext)
+
   return (
     <div>
       <div className='flex items-center border-b border-b-gray-200'>
         <Link to={path.profile} className='h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border border-black/10'>
-          <img src='https://cf.shopee.vn/file/d04ea22afab6e6d250a370d7ccc2e675_tn' alt='' className='h-full w-full object-cover' />
+          <img src={profile?.avatar ? generateAvatar(profile?.avatar || '') : userIcon} alt='' className='h-full w-full object-cover' />
         </Link>
         <div className='flex-grow pl-4'>
           <div className='mb-1 truncate font-semibold text-gray-600'>cdthanh</div>
@@ -26,7 +32,15 @@ const UserSideNav = ({}: UserSideNavProps) => {
         </div>
       </div>
       <div className='mt-7'>
-        <Link to={path.profile} className='flex items-center capitalize text-orange transition-colors'>
+        <NavLink
+          to={path.profile}
+          className={({ isActive }) =>
+            classNames('flex items-center capitalize transition-colors', {
+              'text-orange': isActive,
+              'text-gray-700': !isActive
+            })
+          }
+        >
           <div className='mr-3 h-[22px] w-[22px]'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -44,8 +58,16 @@ const UserSideNav = ({}: UserSideNavProps) => {
             </svg>
           </div>
           Tài khoản của tôi
-        </Link>
-        <Link to={path.changePassword} className='mt-4 flex items-center capitalize text-gray-600 transition-colors'>
+        </NavLink>
+        <NavLink
+          to={path.changePassword}
+          className={({ isActive }) =>
+            classNames('flex items-center mt-4 capitalize transition-colors', {
+              'text-orange': isActive,
+              'text-gray-700': !isActive
+            })
+          }
+        >
           <div className='mr-3 h-[22px] w-[22px]'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -63,8 +85,16 @@ const UserSideNav = ({}: UserSideNavProps) => {
             </svg>
           </div>
           Đổi mật khẩu
-        </Link>
-        <Link to={path.historyPurchase} className='mt-4 flex items-center capitalize text-gray-600 transition-colors'>
+        </NavLink>
+        <NavLink
+          to={path.historyPurchase}
+          className={({ isActive }) =>
+            classNames('flex items-center mt-4 capitalize transition-colors', {
+              'text-orange': isActive,
+              'text-gray-700': !isActive
+            })
+          }
+        >
           <div className='mr-3 h-[22px] w-[22px]'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -82,7 +112,7 @@ const UserSideNav = ({}: UserSideNavProps) => {
             </svg>
           </div>
           Đơn mua
-        </Link>
+        </NavLink>
       </div>
     </div>
   )

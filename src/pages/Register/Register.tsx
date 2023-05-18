@@ -29,7 +29,7 @@ const Register = ({}: RegisterProps) => {
   })
 
   const navigate = useNavigate()
-  const { setIsAuthenticated } = useContext(AppContext)
+  const { setIsAuthenticated, setProfile } = useContext(AppContext)
 
   const registerAccountMutation = useMutation({
     mutationFn: (body: Omit<FormData, 'confirm_password'>) => authApi.registerAccount(body)
@@ -40,6 +40,7 @@ const Register = ({}: RegisterProps) => {
     registerAccountMutation.mutate(body, {
       onSuccess: (data) => {
         setIsAuthenticated(true)
+        setProfile(data.data.data.user)
         navigate(path.home)
       },
       onError: (error) => {
